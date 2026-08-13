@@ -38,8 +38,8 @@ npm run dev
 
 ## Tablero Kanban
 
-Enlace al tablero: (agregar enlace)
+Enlace al tablero: [(Tablero)](https://trello.com/invite/b/6a7d08bce56e803c8918e4ab/ATTIa3bdf285d48913cacab0ad8966e85a2e58DF93F4/mi-tablero-de-trello)
 
 ## Enlace de despliegue
 
-(agregar enlace una vez desplegado)
++ Todavía no está disponible
