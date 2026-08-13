@@ -4,11 +4,11 @@
 
 | Nombre | Rol ágil |
 |---|---|
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Matias Espinoza | Scrum Master |
+| Annan John | Developer |
+| Tomas Mardones | Product Owner |
+| Catalina Ojeda | QA/Tester |
+| Miguel Torres | Developer |
 
 ## Descripción breve
 
