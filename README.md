@@ -12,7 +12,7 @@
 
 ## Descripción breve
 
-> Breve descripción del proyecto EcoRuta Temuco desarrollado por el equipo.
+> Ecoruta Temuco, es un servicio de turismo basado en la region de la Araucanía, principalmente en la naturaleza de la region.
 
 ## Tecnologías utilizadas
 
