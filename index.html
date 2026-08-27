@@ -1,18 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link scr=""
-    <title> EcoRuta </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubre la Naturaleza</title>
+  <link rel="stylesheet" href="styles.css">
+  
 </head>
 <body>
-    <nav> <div> <h5> Rutas Eventos Emprendimiento Nosotros </h5> </div> </nav>
-    <header> 
-        <h1> Eco Ruta  </h1>
-    </header>
-    <main>
-        <p> Informacion </p>
-    </main>
+
+  
+  <nav class="navbar" aria-label="Navegación principal">
+    <a href="#" class="navbar__logo" aria-label="Inicio">Logo</a>
+    <ul class="navbar__links" role="list">
+      <li><a href="#rutas">Rutas</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#aventura">Aventura</a></li>
+    </ul>
+  </nav>
+
+  
+  <section class="hero" aria-label="Banner principal">
+    <div class="hero__text">
+      <h1>Descubre la naturaleza de tu tierra</h1>
+    </div>
+    <div class="hero__image" role="img" aria-label="Imagen de naturaleza">
+      IMAGEN DE NATURALEZA
+    </div>
+  </section>
+
+ 
+  <main class="body">
+
+    
+    <section class="section" aria-labelledby="senderos-title">
+      <div class="section__header">
+        <h2 class="section__title" id="senderos-title">Senderos destacados</h2>
+        <span class="section__subtitle">Título (aquí allá)</span>
+      </div>
+      <div class="cards-grid" role="list" aria-label="Lista de senderos destacados">
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 1">Sendero 1</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 2">Sendero 2</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 3">Sendero 3</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 4">Sendero 4</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 5">Sendero 5</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 6">Sendero 6</article>
+      </div>
+    </section>
+
+    
+    <section class="section" aria-labelledby="eventos-title">
+      <h2 class="section__title" id="eventos-title">Próximos Eventos</h2>
+      <div class="carousel" role="region" aria-label="Carrusel de eventos" aria-roledescription="carousel">
+
+        <button class="carousel__btn carousel__btn--prev"
+                aria-label="Evento anterior"
+                aria-controls="carousel-track">
+          &#8249;
+        </button>
+
+        <div class="carousel__track" id="carousel-track"
+             role="group"
+             aria-roledescription="slide"
+             aria-label="1 de 3">
+          Imágenes de posibles eventos
+        </div>
+
+        <button class="carousel__btn carousel__btn--next"
+                aria-label="Evento siguiente"
+                aria-controls="carousel-track">
+          &#8250;
+        </button>
+
+        <div class="carousel__dots" role="tablist" aria-label="Seleccionar evento">
+          <button class="carousel__dot active"
+                  role="tab"
+                  aria-selected="true"
+                  aria-label="Evento 1"
+                  tabindex="0"></button>
+          <button class="carousel__dot"
+                  role="tab"
+                  aria-selected="false"
+                  aria-label="Evento 2"
+                  tabindex="-1"></button>
+          <button class="carousel__dot"
+                  role="tab"
+                  aria-selected="false"
+                  aria-label="Evento 3"
+                  tabindex="-1"></button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  
+  <footer class="footer" role="contentinfo">
+    <p>&copy; 2026 Descubre la Naturaleza. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
 </html>
