@@ -21,7 +21,7 @@
       display: block;
     }
 
-    /* ===== NAVBAR ===== */
+    
     .navbar {
       display: flex;
       align-items: center;
@@ -56,7 +56,7 @@
       outline: none;
     }
 
-    /* ===== HERO BANNER ===== */
+    
     .hero {
       display: flex;
       min-height: 350px;
@@ -92,7 +92,7 @@
       font-style: italic;
     }
 
-    /* ===== BODY / SECTIONS ===== */
+    
     .body {
       margin: 1rem 2rem;
       display: flex;
@@ -124,7 +124,7 @@
       color: #777;
     }
 
-    /* ===== CARDS ===== */
+    
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -148,7 +148,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    /* ===== CAROUSEL ===== */
+    
     .carousel {
       position: relative;
       overflow: hidden;
@@ -216,7 +216,7 @@
       background: #2e7d32;
     }
 
-    /* ===== FOOTER ===== */
+    
     .footer {
       margin: 1rem 2rem 2rem;
       padding: 2rem;
@@ -227,7 +227,7 @@
       color: #999;
     }
 
-    /* ===== RESPONSIVE ===== */
+    
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
