@@ -33,7 +33,7 @@ npm run dev
 
 ## Estado del proyecto
 
-- Sprint actual: Sprint 0 (Kickoff)
+- Sprint actual: Sprint 1 (Kickoff)
 - Última actualización: (fecha)
 
 ## Tablero Kanban
