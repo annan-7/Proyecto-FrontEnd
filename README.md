@@ -4,9 +4,9 @@
 
 | Rol ágil | Sprint 0 | Sprint 1 (actual) | Sprint 2| Sprint 3 |
 |---|---|---|---|---|
-| Scrum Master | Matías Espinoza | Matías Espinoza | Annan Jhon | Miguel Torres |
+| Scrum Master | Matías Espinoza | Matías Espinoza | Annan John | Miguel Torres |
 | Project Owner | Tomás Mardones | Tomás Mardones | Matías Espinoza | Catalina Ojeda |
-| Developer | Annan Jhon | Annan Jhon | Tomás Mardones | Annan Jhon |
+| Developer | Annan John | Annan John | Tomás Mardones | Annan John |
 | Developer | Miguel Torres | Miguel Torres | Miguel Torres | Matías Espinoza |
 | QA/Tester | Catalina Ojeda | Catalina Ojeda | Catalina Ojeda | Tomás Mardones |
 
