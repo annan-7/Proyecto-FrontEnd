@@ -12,7 +12,7 @@
 
 ## Descripción breve
 
-> Ecoruta Temuco, es un servicio de turismo basado en la región de la Araucanía, principalmente en la naturaleza, ecología y rutas que pueda ofrecer.
+> Ecoruta Temuco, es un servicio de turismo basado en la región de la Araucanía, principalmente en la naturaleza, ecología y rutas que pueda ofrecer, mostrando la información a través de una página web.
 
 ## Tecnologías utilizadas
 
