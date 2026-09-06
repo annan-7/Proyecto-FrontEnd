@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos!</title>
+    <link rel="stylesheet" href="contacto.css">
+</head>
+<body> 
+    <main class="contacto=container"></main>
+    <section class="contacto-info">
+        <h2>Información de Contacto</h2>
+        <ul>
+            <li><strong>Correo:</strong> ejemplo@correo.com</li>
+            <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
+            <li><strong>Dirección:</strong> Temuco, Region de la Araucania</li>
+        </ul>
+    </section>
+
+    <section class="contacto=form-section">
+        <h2>Envianos un mensaje</h2>
+        <form class="contacto-form">
+            <div class="form-group">    
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre "required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo</label>
+                <input type="email" id="email" name="email" placeholder="Nuestro@email.com"required>
+            </div>
+
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea type="mensaje" id="mensaje" name="mensaje" rows="4" placeholder=""required></textarea>
+
+            </div>
+
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    
+</body>
