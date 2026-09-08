@@ -3,42 +3,48 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactanos!</title>
-    <link rel="stylesheet" href="contacto.css">
+    <title>Contáctanos | ECORUTAS</title>
+    <!-- Se agrega global.css según la estructura del proyecto -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contacto.css">
 </head>
 <body> 
-    <main class="contacto=container"></main>
-    <section class="contacto-info">
-        <h2>Información de Contacto</h2>
-        <ul>
-            <li><strong>Correo:</strong> ejemplo@correo.com</li>
-            <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
-            <li><strong>Dirección:</strong> Temuco, Region de la Araucania</li>
-        </ul>
-    </section>
-
-    <section class="contacto=form-section">
-        <h2>Envianos un mensaje</h2>
-        <form class="contacto-form">
-            <div class="form-group">    
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre "required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Correo</label>
-                <input type="email" id="email" name="email" placeholder="Nuestro@email.com"required>
-            </div>
-
-            <div class="form-group">
-                <label for="mensaje">Mensaje</label>
-                <textarea type="mensaje" id="mensaje" name="mensaje" rows="4" placeholder=""required></textarea>
-
-            </div>
-
-            <button type="submit">Enviar Mensaje</button>
-        </form>
-    </section>
-
     
+    <!-- El main envuelve TODO el contenido de la página -->
+    <main class="contacto-container">
+        
+        <section class="contacto-info">
+            <h2>Información de Contacto</h2>
+            <ul>
+                <li><strong>Correo:</strong> ejemplo@correo.com</li>
+                <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
+                <li><strong>Dirección:</strong> Temuco, Región de la Araucanía</li>
+            </ul>
+        </section>
+
+        <section class="contacto-form-section">
+            <h2>Envíanos un mensaje</h2>
+            <form class="contacto-form" action="#" method="POST">
+                <div class="form-group">    
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+
+    </main>
+
 </body>
+</html>
