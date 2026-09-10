@@ -1,0 +1,98 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    color:white;
+}
+nav, header,main, section, figure, footer {
+    margin: 0;
+    border: 1px solid black;
+    }
+nav {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 99%;
+    height: 50px;
+    background-color: rgba(20, 100, 70);
+}
+.logotipo {
+    width: 50px;
+    height: 50px;
+}
+.titulo {
+    display:flex;
+    align-items: center;
+    gap: 5px;
+}
+
+h2 {
+    color:salmon;
+}
+a {
+    color:white;
+    font-size: 20px;
+}
+header {
+    width: 100%;
+    height: 600px;
+    background-image:
+        linear-gradient(
+            rgba(20, 100, 70, 0.55),
+            rgba(20, 100, 70, 0.55)
+        ),
+        url("imagenes/paisaje.avif");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+#texto-superior, .subtitulo {
+    color:salmon;
+    font-size: 26px;
+}
+.aspectos {
+    padding: 24px;
+}
+.img-encabezado {
+    width: 100%;
+    height: 400px;
+    justify-self: center;
+}
+h1 {
+    font-size: 50px;
+}
+h3, #info-footer {
+    font-size: 30px;
+}
+main {
+    display: flex;
+    height: 500px;
+}
+section {
+    padding: 20px;
+    width: 50%;
+    background-color: #006465;
+}
+.info-p {
+    font-size: 18px;
+}
+figure {
+    padding: 20px;
+    width: 50%;
+    background-color: #006750;
+}
+.img-figure {
+    margin: 10px;
+    border-radius: 4px;
+    justify-content: space-around;
+}
+footer {
+    padding: 16px;
+    width: 100%;
+    height: 100px;
+    background-color: #95b634;
+}
+
