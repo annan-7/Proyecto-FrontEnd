@@ -6,10 +6,62 @@
     <title> EcoRuta </title>
 </head>
 <body>
-    <nav> 
-        <div class="titulo">
-            <img src="imagenes/logo.png"alt="Descripcion de logo" class="logotipo">
-            <h2> Eco Ruta Temuco </h2>
+
+  
+  <nav class="navbar" aria-label="Navegación principal">
+    <a href="./index.html" class="navbar__logo" aria-label="Inicio">Logo</a>
+    <ul class="navbar__links" role="list">
+      <li><a href="../Proyecto-FrontEnd/paginas/rutas.html">Rutas</a></li>
+      <li><a href="../Proyecto-FrontEnd/paginas/contacto.html">Contacto</a></li>
+      <li><a href="../Proyecto-FrontEnd/paginas/sobre_nosotros.html">Sobre nosotros</a></li>
+    </ul>
+  </nav>
+
+  
+  <section class="hero" aria-label="Banner principal">
+    <div class="hero__text">
+      <h1>Descubre la naturaleza de tu tierra</h1>
+    </div>
+    <div class="hero__image" role="img" aria-label="Imagen de naturaleza">
+      IMAGEN DE NATURALEZA
+    </div>
+  </section>
+
+ 
+  <main class="body">
+
+    
+    <section class="section" aria-labelledby="senderos-title">
+      <div class="section__header">
+        <h2 class="section__title" id="senderos-title">Senderos destacados</h2>
+        <span class="section__subtitle">Título (aquí allá)</span>
+      </div>
+      <div class="cards-grid" role="list" aria-label="Lista de senderos destacados">
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 1">Sendero 1</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 2">Sendero 2</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 3">Sendero 3</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 4">Sendero 4</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 5">Sendero 5</article>
+        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 6">Sendero 6</article>
+      </div>
+    </section>
+
+    
+    <section class="section" aria-labelledby="eventos-title">
+      <h2 class="section__title" id="eventos-title">Próximos Eventos</h2>
+      <div class="carousel" role="region" aria-label="Carrusel de eventos" aria-roledescription="carousel">
+
+        <button class="carousel__btn carousel__btn--prev"
+                aria-label="Evento anterior"
+                aria-controls="carousel-track">
+          &#8249;
+        </button>
+
+        <div class="carousel__track" id="carousel-track"
+             role="group"
+             aria-roledescription="slide"
+             aria-label="1 de 3">
+          Imágenes de posibles eventos
         </div>
         <h4 class="enlaces">
             <a href="rutas.html" class="link-html"> Rutas</a>  |  
