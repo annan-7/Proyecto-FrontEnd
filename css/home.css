@@ -1,98 +1,352 @@
-body {
-    font-family: 'Times New Roman', Times, serif;
-    color:white;
+/* ============================================
+   ECORUTAS - Estilos Globales (styles.css)
+   Mobile First | Variables CSS | Paleta oficial
+   ============================================ */
+
+/* ===== VARIABLES CSS ===== */
+:root {
+  --green-primary: #2E7D32;
+  --green-dark: #1B5E20;
+  --green-light: #A5D6A7;
+  --white: #FFFFFF;
+  --text: #263238;
+  --gray-light: #ECEFF1;
+  --border-radius: 10px;
+  --container-width: 1200px;
 }
-nav, header,main, section, figure, footer {
-    margin: 0;
-    border: 1px solid black;
-    }
-nav {
-    display: flex;
-    padding: 10px;
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--text, #263238);
+  line-height: 1.6;
+  background: var(--white, #FFFFFF);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--white, #FFFFFF);
+  border-bottom: 2px solid var(--gray-light, #ECEFF1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--green-dark, #1B5E20);
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+.navbar__links a {
+  font-weight: 600;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+  color: var(--text, #263238);
+}
+
+.navbar__links a:hover,
+.navbar__links a:focus {
+  border-bottom-color: var(--green-primary, #2E7D32);
+  color: var(--green-primary, #2E7D32);
+  outline: none;
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  background: var(--white, #FFFFFF);
+  margin: 1rem;
+  border-radius: var(--border-radius, 10px);
+  overflow: hidden;
+  border: 2px solid var(--gray-light, #ECEFF1);
+}
+
+.hero__text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.hero__text h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--green-dark, #1B5E20);
+  line-height: 1.3;
+}
+
+.hero__image {
+  flex: 1;
+  background: var(--green-light, #A5D6A7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text, #263238);
+  font-style: italic;
+  min-height: 200px;
+}
+
+/* ===== BODY / MAIN ===== */
+.body {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  background: var(--white, #FFFFFF);
+  border: 2px solid var(--gray-light, #ECEFF1);
+  border-radius: var(--border-radius, 10px);
+  padding: 1.5rem;
+}
+
+.section__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.section__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--green-dark, #1B5E20);
+}
+
+.section__subtitle {
+  font-size: 0.875rem;
+  color: var(--text, #263238);
+  opacity: 0.7;
+}
+
+/* ===== CARDS GRID ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--gray-light, #ECEFF1);
+  border: 2px solid var(--gray-light, #ECEFF1);
+  border-radius: var(--border-radius, 10px);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text, #263238);
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.15);
+}
+
+.card:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--green-light, #A5D6A7);
+}
+
+/* ===== CAROUSEL ===== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  background: var(--gray-light, #ECEFF1);
+  border: 2px solid var(--gray-light, #ECEFF1);
+  border-radius: var(--border-radius, 10px);
+  color: var(--text, #263238);
+  padding: 2rem;
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--white, #FFFFFF);
+  border: 2px solid var(--gray-light, #ECEFF1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: var(--green-primary, #2E7D32);
+  z-index: 1;
+}
+
+.carousel__btn:hover {
+  background: var(--green-light, #A5D6A7);
+  border-color: var(--green-primary, #2E7D32);
+  color: var(--white, #FFFFFF);
+}
+
+.carousel__btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--green-light, #A5D6A7);
+}
+
+.carousel__btn--prev {
+  left: 0.5rem;
+}
+
+.carousel__btn--next {
+  right: 0.5rem;
+}
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.carousel__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--green-primary, #2E7D32);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s;
+  padding: 0;
+}
+
+.carousel__dot:hover {
+  background: var(--green-light, #A5D6A7);
+}
+
+.carousel__dot:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--green-light, #A5D6A7);
+}
+
+.carousel__dot[aria-selected="true"],
+.carousel__dot.active {
+  background: var(--green-primary, #2E7D32);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin: 1rem;
+  padding: 2rem 1rem;
+  background: var(--white, #FFFFFF);
+  border: 2px solid var(--gray-light, #ECEFF1);
+  border-radius: var(--border-radius, 10px);
+  text-align: center;
+  color: var(--text, #263238);
+  opacity: 0.8;
+}
+
+/* ============================================
+   TABLET (≥ 768px)
+   ============================================ */
+@media (min-width: 768px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .navbar__links {
+    gap: 2rem;
+  }
+
+  .hero {
+    flex-direction: row;
+    min-height: 500px;
+    margin: 1rem 2rem;
+  }
+
+  .hero__text h1 {
+    font-size: 2.5rem;
+  }
+
+  .body {
+    margin: 1rem 2rem;
+  }
+
+  .section__header {
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 99%;
-    height: 50px;
-    background-color: rgba(20, 100, 70);
-}
-.logotipo {
-    width: 50px;
-    height: 50px;
-}
-.titulo {
-    display:flex;
-    align-items: center;
-    gap: 5px;
+  }
+
+  .section__title {
+    font-size: 1.5rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    margin: 1rem 2rem 2rem;
+  }
 }
 
-h2 {
-    color:salmon;
-}
-a {
-    color:white;
-    font-size: 20px;
-}
-header {
-    width: 100%;
-    height: 600px;
-    background-image:
-        linear-gradient(
-            rgba(20, 100, 70, 0.55),
-            rgba(20, 100, 70, 0.55)
-        ),
-        url("imagenes/paisaje.avif");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-}
-#texto-superior, .subtitulo {
-    color:salmon;
-    font-size: 26px;
-}
-.aspectos {
-    padding: 24px;
-}
-.img-encabezado {
-    width: 100%;
-    height: 400px;
-    justify-self: center;
-}
-h1 {
-    font-size: 50px;
-}
-h3, #info-footer {
-    font-size: 30px;
-}
-main {
-    display: flex;
-    height: 500px;
-}
-section {
-    padding: 20px;
-    width: 50%;
-    background-color: #006465;
-}
-.info-p {
-    font-size: 18px;
-}
-figure {
-    padding: 20px;
-    width: 50%;
-    background-color: #006750;
-}
-.img-figure {
-    margin: 10px;
-    border-radius: 4px;
-    justify-content: space-around;
-}
-footer {
-    padding: 16px;
-    width: 100%;
-    height: 100px;
-    background-color: #95b634;
-}
+/* ============================================
+   DESKTOP (≥ 1024px)
+   ============================================ */
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 600px;
+  }
 
+  .hero__text h1 {
+    font-size: 3rem;
+  }
+
+  .section__title {
+    font-size: 1.75rem;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
