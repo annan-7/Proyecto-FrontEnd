@@ -41,7 +41,7 @@ header {
             rgba(20, 100, 70, 0.55),
             rgba(20, 100, 70, 0.55)
         ),
-        url("imagenes/paisaje.jpg");
+        url("./imagenes/paisaje.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
