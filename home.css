@@ -6,12 +6,14 @@ nav, header,main, section, figure, footer {
     margin: 0;
     border: 1px solid black;
     }
+nav, header, main, footer {
+    width: 100%;
+}
 nav {
     display: flex;
     padding: 10px;
     justify-content: space-between;
     align-items: center;
-    width: 99%;
     height: 50px;
     background-color: rgba(20, 100, 70);
 }
@@ -28,19 +30,18 @@ nav {
 h2 {
     color:salmon;
 }
-a {
+.link-html {
     color:white;
     font-size: 20px;
 }
 header {
-    width: 100%;
-    height: 600px;
+    height: 550px;
     background-image:
         linear-gradient(
             rgba(20, 100, 70, 0.55),
             rgba(20, 100, 70, 0.55)
         ),
-        url("imagenes/paisaje.avif");
+        url("imagenes/paisaje.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -64,7 +65,7 @@ header {
 h1 {
     font-size: 50px;
 }
-h3, #info-footer {
+h3 {
     font-size: 30px;
 }
 main {
@@ -83,16 +84,22 @@ figure {
     padding: 20px;
     width: 50%;
     background-color: #006750;
+    justify-content: space-around;
+    display: flex;
 }
 .img-figure {
     margin: 10px;
     border-radius: 4px;
     justify-content: space-around;
+    width: 260px;
+    height: 240px;
 }
 footer {
-    padding: 16px;
-    width: 100%;
+    padding: 8px;
     height: 100px;
     background-color: #95b634;
+    line-height: 0.7;
 }
-
+#info-footer, #link-num {
+    font-size: 20px;
+}
