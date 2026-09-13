@@ -1,9 +1,4 @@
-/* ============================================
-   ECORUTAS - Estilos Globales (styles.css)
-   Mobile First | Variables CSS | Paleta oficial
-   ============================================ */
 
-/* ===== VARIABLES CSS ===== */
 :root {
   --green-primary: #2E7D32;
   --green-dark: #1B5E20;
@@ -15,14 +10,14 @@
   --container-width: 1200px;
 }
 
-/* ===== RESET ===== */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ===== BASE ===== */
+
 body {
   font-family: "Inter", Arial, sans-serif;
   color: var(--text, #263238);
@@ -40,47 +35,7 @@ img {
   display: block;
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  background: var(--white, #FFFFFF);
-  border-bottom: 2px solid var(--gray-light, #ECEFF1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
 
-.navbar__logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--green-dark, #1B5E20);
-}
-
-.navbar__links {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-}
-
-.navbar__links a {
-  font-weight: 600;
-  padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s;
-  color: var(--text, #263238);
-}
-
-.navbar__links a:hover,
-.navbar__links a:focus {
-  border-bottom-color: var(--green-primary, #2E7D32);
-  color: var(--green-primary, #2E7D32);
-  outline: none;
-}
-
-/* ===== HERO ===== */
 .hero {
   display: flex;
   flex-direction: column;
@@ -119,7 +74,7 @@ img {
   min-height: 200px;
 }
 
-/* ===== BODY / MAIN ===== */
+
 .body {
   margin: 1rem;
   display: flex;
@@ -127,7 +82,7 @@ img {
   gap: 1.5rem;
 }
 
-/* ===== SECTIONS ===== */
+
 .section {
   background: var(--white, #FFFFFF);
   border: 2px solid var(--gray-light, #ECEFF1);
@@ -154,7 +109,7 @@ img {
   opacity: 0.7;
 }
 
-/* ===== CARDS GRID ===== */
+
 .cards-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -185,7 +140,7 @@ img {
   box-shadow: 0 0 0 3px var(--green-light, #A5D6A7);
 }
 
-/* ===== CAROUSEL ===== */
+
 .carousel {
   position: relative;
   overflow: hidden;
@@ -273,7 +228,6 @@ img {
   background: var(--green-primary, #2E7D32);
 }
 
-/* ===== FOOTER ===== */
 .footer {
   margin: 1rem;
   padding: 2rem 1rem;
@@ -285,9 +239,7 @@ img {
   opacity: 0.8;
 }
 
-/* ============================================
-   TABLET (≥ 768px)
-   ============================================ */
+
 @media (min-width: 768px) {
   .navbar {
     padding: 1rem 2rem;
@@ -330,9 +282,7 @@ img {
   }
 }
 
-/* ============================================
-   DESKTOP (≥ 1024px)
-   ============================================ */
+
 @media (min-width: 1024px) {
   .hero {
     min-height: 600px;
@@ -349,4 +299,90 @@ img {
   .cards-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.hero__text {
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  gap: 0.75rem;
+}
+
+.hero__eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--green-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero__text p:not(.hero__eyebrow) {
+  max-width: 32rem;
+}
+
+.hero__text .btn {
+  margin-top: 0.5rem;
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  min-height: 14rem;
+  object-fit: cover;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+}
+
+.btn--primary {
+  background: var(--green-primary);
+  color: var(--white);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--green-dark);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.card {
+  height: auto;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--white);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.card h3,
+.card p,
+.card a {
+  margin-inline: 1rem;
+}
+
+.card h3 {
+  margin-top: 1rem;
+  color: var(--green-dark);
+}
+
+.card p {
+  flex: 1;
+  margin-bottom: 0.75rem;
+}
+
+.card a {
+  margin-bottom: 1rem;
 }
