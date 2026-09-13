@@ -3,93 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descubre la Naturaleza</title>
+  <meta name="description" content="ECORUTAS te ayuda a descubrir rutas de senderismo y naturaleza en La Araucanía.">
+  <title>ECORUTAS | Descubre la naturaleza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/global.css">
   <link rel="stylesheet" href="./css/home.css">
-  
 </head>
 <body>
 
-  
-  <nav class="navbar" aria-label="Navegación principal">
-    <a href="./index.html" class="navbar__logo" aria-label="Inicio">Logo</a>
-    <ul class="navbar__links" role="list">
-      <li><a href="../Proyecto-FrontEnd/paginas/rutas.html">Rutas</a></li>
-      <li><a href="../Proyecto-FrontEnd/paginas/contacto.html">Contacto</a></li>
-      <li><a href="../Proyecto-FrontEnd/paginas/sobre_nosotros.html">Sobre nosotros</a></li>
-    </ul>
-  </nav>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  
+  <header class="site-header" role="banner">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="./index.html" class="navbar__logo" aria-label="Inicio de ECORUTAS">ECORUTAS</a>
+      <ul class="navbar__links" role="list">
+        <li><a href="./index.html" aria-current="page">Inicio</a></li>
+        <li><a href="./paginas/rutas.html">Rutas</a></li>
+        <li><a href="./paginas/contacto.html">Contacto</a></li>
+        <li><a href="./paginas/sobre_nosotros.html">Sobre nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <section class="hero" aria-label="Banner principal">
     <div class="hero__text">
+      <p class="hero__eyebrow">Rutas para respirar, explorar y cuidar</p>
       <h1>Descubre la naturaleza de tu tierra</h1>
+      <p>Encuentra senderos, paisajes y experiencias al aire libre en La Araucanía.</p>
+      <a class="btn btn--primary" href="./paginas/rutas.html">Explorar rutas</a>
     </div>
-    <div class="hero__image" role="img" aria-label="Imagen de naturaleza">
-      IMAGEN DE NATURALEZA
+    <div class="hero__image">
+      <img src="./assets/imagenes/paisaje.avif" alt="Paisaje natural de La Araucanía" width="800" height="600">
     </div>
   </section>
 
- 
-  <main class="body">
+  <main id="main-content" class="body">
 
     
     <section class="section" aria-labelledby="senderos-title">
       <div class="section__header">
         <h2 class="section__title" id="senderos-title">Senderos destacados</h2>
-        <span class="section__subtitle">Título (aquí allá)</span>
+        <span class="section__subtitle">Elige tu próximo paisaje</span>
       </div>
       <div class="cards-grid" role="list" aria-label="Lista de senderos destacados">
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 1">Sendero 1</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 2">Sendero 2</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 3">Sendero 3</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 4">Sendero 4</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 5">Sendero 5</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 6">Sendero 6</article>
-      </div>
-    </section>
-
-    
-    <section class="section" aria-labelledby="eventos-title">
-      <h2 class="section__title" id="eventos-title">Próximos Eventos</h2>
-      <div class="carousel" role="region" aria-label="Carrusel de eventos" aria-roledescription="carousel">
-
-        <button class="carousel__btn carousel__btn--prev"
-                aria-label="Evento anterior"
-                aria-controls="carousel-track">
-          &#8249;
-        </button>
-
-        <div class="carousel__track" id="carousel-track"
-             role="group"
-             aria-roledescription="slide"
-             aria-label="1 de 3">
-          Imágenes de posibles eventos
-        </div>
-
-        <button class="carousel__btn carousel__btn--next"
-                aria-label="Evento siguiente"
-                aria-controls="carousel-track">
-          &#8250;
-        </button>
-
-        <div class="carousel__dots" role="tablist" aria-label="Seleccionar evento">
-          <button class="carousel__dot active"
-                  role="tab"
-                  aria-selected="true"
-                  aria-label="Evento 1"
-                  tabindex="0"></button>
-          <button class="carousel__dot"
-                  role="tab"
-                  aria-selected="false"
-                  aria-label="Evento 2"
-                  tabindex="-1"></button>
-          <button class="carousel__dot"
-                  role="tab"
-                  aria-selected="false"
-                  aria-label="Evento 3"
-                  tabindex="-1"></button>
-        </div>
-
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/BosqueNativo.webp" alt="Bosque nativo con un sendero" loading="lazy" width="400" height="250">
+          <h3>Sendero del Bosque Nativo</h3>
+          <p>Una caminata amable entre árboles y sonidos del bosque.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/ruta-lago.webp" alt="Lago rodeado de montañas" loading="lazy" width="400" height="250">
+          <h3>Lago Escondido</h3>
+          <p>Un recorrido breve para conectar con el paisaje del sur.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/Cumbre.jpg" alt="Cumbre de montaña" loading="lazy" width="400" height="250">
+          <h3>Cumbre Andina</h3>
+          <p>Desafíos de montaña para quienes buscan nuevos horizontes.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
       </div>
     </section>
 
@@ -97,7 +73,7 @@
 
   
   <footer class="footer" role="contentinfo">
-    <p>&copy; 2026 Descubre la Naturaleza. Todos los derechos reservados.</p>
+    <p>&copy; 2026 ECORUTAS. Todos los derechos reservados.</p>
   </footer>
 
 </body>
