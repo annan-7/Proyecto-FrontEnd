@@ -13,10 +13,7 @@
   font-weight: 700;
   line-height: 1;
   text-shadow: 1px 1px 1px var(--green-primary);
-    }
-
-/* mensaje principal */
-
+}
 
 /*volver al inicio link*/
 
@@ -35,5 +32,6 @@
 
 .botton:hover {
   background-color: var(--green-dark);
-  text-decoration:var(--gray-light)
+  text-decoration:var(--gray-light);
+   color: var(--white); 
 }
