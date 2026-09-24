@@ -17,13 +17,6 @@
 | alta | avanze hacia al Sprint 1 |
 | media | Implementación de enfoques *mobile-first* y Flexbox en CSS |
 | Alta | Implementación de arreglos derivados del Bug Bounty |
-| media| Realización del HTML y CSS para la interfaz "404_error" |
-| Media| Realización del HTML y CSS para la interfaz "index" |
-| Media| Realización del HTML y CSS para la interfaz "rutas" |
-| Media| Realización del HTML y CSS para la interfaz "contacto" |
-| Media| Realización del HTML y CSS para la interfaz "sobre_nosotros" |
-| Media| Implementación de CSS styles |
-| media| Implementación de CSS global |
 ---
 ###  En revision (testing / Review)
 
@@ -46,6 +39,13 @@
 | Baja |  Firmar acuerdo de uso responsable de IA |
 | Baja | Creación de la agenda individual de IA |
 | Baja |  Definición y redacción de los roles ágiles de cada sprint |
+| media| Realización del HTML y CSS para la interfaz "404_error" |
+| Media| Realización del HTML y CSS para la interfaz "index" |
+| Media| Realización del HTML y CSS para la interfaz "rutas" |
+| Media| Realización del HTML y CSS para la interfaz "contacto" |
+| Media| Realización del HTML y CSS para la interfaz "sobre_nosotros" |
+| Media| Implementación de CSS styles |
+| media| Implementación de CSS global |
 ---
 
 ## estados generales
