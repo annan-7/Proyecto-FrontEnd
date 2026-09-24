@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="../css/contacto.css">
 </head>
 <body> 
+    <header class="site-header" role="banner">
     <nav class="navbar" aria-label="Navegación principal">
-        <a href="../index.html" class="navbar__logo" aria-label="Inicio">Logo</a>
-    <ul class="navbar__links" role="list">
-            <li><a href="./rutas.html">Rutas</a></li>
-      <li><a href="#eventos">Eventos</a></li>
-            <li><a href="./contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-    <!-- El main envuelve TODO el contenido de la página -->
+      <a href="../index.html" class="navbar__logo" aria-label="Inicio de ECORUTAS">ECORUTAS</a>
+            <ul class="navbar__links" role="list">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="./rutas.html">Rutas</a></li>
+                <li><a href="./contacto.html" aria-current="page">Contacto</a></li>
+                <li><a href="./sobre_nosotros.html">Sobre nosotros</a></li>
+            </ul>
+    </nav>
+  </header>
     <main class="contacto-container">
         
         <section class="contacto-info">
@@ -31,7 +33,7 @@
 
         <section class="contacto-form-section">
             <h2>Envíanos un mensaje</h2>
-            <form class="contacto-form" action="#" method="POST">
+            <form class="contacto-form" action="./404.html" method="get">
                 <div class="form-group">    
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>

@@ -1,102 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="icon" href="imagenes/logo.png">
-    <title> EcoRuta </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ECORUTAS te ayuda a descubrir rutas de senderismo y naturaleza en La Araucanía.">
+  <title>ECORUTAS | Descubre la naturaleza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
 
-  
-  <nav class="navbar" aria-label="Navegación principal">
-    <a href="./index.html" class="navbar__logo" aria-label="Inicio">Logo</a>
-    <ul class="navbar__links" role="list">
-      <li><a href="../Proyecto-FrontEnd/paginas/rutas.html">Rutas</a></li>
-      <li><a href="../Proyecto-FrontEnd/paginas/contacto.html">Contacto</a></li>
-      <li><a href="../Proyecto-FrontEnd/paginas/sobre_nosotros.html">Sobre nosotros</a></li>
-    </ul>
-  </nav>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  
+  <header class="site-header" role="banner">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="./index.html" class="navbar__logo" aria-label="Inicio de ECORUTAS">ECORUTAS</a>
+      <ul class="navbar__links" role="list">
+        <li><a href="./index.html" aria-current="page">Inicio</a></li>
+        <li><a href="./paginas/rutas.html">Rutas</a></li>
+        <li><a href="./paginas/contacto.html">Contacto</a></li>
+        <li><a href="./paginas/sobre_nosotros.html">Sobre nosotros</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <section class="hero" aria-label="Banner principal">
     <div class="hero__text">
+      <p class="hero__eyebrow">Rutas para respirar, explorar y cuidar</p>
       <h1>Descubre la naturaleza de tu tierra</h1>
+      <p>Encuentra senderos, paisajes y experiencias al aire libre en La Araucanía.</p>
+      <a class="btn btn--primary" href="./paginas/rutas.html">Explorar rutas</a>
     </div>
-    <div class="hero__image" role="img" aria-label="Imagen de naturaleza">
-      IMAGEN DE NATURALEZA
+    <div class="hero__image">
+      <img src="./assets/imagenes/paisaje.avif" alt="Paisaje natural de La Araucanía" width="800" height="600">
     </div>
   </section>
 
- 
-  <main class="body">
+  <main id="main-content" class="body">
 
     
     <section class="section" aria-labelledby="senderos-title">
       <div class="section__header">
         <h2 class="section__title" id="senderos-title">Senderos destacados</h2>
-        <span class="section__subtitle">Título (aquí allá)</span>
+        <span class="section__subtitle">Elige tu próximo paisaje</span>
       </div>
       <div class="cards-grid" role="list" aria-label="Lista de senderos destacados">
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 1">Sendero 1</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 2">Sendero 2</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 3">Sendero 3</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 4">Sendero 4</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 5">Sendero 5</article>
-        <article class="card" role="listitem" tabindex="0" aria-label="Sendero 6">Sendero 6</article>
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/BosqueNativo.webp" alt="Bosque nativo con un sendero" loading="lazy" width="400" height="250">
+          <h3>Sendero del Bosque Nativo</h3>
+          <p>Una caminata amable entre árboles y sonidos del bosque.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/ruta-lago.webp" alt="Lago rodeado de montañas" loading="lazy" width="400" height="250">
+          <h3>Lago Escondido</h3>
+          <p>Un recorrido breve para conectar con el paisaje del sur.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/Cumbre.jpg" alt="Cumbre de montaña" loading="lazy" width="400" height="250">
+          <h3>Cumbre Andina</h3>
+          <p>Desafíos de montaña para quienes buscan nuevos horizontes.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
       </div>
     </section>
 
-    
-    <section class="section" aria-labelledby="eventos-title">
-      <h2 class="section__title" id="eventos-title">Próximos Eventos</h2>
-      <div class="carousel" role="region" aria-label="Carrusel de eventos" aria-roledescription="carousel">
+  </main>
 
-        <button class="carousel__btn carousel__btn--prev"
-                aria-label="Evento anterior"
-                aria-controls="carousel-track">
-          &#8249;
-        </button>
+  
+  <footer class="footer" role="contentinfo">
+    <p>&copy; 2026 ECORUTAS. Todos los derechos reservados.</p>
+  </footer>
 
-        <div class="carousel__track" id="carousel-track"
-             role="group"
-             aria-roledescription="slide"
-             aria-label="1 de 3">
-          Imágenes de posibles eventos
-        </div>
-        <h4 class="enlaces">
-            <a href="rutas.html" class="link-html"> Rutas</a>  |  
-            <a href="contacto.html" class="link-html"> Contactos</a>  |  
-            <a href="emprendimiento.html" class="link-html"> Emprendimiento</a>   |  
-            <a href="nosotros.html" class="link-html"> Nosotros</a>
-        </h4> 
-    </nav>
-    <header>
-        <div class="aspectos">  
-            <h4 id="texto-superior"> LA ARAUCANÍA, CHILE </h4>
-            <h1> Descubre la naturaleza de tu tierra </h1>
-            <h3>      Más de 24 Rutas activas      6 Comunas      Más de 4 años trabajando      </h3> 
-        </div>
-    </header>  
-    <main>
-        <section>
-            <h2 class="subtitulo">subtitulo</h2>
-            <p class="info-p"> Rutas, emprendimientos y experiencias sustentables en la región de La Araucanía. Explorar nunca fue tan responsable. </p>
-            <p class="info-p"> Rutas, emprendimientos y experiencias sustentables en la región de La Araucanía. Explorar nunca fue tan responsable. </p>
-            <p class="info-p"> Rutas, emprendimientos y experiencias sustentables en la región de La Araucanía. Explorar nunca fue tan responsable. </p>
-            <h2 class="subtitulo">subtitulos</h2>
-            <p class="info-p"> bla bla bla bla </p>
-        </section>
-        <figure>
-            <img src="imagenes/img_1.jpeg" alt="Descripcion de la imagen" class="img-figure">
-            <img src="imagenes/img_2.jpeg" alt="Descripcion de la imagen" class="img-figure">
-            <img src="imagenes/img_3.jpg" alt="Descripcion de la imagen" class="img-figure">
-        </figure>
-    </main>
-    <footer>
-        <h4 id="info-footer">contactanos</h4>
-        <p class="info-p">
-            Manuel Montt 056  |  Avenida Rudencindo Ortega 02950  |  Avenida Alemania 211   |   <a id="link-num">+56900000000</a> 
-        </p>
-    </footer>
 </body>
 </html>

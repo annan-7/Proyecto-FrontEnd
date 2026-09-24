@@ -46,15 +46,7 @@
     left: 0;
     right: 0;
   }
-       .navbar {
-    display: flex;
-    flex-direction: row;
-    padding: 100;
-    position: absolute;
-    left: 0;
-    right: 0;
-  }
-
+  
   .numero {
     font-size: 5rem;
 

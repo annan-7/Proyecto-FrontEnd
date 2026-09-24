@@ -17,14 +17,17 @@
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
  
+    <header class="site-header" role="banner">
     <nav class="navbar" aria-label="Navegación principal">
-    <a href="../index.html" class="navbar__logo" aria-label="Inicio">Logo</a>
-    <ul class="navbar__links" role="list">
-      <li><a href="./rutas.html">Rutas</a></li>
-      <li><a href="#eventos">Eventos</a></li>
-      <li><a href="./contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
+      <a href="../index.html" class="navbar__logo" aria-label="Inicio de ECORUTAS">ECORUTAS</a>
+        <ul class="navbar__links" role="list">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./rutas.html" aria-current="page">Rutas</a></li>
+          <li><a href="./contacto.html">Contacto</a></li>
+          <li><a href="./sobre_nosotros.html">Sobre nosotros</a></li>
+        </ul>
+    </nav>
+  </header>
 
   
   <main id="main-content">
@@ -130,7 +133,7 @@
           <ul class="routes-grid" role="list" aria-label="Lista de rutas disponibles">
 
             
-            <li class="route-card" role="listitem">
+            <li class="route-card" role="listitem" data-category="senderismo" data-difficulty="easy" data-distance="5.2" data-duration="2.5">
               <article class="route-card__article">
                 <div class="route-card__image-wrapper">
                   <img
@@ -167,7 +170,7 @@
                       2h 30min
                     </span>
                   </div>
-                  <a href="#" class="route-card__link" aria-label="Ver detalles de Sendero del Bosque Nativo">
+                  <a href="./404.html" class="route-card__link" aria-label="Ver detalles de Sendero del Bosque Nativo">
                     Ver detalles
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -178,7 +181,7 @@
             </li>
 
             
-            <li class="route-card" role="listitem">
+            <li class="route-card" role="listitem" data-category="montaña" data-difficulty="hard" data-distance="18" data-duration="8">
               <article class="route-card__article">
                 <div class="route-card__image-wrapper">
                   <img
@@ -215,7 +218,7 @@
                       8h
                     </span>
                   </div>
-                  <a href="#" class="route-card__link" aria-label="Ver detalles de Cumbre Andina">
+                  <a href="./404.html" class="route-card__link" aria-label="Ver detalles de Cumbre Andina">
                     Ver detalles
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -226,7 +229,7 @@
             </li>
 
             
-            <li class="route-card" role="listitem">
+            <li class="route-card" role="listitem" data-category="ciclismo costa" data-difficulty="medium" data-distance="12" data-duration="1.75">
               <article class="route-card__article">
                 <div class="route-card__image-wrapper">
                   <img
@@ -263,7 +266,7 @@
                       1h 45min
                     </span>
                   </div>
-                  <a href="#" class="route-card__link" aria-label="Ver detalles de Ciclovía Costera">
+                  <a href="./404.html" class="route-card__link" aria-label="Ver detalles de Ciclovía Costera">
                     Ver detalles
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -274,7 +277,7 @@
             </li>
 
             
-            <li class="route-card" role="listitem">
+            <li class="route-card" role="listitem" data-category="senderismo" data-difficulty="easy" data-distance="3.8" data-duration="1.5">
               <article class="route-card__article">
                 <div class="route-card__image-wrapper">
                   <img
@@ -311,7 +314,7 @@
                       1h 30min
                     </span>
                   </div>
-                  <a href="#" class="route-card__link" aria-label="Ver detalles de Sendero del Lago Escondido">
+                  <a href="./404.html" class="route-card__link" aria-label="Ver detalles de Sendero del Lago Escondido">
                     Ver detalles
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -322,7 +325,7 @@
             </li>
 
             
-            <li class="route-card" role="listitem">
+            <li class="route-card" role="listitem" data-category="montaña" data-difficulty="hard" data-distance="22" data-duration="10">
               <article class="route-card__article">
                 <div class="route-card__image-wrapper">
                   <img
@@ -359,7 +362,7 @@
                       10h
                     </span>
                   </div>
-                  <a href="#" class="route-card__link" aria-label="Ver detalles de Ascenso al Volcán">
+                  <a href="./404.html" class="route-card__link" aria-label="Ver detalles de Ascenso al Volcán">
                     Ver detalles
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -370,7 +373,7 @@
             </li>
 
             
-            <li class="route-card" role="listitem">
+            <li class="route-card" role="listitem" data-category="senderismo" data-difficulty="medium" data-distance="9" data-duration="4">
               <article class="route-card__article">
                 <div class="route-card__image-wrapper">
                   <img
@@ -407,7 +410,7 @@
                       4h
                     </span>
                   </div>
-                  <a href="#" class="route-card__link" aria-label="Ver detalles de Ruta del Parque Nacional">
+                  <a href="./404.html" class="route-card__link" aria-label="Ver detalles de Ruta del Parque Nacional">
                     Ver detalles
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -443,5 +446,6 @@
   </footer>
 
   
+  <script src="../js/rutas.js" defer></script>
 </body>
 </html>
