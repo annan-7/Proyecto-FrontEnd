@@ -1,0 +1,101 @@
+name: Validate and deploy ECORUTAS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate site files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate local HTML references
+        shell: python
+        run: |
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlsplit
+
+          root = Path.cwd()
+          errors = []
+          missing_references = []
+
+          class ReferenceParser(HTMLParser):
+              def handle_starttag(self, tag, attrs):
+                  attributes = dict(attrs)
+                  references = []
+
+                  if tag == "a":
+                      references.append(("href", attributes.get("href")))
+                  if tag in {"img", "script"}:
+                      references.append(("src", attributes.get("src")))
+                  if tag == "link":
+                      references.append(("href", attributes.get("href")))
+
+                  for attribute, value in references:
+                      if not value or value.startswith(("#", "http://", "https://", "mailto:", "tel:", "data:")):
+                          continue
+                      target = urlsplit(value).path
+                      if not target:
+                          continue
+                      resolved = (self.source.parent / target).resolve()
+                        if not resolved.is_file():
+                          missing_references.append(f"{self.source}: missing {attribute} target {value}")
+
+          for source in root.rglob("*.html"):
+              parser = ReferenceParser()
+              parser.source = source
+              parser.feed(source.read_text(encoding="utf-8"))
+
+            required_files = [root / "index.html", root / "paginas" / "404.html"]
+            errors.extend(f"Missing required file: {path}" for path in required_files if not path.is_file())
+
+            if errors:
+              print("\n".join(errors))
+              raise SystemExit(1)
+
+            if missing_references:
+              print("Warnings: unresolved local references found:")
+              print("\n".join(missing_references))
+
+            print("All required site files and HTML documents are valid.")
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: validate
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4
