@@ -18,35 +18,56 @@
             <a href="nosotros.html" class="link-html"> Nosotros</a>
         </h4> 
     </nav>
-    <header aria-label="Encabezado Principal de la página.">
-        <div class="aspectos">  
-            <h4 id="texto-superior"> LA ARAUCANÍA, CHILE </h4>
-            <h1> Descubre la naturaleza de tu tierra </h1>
-            <h3>      Más de 24 Rutas activas      6 Comunas      Más de 4 años trabajando      </h3> 
-        </div>
-    </header>  
-    <main aria-label="Contenido destacado de la actualidad.">
-        <section aria-label="Informacion del Contenido.">
-            <h2 class="subtitulo">Lo que nos importa</h2>
-            <p class="info-p"> EcoRuta es una plataforma dedicada a conectar a las personas con la naturaleza de La Araucanía a través del senderismo responsable. </p>
-            <p class="info-p"> Creemos que explorar nuestros paisajes no debe significar dejar huella, por eso cada ruta que compartimos está pensada para minimizar el impacto ambiental y maximizar la experiencia. </p>
-            <p class="info-p"> Nuestro enfoque sustentable se basa en tres pilares: respeto por los ecosistemas nativos, apoyo a las comunidades locales y educación ambiental </p>
-            <p class="info-p"> Al recorrer nuestros senderos, contribuyes directamente a la conservación de bosques centenarios, volcanes y lagos que hacen única a esta región.</p>
-            <h2 class="subtitulo">¿Qué encontraras?</h2>
-            <p class="info-p"> La Araucanía nos regala más de 24 rutas activas distribuidas en 6 comunas, cada una con su propio carácter y desafío.</p>
-            <p class="info-p"> Desde bosques nativos hasta cumbres nevadas, desde ríos turquesa hasta cascadas escondidas, hay un sendero esperando por cada tipo de explorador.</p>
-        </section>
-        <figure aria-label="Imágenes de las rutas destacadas.">
-            <img src="./assets/imagenes/img_1.jpeg" alt="Frondoso bosque rodeado alrededor de un río, cubierto de montañas." class="img-figure">
-            <img src="./assets/imagenes/img_2.jpeg" alt="Bosque empinado, lleno de vegetación, en el que se transita por medio de puentes." class="img-figure">
-            <img src="./assets/imagenes/img_3.jpg" alt="Gran río rocoso de cascadas gigantes, en el que se transita por medio de puentes." class="img-figure">
-        </figure>
-    </main>
-    <footer aria-label="Información Destacada del pie de página.">
-        <h4 id="info-footer">contactanos</h4>
-        <p class="info-p">
-            Manuel Montt 056  |  Avenida Rudencindo Ortega 02950  |  Avenida Alemania 211   |   <a id="link-num">+56900000000</a> 
-        </p>
-    </footer>
+  </header>
+
+  <section class="hero" aria-label="Banner principal">
+    <div class="hero__text">
+      <p class="hero__eyebrow">Rutas para respirar, explorar y cuidar</p>
+      <h1>Descubre la naturaleza de tu tierra</h1>
+      <p>Encuentra senderos, paisajes y experiencias al aire libre en La Araucanía.</p>
+      <a class="btn btn--primary" href="./paginas/rutas.html">Explorar rutas</a>
+    </div>
+    <div class="hero__image">
+      <img src="./assets/imagenes/paisaje.jpg" alt="Paisaje natural de La Araucanía" width="800" height="600">
+    </div>
+  </section>
+
+  <main id="main-content" class="body">
+
+    
+    <section class="section" aria-labelledby="senderos-title">
+      <div class="section__header">
+        <h2 class="section__title" id="senderos-title">Senderos destacados</h2>
+        <span class="section__subtitle">Elige tu próximo paisaje</span>
+      </div>
+      <div class="cards-grid" role="list" aria-label="Lista de senderos destacados">
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/BosqueNativo.webp" alt="Bosque nativo con un sendero" loading="lazy" width="400" height="250">
+          <h3>Sendero del Bosque Nativo</h3>
+          <p>Una caminata amable entre árboles y sonidos del bosque.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/ruta-lago.webp" alt="Lago rodeado de montañas" loading="lazy" width="400" height="250">
+          <h3>Lago Escondido</h3>
+          <p>Un recorrido breve para conectar con el paisaje del sur.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
+        <article class="card" role="listitem">
+          <img src="./assets/imagenes/Cumbre.jpg" alt="Cumbre de montaña" loading="lazy" width="400" height="250">
+          <h3>Cumbre Andina</h3>
+          <p>Desafíos de montaña para quienes buscan nuevos horizontes.</p>
+          <a href="./paginas/rutas.html">Ver rutas</a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  
+  <footer class="footer" role="contentinfo">
+    <p>&copy; 2026 ECORUTAS. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
 </html>
