@@ -24,10 +24,24 @@
 
 
 .page-hero {
-  background: linear-gradient(135deg, var(--green-primary, #2E7D32) 0%, var(--green-dark, #1B5E20) 100%);
+  position: relative;
+  overflow: hidden;
+  background: var(--green-dark);
   color: var(--white, #FFFFFF);
-  padding: 3rem 0;
+  padding: 4rem 0;
   text-align: center;
+}
+
+.page-hero::after {
+  position: absolute;
+  right: -5rem;
+  bottom: -7rem;
+  width: 16rem;
+  height: 16rem;
+  border: 1px solid var(--green-light);
+  border-radius: 50%;
+  content: "";
+  opacity: 0.35;
 }
 
 .page-hero__title {
@@ -45,9 +59,14 @@
   margin: 0 auto;
 }
 
+.page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
 
 .section {
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 
 .section__title {
@@ -56,6 +75,15 @@
   color: var(--green-dark, #1B5E20);
   margin-bottom: 1.5rem;
   line-height: 1.3;
+}
+
+.section__eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--green-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .section__title--center {
@@ -82,6 +110,10 @@
   gap: 2rem;
 }
 
+.section--historia .section__title {
+  margin-bottom: 1rem;
+}
+
 .section__text p {
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -97,13 +129,15 @@
   width: 100%;
   border-radius: var(--border-radius, 10px);
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1rem 2rem rgba(38, 50, 56, 0.12);
 }
 
 .section__image img {
   width: 100%;
   height: auto;
   display: block;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
 }
 
 
@@ -113,7 +147,53 @@
 
 
 .section--mision-vision {
-  background: var(--gray-light, #ECEFF1);
+  background: var(--gray-light);
+}
+
+.section--impacto {
+  color: var(--white);
+  background: var(--green-dark);
+}
+
+.section--impacto .section__title {
+  color: var(--white);
+}
+
+.impacto-heading {
+  max-width: 34rem;
+  margin-bottom: 2rem;
+}
+
+.impacto-heading .section__eyebrow {
+  color: var(--green-light);
+}
+
+.impacto-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--border-radius);
+}
+
+.impacto-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.impacto-item__number {
+  color: var(--green-light);
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.impacto-item__label {
+  color: var(--white);
+  font-size: 0.9rem;
 }
 
 .mv-grid {
@@ -127,7 +207,8 @@
   padding: 2rem 1.5rem;
   border-radius: var(--border-radius, 10px);
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(38, 50, 56, 0.08);
+  box-shadow: 0 0.75rem 1.5rem rgba(38, 50, 56, 0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -175,12 +256,14 @@
   padding: 2rem 1.5rem;
   border-radius: var(--border-radius, 10px);
   text-align: center;
-  transition: transform 0.2s, background 0.2s;
+  border: 1px solid transparent;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
 }
 
 .valor-card:hover {
   transform: translateY(-4px);
   background: var(--green-light, #A5D6A7);
+  border-color: var(--green-primary);
 }
 
 .valor-card__icon {
@@ -216,7 +299,8 @@
   background: var(--white, #FFFFFF);
   border-radius: var(--border-radius, 10px);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(38, 50, 56, 0.08);
+  box-shadow: 0 0.75rem 1.5rem rgba(38, 50, 56, 0.08);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -269,7 +353,7 @@
 
 
 .section--cta {
-  background: linear-gradient(135deg, var(--green-primary, #2E7D32) 0%, var(--green-dark, #1B5E20) 100%);
+  background: var(--green-primary);
   padding: 3.5rem 0;
 }
 
@@ -277,6 +361,9 @@
   text-align: center;
   max-width: 700px;
   margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
 }
 
 .cta-box__title {
@@ -325,6 +412,10 @@
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
+.btn--primary:focus-visible {
+  outline-color: var(--white);
+}
+
 .btn--large {
   padding: 1rem 2.5rem;
   font-size: 1.125rem;
@@ -354,6 +445,18 @@
   .section__content {
     flex-direction: row;
     align-items: center;
+  }
+
+  .section__content > .section__text {
+    padding-right: 1rem;
+  }
+
+  .impacto-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .impacto-item {
+    padding: 2rem;
   }
 
   .section__text,
