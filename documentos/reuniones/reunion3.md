@@ -1,14 +1,14 @@
-## Acta de Reunión N.° 3 - MogulEnd (Eco Ruta Temuco)
+# Acta de Reunión N.° 3 - MogulEnd (Eco Ruta Temuco)
 
 **Fecha:** 04/09/2026
 
-**Hora:** 19:00 PM - 20:30 PM
+**Hora:** 19:00 PM - 20:15 PM
 
 **Registrado por:** Matías Espinoza
 
 **Tipo de reunión:** En línea / Discord
 
-### Asistencia
+## Asistencia
 
 **Presentes:**
 - Matías Espinoza (Scrum Master)
@@ -18,8 +18,7 @@
 - Miguel Torres (Developer)
 
 
-
-### Descripción de Avances por Integrante del Equipo
+## Descripción de Avances por Integrante del Equipo
 
 **Matías Espinoza (Scrum Master):**
 - Revisó el avance general del Sprint 1 y confirmó que vamos en buen ritmo.
@@ -44,13 +43,13 @@
 
 - **Miguel :** Reviso la integración del `global.css` con las páginas.
 
-### Problemas Identificados (Bloqueos que Afectan el Progreso del Equipo)
+## Problemas Identificados (Bloqueos que Afectan el Progreso del Equipo)
 
 
 - **Foco no visible:** Los botones del carrusel no tienen estilos `:focus` definidos.
 - **Errores de axe:** 3 errores críticos en `index.html` relacionados con ARIA.
 
-### Resoluciones y Acuerdos
+## Resoluciones y Acuerdos
 
 - Catalina enviará el reporte de axe DevTools a Miguel por Discord para que lo revise.
 - Cada integrante agregará estilos `:focus` visibles en todos los elementos interactivos.

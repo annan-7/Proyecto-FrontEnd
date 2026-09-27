@@ -1,16 +1,14 @@
-#  Actas de Reunión - MogulEnd (Eco Ruta Temuco)
-
-## Acta de Reunión N.° 1 - MogulEnd (Eco Ruta Temuco)
+#  Actas de Reunión  N.° 1 - MogulEnd (Eco Ruta Temuco)
 
 **Fecha:** 25/08/2026
 
-**Hora:** 13:00 PM - 14:30 PM
+**Hora:** 13:40 PM - 14:30 PM
 
 **Registrado por:** Matías Espinoza
 
 **Tipo de reunión:** Presencial / Sala de clases
 
-### Asistencia
+## Asistencia
 
 **Presentes:**
 - Matías Espinoza (Scrum Master)
@@ -19,7 +17,7 @@
 - Miguel Torres (Developer)
 - Catalina Ojeda (QA/Tester)
 
-### Descripción de Avances por Integrante del Equipo
+## Descripción de Avances por Integrante del Equipo
 
 **Matías Espinoza (Scrum Master):**
 - Coordinó la primera reunión oficial del Sprint 1.
@@ -46,13 +44,13 @@
 - Propuso crear un checklist de accesibilidad desde el inicio del desarrollo.
 - Sugirió usar herramientas como axe DevTools y Lighthouse desde el principio.
 
-### Problemas Identificados (Bloqueos que Afectan el Progreso del Equipo)
+## Problemas Identificados (Bloqueos que Afectan el Progreso del Equipo)
 
 - **Falta de wireframes:** No hay diseños visuales definidos para las páginas.
 - **Indecisión sobre la paleta de colores:** Algunos miembros proponen tonos azules, otros verdes.
 - **Confusión con la estructura de ramas:** No todos tienen claro cómo hacer Pull Requests.
 
-### Resoluciones y Acuerdos
+## Resoluciones y Acuerdos
 
 - Se acordó usar la paleta de colores verde (#2E7D32, #1B5E20, #A5D6A7) según la guía del curso.
 - Cada integrante creará su rama feature antes del miércoles 27/08.
