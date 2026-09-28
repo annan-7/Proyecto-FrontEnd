@@ -1,14 +1,14 @@
-## Acta de Reunión N.° 4 - MogulEnd (Eco Ruta Temuco)
+# Acta de Reunión N.° 4 - MogulEnd (Eco Ruta Temuco)
 
 **Fecha:** 11/09/2026
 
-**Hora:** 12:40 PM - 14:00 PM
+**Hora:** 12:50 PM - 14:00 PM
 
 **Registrado por:** Matías Espinoza
 
 **Tipo de reunión:** Presencial / Sala de clases
 
-### Asistencia
+## Asistencia
 
 **Presentes:**
 - Matías Espinoza (Scrum Master)
@@ -17,7 +17,7 @@
 - Miguel Torres (Developer)
 - Catalina Ojeda (QA/Tester)
 
-### Descripción de Avances por Integrante del Equipo
+## Descripción de Avances por Integrante del Equipo
 
 **Matías Espinoza (Scrum Master):**
 - Coordinó la planificación de la auditoría de accesibilidad para la Semana 6.
@@ -45,16 +45,15 @@
 - Clasificó los issues por severidad (6 altos, 8 medios, 4 bajos).
 - Preparó la tabla comparativa manual vs automático.
 
-### Problemas Identificados (Bloqueos que Afectan el Progreso del Equipo)
+## Problemas Identificados (Bloqueos que Afectan el Progreso del Equipo)
 
 - **Tiempo limitado:** Quedan 2 semanas para cerrar el Sprint 1 y hay muchas correcciones pendientes.
 - **Reporte Bug Bounty:** Falta formalizar el documento en PDF y subirlo a `documentos/reportes/`.
 - **Presentación final:** No se ha definido quién presentará ni cómo se organizarán los 15 minutos.
 
-### Resoluciones y Acuerdos
+## Resoluciones y Acuerdos
 
 - Cada integrante corregirá los issues de accesibilidad en su página.
 - Annan formalizará el reporte Bug Bounty en PDF y lo subirá a GitHub.
 - Se acordó que Annan y Matias serán los presentadores principales, con apoyo de Miguel.
 - Annan preparará una demo en vivo del sitio desplegado para la presentación.
-.
