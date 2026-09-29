@@ -121,3 +121,7 @@ Se ejecutaron pruebas de accesibilidad y rendimiento a las 4 paginas funcionales
 ### WAVE
 * Confirmó el problema de contraste en el texto del pie de página (`footer`).
 * Registra el botón de inicio como redundante al enlazar con `index.html`.
+
+### Reporte correccion de pruebas de contacto.html - Proyecto Frontend
+
+* **Correcciones:** Se corrigio el boton para enviar el mensaje, ahora simplemente no hace nada por ahora, eso queda para otro momento por ahora, tambien se corrigio h1, pues el html de contacto no tenia un h1, sino que tenia h2, se corrigio eso, queda pasar por axe y lighthouse.
