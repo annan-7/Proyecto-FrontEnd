@@ -124,4 +124,25 @@ Se ejecutaron pruebas de accesibilidad y rendimiento a las 4 paginas funcionales
 
 ### Reporte correccion de pruebas de contacto.html - Proyecto Frontend
 
-* **Correcciones:** Se corrigio el boton para enviar el mensaje, ahora simplemente no hace nada por ahora, eso queda para otro momento por ahora, tambien se corrigio h1, pues el html de contacto no tenia un h1, sino que tenia h2, se corrigio eso, queda pasar por axe y lighthouse.
+* **Correcciones:** Se corrigio el boton para enviar el mensaje, ahora simplemente no hace nada por ahora, eso queda para otro momento por ahora, tambien se corrigio h1, pues el html de contacto no tenia un h1, sino que tenia h2, se corrigio eso, falta pasar otra vez por WAVE la pagina cuando se apliquen los cambios al sitio principal.
+
+### Axe DevTools
+* **Descripción:** axe no detectó errores de accesibilidad en `contacto.html`.
+* **Impacto:** No hay impacto.
+* **Severidad:** Baja.
+* **Recomendación:** Ninguna, la página no presenta inconsistencias segun axe DevTools.
+
+###Pruebas de Lighthouse (Modo Mobile)
+| Métrica | Puntuación |
+| :--- | :--- |
+| **Rendimiento** | 77 / 100 |
+| **Accesibilidad** | 100 / 100 |
+| **Buenas Prácticas** | 100 / 100 |
+| **SEO** | 90 / 100 |
+
+* **Observaciones:** El rendimiento se va a un 77/100 con un bloqueo (*TBT*) de 380 ms.
+* **Recomendación:** Por ahora seria arreglar lo que haga que el rendimiento baje, pero eso depende porque se hizo la prueba en una version de la pagina que esta fuera de la rama, lo cual puede ser que influyo pero no confirmo.
+
+### WAVE
+no se pudo hacer aun el wave a la pagina, por lo dicho anteriormente, se actualizara este reporte apenas se hagan los cambios y correcciones hechas
+* **Inconsistencia de estructura corregida:** el elemento h1 fue agregado.
