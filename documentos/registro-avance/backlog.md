@@ -2,7 +2,7 @@
 
 ###  Por Hacer (To Do)
 
-| Prioridad | Responsable | Archivo/Componente | Critero De Aceptacion | Fecha | Pull Request|
+| Prioridad | Responsable | Archivo/Componente | Criterio De Aceptacion | Fecha | Pull Request|
 | :---: | :--- | :--- | :--- | :--- | :--- |
 
 
@@ -10,12 +10,12 @@
 
 ###  En Curso (In Progress)
 
-| Prioridad | Responsable | Archivo/Componente | Critero De Aceptacion | Fecha | Link Commit|
+| Prioridad | Responsable | Archivo/Componente | Criterio De Aceptacion | Fecha | Link Commit|
 | :---: | :--- | :--- | :--- | :--- | :--- |
 ---
 ###  En revision (testing / Review)
 
-| Prioridad | Responsable | Archivo/Componente | Critero De Aceptacion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Fecha | Link Commit|
+| Prioridad | Responsable | Archivo/Componente | Criterio De Aceptacion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Fecha | Link Commit|
 | :---: | :--- | :--- | :--- | :--- | :--- |
 |media | reporte de bug bounty | Reporte_Bug_Bounty_ECORUTAS.pdf| crear un documento "PDF", con todos los hallazgos de errores que se encuentra la pagina o el mismo proyecto| 28/09/26 |[ver commit](https://github.com/annan-7/Proyecto-FrontEnd/commit/6dfbe80892f47bc2b0047046ae68d1b8ffc9d87a)|
 | media| lectura de pantalla | issue.md, orca, firefox, imagen.png | crea un "md" con todos los mensajes de cada pagina con el lector y poner los errores encontrados y como solucionarlos, y con la evidencia con imagen.png de cada error.  | 27/9/26| [ver commit](https://github.com/annan-7/Proyecto-FrontEnd/commit/763c91660f39319754fd802f0628f7bcfa587c74) |
@@ -26,7 +26,7 @@
 
 ###  Hechos (Done)
 
-| Prioridad | Responsable | Archivo/Componente | Critero De Aceptacion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Fecha | Link Commit|
+| Prioridad | Responsable | Archivo/Componente | Criterio De Aceptacion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Fecha | Link Commit|
 | :---: | :--- | :--- | :--- | :--- | :--- |
 | media |Reportes y documentos de las reuniones | reunion-01.md, reunion-02.md,...| se creara un nuevo "md" hacia la carpeta de reuniones, cada vez que se asista a una reunion semanal, con la informacion de que se plantea en cada reunion | 28/09/26 | [ver commit](https://github.com/annan-7/Proyecto-FrontEnd/commit/6dfbe80892f47bc2b0047046ae68d1b8ffc9d87a) |
 | media| Requerimientos de cada web | requerimiento.md | crear un "md" con todo lo requerido en cada pagina para establecer normas que se deben cumplir cada pagina a su totalidad. | 25/09/26 | [ver commit](https://github.com/annan-7/Proyecto-FrontEnd/commit/e8faa8da627f0b958d81a237e57bdf2b7cd91d44)|
