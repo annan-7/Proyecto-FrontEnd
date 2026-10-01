@@ -35,6 +35,58 @@ img {
   display: block;
 }
 
+.titulo .logotipo {
+  width: 105px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.site-header {
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background: var(--white, #FFFFFF);
+  border-bottom: 2px solid var(--gray-light, #ECEFF1);
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.titulo h2 {
+  color: var(--green-dark, #1B5E20);
+  font-size: 1.35rem;
+  white-space: nowrap;
+}
+
+.navbar__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.navbar__links a {
+  color: var(--text, #263238);
+  font-weight: 600;
+}
+
+.navbar__links a:hover,
+.navbar__links a:focus-visible,
+.navbar__links a[aria-current="page"] {
+  color: var(--green-primary, #2E7D32);
+}
+
 
 .hero {
   display: flex;
