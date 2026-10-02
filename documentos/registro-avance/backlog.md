@@ -6,7 +6,7 @@
 | :---: | :--- |
 | Alta | Implementación de JS general |
 | Media| Creación del logo ECORUTAS |
-| Baja | avanze hacia al Sprint 2 |
+| Baja | Avance hacia Sprint 2 |
 
 ---
 
@@ -14,11 +14,11 @@
 
 | Prioridad | Tarea a Realizar |
 | :---: | :--- |
-| alta | avanze hacia al Sprint 1 |
-| media | Implementación de enfoques *mobile-first* y Flexbox en CSS |
+| Alta | Avance hacia Sprint 1 |
+| Media | Implementación de enfoques *mobile-first* y Flexbox en CSS |
 | Alta | Implementación de arreglos derivados del Bug Bounty |
 ---
-###  En revision (testing / Review)
+###  En revisión (testing / Review)
 
 | Prioridad | Tarea a Realizar |
 | :---: | :--- |
@@ -39,24 +39,24 @@
 | Baja |  Firmar acuerdo de uso responsable de IA |
 | Baja | Creación de la agenda individual de IA |
 | Baja |  Definición y redacción de los roles ágiles de cada sprint |
-| media| Realización del HTML y CSS para la interfaz "404_error" |
+| Media| Realización del HTML y CSS para la interfaz "404_error" |
 | Media| Realización del HTML y CSS para la interfaz "index" |
 | Media| Realización del HTML y CSS para la interfaz "rutas" |
 | Media| Realización del HTML y CSS para la interfaz "contacto" |
 | Media| Realización del HTML y CSS para la interfaz "sobre_nosotros" |
 | Media| Implementación de CSS styles |
-| media| Implementación de CSS global |
+| Media| Implementación de CSS global |
 ---
 
-## estados generales
+## Estados generales
 
-| Prioridad | Tarea a Realizar | estado 
+| Prioridad | Tarea a Realizar | Estado 
 | :---: | :--- | :--- |
-| Alta | Accesibilidad al usuario| en curso|
-| Alta | adaptibilidad general de la pagina| en curso |
-| alta | cumplimiento de logica en la web | en curso |
-| alta | seguridad y proteccion  a sla web | por hacer|
-| media| optimizacion y rendimiento en la pagina | por hacer |
-| media | entrega y presentacion primera defensa | en curso|   
-| media | cumplimiento de la encuasta de los usuarios | en curso|
+| Alta | Accesibilidad al usuario| En curso|
+| Alta | Adaptibilidad general de la página| En curso |
+| Alta | Cumplimiento de lógica en la web | En curso |
+| Alta | Seguridad y protección  a la web | Por hacer|
+| Media| Optimización y rendimiento en la página | Por hacer |
+| Media | Entrega y presentación primera defensa | En curso|   
+| Media | Cumplimiento de la encuesta de los usuarios | En curso|
 ---
