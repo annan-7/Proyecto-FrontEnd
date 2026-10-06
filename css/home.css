@@ -196,18 +196,26 @@ img {
 .carousel {
   position: relative;
   overflow: hidden;
+  background: var(--gray-light, #ECEFF1);
+  border: 2px solid var(--gray-light, #ECEFF1);
+  border-radius: var(--border-radius, 10px);
+  padding: 2rem 0;
 }
 
 .carousel__track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 180px;
-  background: var(--gray-light, #ECEFF1);
-  border: 2px solid var(--gray-light, #ECEFF1);
-  border-radius: var(--border-radius, 10px);
-  color: var(--text, #263238);
-  padding: 2rem;
+  transition: transform 0.5s ease-in-out;
+  list-style: none;
+}
+
+.carousel__slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  padding: 0 1rem;
+}
+
+.carousel__slide .card {
+  height: 100%;
 }
 
 .carousel__btn {
@@ -226,7 +234,7 @@ img {
   justify-content: center;
   transition: all 0.2s;
   color: var(--green-primary, #2E7D32);
-  z-index: 1;
+  z-index: 10;
 }
 
 .carousel__btn:hover {
@@ -241,11 +249,11 @@ img {
 }
 
 .carousel__btn--prev {
-  left: 0.5rem;
+  left: 1rem;
 }
 
 .carousel__btn--next {
-  right: 0.5rem;
+  right: 1rem;
 }
 
 .carousel__dots {
@@ -279,7 +287,30 @@ img {
 .carousel__dot.active {
   background: var(--green-primary, #2E7D32);
 }
-/* 
+
+.carousel__pause-btn {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.5rem 1rem;
+  background: var(--white);
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.carousel__pause-btn:hover {
+  background: var(--green-light);
+  border-color: var(--green-primary);
+}
+
+.carousel__pause-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--green-light);
+}
+
 .footer {
   margin: 1rem;
   padding: 2rem 1rem;
@@ -289,7 +320,7 @@ img {
   text-align: center;
   color: var(--text, #263238);
   opacity: 0.8;
-} */
+} 
 
 
 @media (min-width: 768px) {
