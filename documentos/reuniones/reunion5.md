@@ -1,8 +1,8 @@
 # Acta de Reunion N.° 5 - MongulEnd (Eco Ruta Temuco)
 
-**Fecha:** 17/09/2026
+**Fecha:** 06/10/2026
 
-**Hora:** 12:40 PM - 14:00 PM
+**Hora:** 13:40 PM - 14:50 PM
 
 **Registrado por:** Matias Espinoza
 
@@ -25,7 +25,7 @@
 
 ## Objetivo de la Reunion
 
-Cierre formal del Sprint 1, revision de entregables pendientes para la defensa del 24/09, y planificacion inicial del Sprint 2 con rotacion de roles agiles.
+Cierre formal del Sprint 1, revision de entregables pendientes para la defensa del 08/10, y planificacion inicial del Sprint 2 con rotacion de roles agiles.
 
 ---
 
@@ -140,7 +140,7 @@ JavaScript moderno, asincronia y TypeScript. El equipo debe migrar las funcional
    - Catalina verificara que el reporte Bug Bounty este correctamente vinculado en el repositorio.
    - Matias preparara las diapositivas de presentacion para la defensa del 24/09.
 
-2. **Defensa Sprint 1 (24/09):**
+2. **Defensa Sprint 1 (06/10):**
    - Presentadores principales: Matias (Scrum Master) y Catalina (QA).
    - Duracion maxima: 15 minutos.
    - Incluir demo en vivo del sitio desplegado con navegacion por teclado.
@@ -149,10 +149,10 @@ JavaScript moderno, asincronia y TypeScript. El equipo debe migrar las funcional
 3. **Inicio Sprint 2:**
    - Miguel configurara el entorno TypeScript el lunes 28/09.
    - Cada integrante investigara TypeScript basico durante la semana de receso.
-   - Primera reunion de planificacion Sprint 2: miercoles 01/10 a las 12:40 PM.
+   - Primera reunion de planificacion Sprint 2: miercoles 13/10 a las 12:40 PM.
 
 4. **Coevaluacion:**
-   - Cada integrante completara la coevaluacion individual antes del lunes 22/09.
+   - Cada integrante completara la coevaluacion individual antes del jueves 08/10.
    - Escala 1 a 7, solo enteros, solo compañeros (no autoevaluacion).
 
 ---
@@ -174,13 +174,13 @@ JavaScript moderno, asincronia y TypeScript. El equipo debe migrar las funcional
 
 ## 7. Proxima Reunion
 
-**Fecha:** 23/09/2026
+**Fecha:** 13/10/2026
 
 **Hora:** 19:00 PM - 20:30 PM
 
 **Tipo:** En linea / Discord
 
-**Objetivo:** Ensayo general de presentacion para defensa del Sprint 1 y revision final de entregables.
+**Objetivo:** Registro de progreso inicial en el Sprint 2.
 
 ---
 
@@ -188,4 +188,4 @@ JavaScript moderno, asincronia y TypeScript. El equipo debe migrar las funcional
 
 **Revisado por:** Tomas Mardones (Project Owner)
 
-**Fecha de registro:** 17/09/2026
+**Fecha de registro:** 06/10/2026
