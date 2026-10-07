@@ -23,7 +23,7 @@
     <main class="contacto-container">
         
         <section class="contacto-info">
-            <h1>Información de Contacto</h2>
+            <h1>Información de Contacto</h1>
             <ul>
                 <li><strong>Correo:</strong> ejemplo@correo.com</li>
                 <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
@@ -33,20 +33,51 @@
 
         <section class="contacto-form-section">
             <h2>Envíanos un mensaje</h2>
-            <form class="contacto-form" action="#" method="get">
+
+            <!-- Mensaje de estado global -->
+            <div id="status-message" class="status-message" aria-live="polite"></div>
+
+            <form class="contacto-form" id="contacto-form" action="#" method="post" novalidate>
                 <div class="form-group">    
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    <label for="nombre">Nombre <span aria-hidden="true">*</span></label>
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        placeholder="Tu nombre" 
+                        required 
+                        aria-required="true"
+                        aria-describedby="error-nombre"
+                    >
+                    <span id="error-nombre" class="error-text" aria-live="assertive"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Correo</label>
-                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    <label for="email">Correo <span aria-hidden="true">*</span></label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="tu@email.com" 
+                        required 
+                        aria-required="true"
+                        aria-describedby="error-email"
+                    >
+                    <span id="error-email" class="error-text" aria-live="assertive"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    <label for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
+                    <textarea 
+                        id="mensaje" 
+                        name="mensaje" 
+                        rows="4" 
+                        placeholder="Escribe tu mensaje aquí..." 
+                        required 
+                        aria-required="true"
+                        aria-describedby="error-mensaje"
+                    ></textarea>
+                    <span id="error-mensaje" class="error-text" aria-live="assertive"></span>
                 </div>
 
                 <button type="submit">Enviar Mensaje</button>
@@ -58,6 +89,6 @@
     <footer class="footer" role="contentinfo">
         <p>&copy; 2026 Descubre la Naturaleza. Todos los derechos reservados.</p>
     </footer>
-
+    <script src="../js/contacto.js"></script>
 </body>
 </html>
