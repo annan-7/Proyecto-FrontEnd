@@ -35,7 +35,9 @@
   padding: 0 1rem;
 }
 
-
+/* ============================================
+   PAGE HERO
+   ============================================ */
 .page-hero {
   background: linear-gradient(135deg, var(--green-primary, #2E7D32) 0%, var(--green-dark, #1B5E20) 100%);
   color: var(--white, #FFFFFF);
@@ -46,7 +48,6 @@
 .page-hero__title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--white, #FFFFFF);
   margin-bottom: 0.5rem;
   line-height: 1.2;
 }
@@ -57,12 +58,16 @@
   line-height: 1.6;
 }
 
-
+/* ============================================
+   SEARCH SECTION
+   ============================================ */
 .search-section {
   padding: 2rem 0;
 }
 
-
+/* ============================================
+   SEARCH FORM
+   ============================================ */
 .search-form {
   display: flex;
   flex-direction: column;
@@ -134,12 +139,14 @@
   transform: scale(0.98);
 }
 
-
+/* ============================================
+   FILTERS
+   ============================================ */
 .filters {
   margin-bottom: 2rem;
 }
 
-
+/* Chips */
 .filters__chips {
   border: none;
   padding: 0;
@@ -186,7 +193,11 @@
   color: var(--white, #FFFFFF);
 }
 
+.page-hero__title{
+  color: #FFFFFF;
+}
 
+/* Advanced filters */
 .filters__advanced {
   background: var(--white, #FFFFFF);
   border: 2px solid var(--gray-light, #ECEFF1);
@@ -233,7 +244,7 @@
   border-top: 1px solid var(--gray-light, #ECEFF1);
 }
 
-
+/* Filter groups */
 .filter-group {
   display: flex;
   flex-direction: column;
@@ -296,7 +307,9 @@
   box-shadow: 0 0 0 3px var(--green-light, #A5D6A7);
 }
 
-
+/* ============================================
+   RESULTS
+   ============================================ */
 .results__count {
   font-size: 0.9375rem;
   color: var(--text, #263238);
@@ -308,7 +321,9 @@
   color: var(--green-primary, #2E7D32);
 }
 
-
+/* ============================================
+   ROUTES GRID
+   ============================================ */
 .routes-grid {
   list-style: none;
   padding: 0;

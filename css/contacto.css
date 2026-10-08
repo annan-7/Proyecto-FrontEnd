@@ -94,6 +94,9 @@ body {
     color: #263238;
     transition: all 0.2s ease;
 }
+.contacto-info__title{
+    color: #FFFFFF;
+}
 
 .form-group input:focus,
 .form-group textarea:focus {
