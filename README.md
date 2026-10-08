@@ -21,7 +21,7 @@
 - (Framework a definir)
 - (API consumida)
 
-## Cómo ejecutar el proyecto
+## Cómo ejecutar el proyecto(no por el momento)
 
 ```bash
 # Instalar dependencias

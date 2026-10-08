@@ -111,6 +111,10 @@
   background: var(--white, #FFFFFF);
 }
 
+#nosotros-title{
+  color: #FFFFFF;
+}
+
 
 .section--mision-vision {
   background: var(--gray-light, #ECEFF1);
