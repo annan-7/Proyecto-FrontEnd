@@ -104,7 +104,7 @@
 
               <div class="filter-group">
                 <label for="filter-distance" class="filter-group__label">Distancia máxima (km)</label>
-                <input type="range" id="filter-distance" class="filter-group__range" min="1" max="50" value="50" aria-valuemin="1" aria-valuemax="50" aria-valuenow="50">
+                <input type="range" id="filter-distance" class="filter-group__range" min="1" max="50" value="50" aria-valuemin="1" aria-valuemax="50" aria-valuenow="50" aria-valuetext="50 kilómetros">
                 <output for="filter-distance" class="filter-group__output">50 km</output>
               </div>
 
@@ -432,6 +432,7 @@
             </svg>
             <h3 class="results__empty-title">No encontramos rutas</h3>
             <p class="results__empty-text">Intenta ajustar los filtros o buscar con otros términos.</p>
+            <button type="button" class="results__empty-clear">Limpiar filtros</button>
           </div>
 
           <dialog class="route-dialog" aria-labelledby="route-dialog-title">
