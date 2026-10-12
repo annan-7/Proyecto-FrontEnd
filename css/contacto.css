@@ -37,7 +37,7 @@ body {
     justify-content: center;
 }
 
-.contacto-info h2 {
+.contacto-info h1 {
     color: #ffffff;
     margin-bottom: 25px;
     font-size: 1.8rem;
@@ -93,6 +93,9 @@ body {
     font-size: 1rem;
     color: #263238;
     transition: all 0.2s ease;
+}
+.contacto-info__title{
+    color: #FFFFFF;
 }
 
 .form-group input:focus,

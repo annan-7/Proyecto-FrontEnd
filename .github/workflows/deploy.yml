@@ -54,7 +54,7 @@ jobs:
                       if not target:
                           continue
                       resolved = (self.source.parent / target).resolve()
-                        if not resolved.is_file():
+                      if not resolved.is_file():
                           missing_references.append(f"{self.source}: missing {attribute} target {value}")
 
           for source in root.rglob("*.html"):
@@ -62,18 +62,18 @@ jobs:
               parser.source = source
               parser.feed(source.read_text(encoding="utf-8"))
 
-            required_files = [root / "index.html", root / "paginas" / "404.html"]
-            errors.extend(f"Missing required file: {path}" for path in required_files if not path.is_file())
+          required_files = [root / "index.html", root / "paginas" / "404.html"]
+          errors.extend(f"Missing required file: {path}" for path in required_files if not path.is_file())
 
-            if errors:
+          if errors:
               print("\n".join(errors))
               raise SystemExit(1)
 
-            if missing_references:
+          if missing_references:
               print("Warnings: unresolved local references found:")
               print("\n".join(missing_references))
 
-            print("All required site files and HTML documents are valid.")
+          print("All required site files and HTML documents are valid.")
 
   deploy:
     name: Deploy to GitHub Pages
