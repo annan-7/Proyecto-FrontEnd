@@ -9,6 +9,15 @@ const clearFiltersButton = document.querySelector('.filters__clear');
 const routeCards = [...document.querySelectorAll('.route-card')];
 const resultsNumber = document.querySelector('#results-number');
 const emptyResults = document.querySelector('.results__empty');
+const detailButtons = document.querySelectorAll('[data-route-details]');
+const routeDialog = document.querySelector('.route-dialog');
+const dialogImage = document.querySelector('[data-dialog-image]');
+const dialogTitle = document.querySelector('[data-dialog-title]');
+const dialogLocation = document.querySelector('[data-dialog-location]');
+const dialogDifficulty = document.querySelector('[data-dialog-difficulty]');
+const dialogDistance = document.querySelector('[data-dialog-distance]');
+const dialogDuration = document.querySelector('[data-dialog-duration]');
+const closeDialogButton = document.querySelector('[data-dialog-close]');
 
 let activeCategory = 'all';
 
@@ -59,6 +68,31 @@ searchInput.addEventListener('input', updateResults);
 difficultyFilter.addEventListener('change', updateResults);
 distanceFilter.addEventListener('input', updateResults);
 durationFilter.addEventListener('change', updateResults);
+
+detailButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.route-card');
+    const image = card.querySelector('.route-card__image');
+    const title = card.querySelector('.route-card__title').textContent;
+    const location = card.querySelector('.route-card__location').textContent.trim();
+    const difficulty = card.querySelector('.route-card__badge').textContent.trim();
+
+    dialogImage.src = image.src;
+    dialogImage.alt = image.alt;
+    dialogTitle.textContent = title;
+    dialogLocation.textContent = location;
+    dialogDifficulty.textContent = `Dificultad: ${difficulty}`;
+    dialogDistance.textContent = `Distancia: ${card.dataset.distance} km`;
+    dialogDuration.textContent = `Duración: ${card.dataset.duration} h`;
+    routeDialog.showModal();
+  });
+});
+
+closeDialogButton.addEventListener('click', () => routeDialog.close());
+
+routeDialog.addEventListener('click', (event) => {
+  if (event.target === routeDialog) routeDialog.close();
+});
 
 clearFiltersButton.addEventListener('click', () => {
   activeCategory = 'all';
