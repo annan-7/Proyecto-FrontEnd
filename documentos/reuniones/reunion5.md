@@ -39,7 +39,7 @@ Cierre formal del Sprint 1, revision de entregables pendientes para la defensa d
 | CSS Mobile First + Variables | Completado | Todo el equipo | Paleta ECORUTAS aplicada consistentemente |
 | Despliegue GitHub Pages | Completado | Miguel | URL activa y workflow de Actions funcionando |
 | Reporte Bug Bounty PDF | Completado | Catalina | Ubicado en documentos/reportes/ |
-| Actas de reunion (4) | Completado | Matias | Subidas a documentos/ |
+| Actas de reunion (4) | Completado | Matias | Subidas a documentos/reuniones/ |
 | Tablero Trello | Completado | Matias | Issues de accesibilidad registrados como tareas |
 | AGENT.md | Completado | Equipo | Guia de desarrollo creada |
 | README.md | Pendiente | Tomas | Falta actualizar con URL final de GitHub Pages |
@@ -176,7 +176,7 @@ JavaScript moderno, asincronia y TypeScript. El equipo debe migrar las funcional
 
 **Fecha:** 13/10/2026
 
-**Hora:** 19:00 PM - 20:30 PM
+**Hora:** 19:00 PM - 20:10 PM
 
 **Tipo:** En linea / Discord
 

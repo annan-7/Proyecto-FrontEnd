@@ -2,10 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log(' Carrusel: Iniciando...');
     
-    // 1. Selección de elementos del DOM con validación
     const carousel = document.querySelector('.carousel');
     if (!carousel) {
-        console.log('Carrusel: No se encontró el elemento .carousel en esta página');
+        console.log('️Carrusel: No se encontró el elemento .carousel');
         return;
     }
 
@@ -16,23 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = Array.from(carousel.querySelectorAll('.carousel__dot'));
     const pauseBtn = carousel.querySelector('.carousel__pause-btn');
 
-    // Validación de elementos críticos
-    if (!track || slides.length === 0) {
-        console.error('Carrusel: Faltan elementos críticos (track o slides)');
+    if (!track || slides.length === 0 || !prevBtn || !nextBtn || !pauseBtn) {
+        console.error(' Carrusel: Faltan elementos críticos');
         return;
     }
 
-    if (!prevBtn || !nextBtn) {
-        console.error('Carrusel: Faltan botones de navegación');
-        return;
-    }
-
-    if (!pauseBtn) {
-        console.error('Carrusel: No se encontró el botón de pausa');
-        return;
-    }
-
-    // 2. Estado inicial del carrusel
+    // Estado
     let currentIndex = 0;
     const totalSlides = slides.length;
     let isPlaying = true;
@@ -41,26 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(`Carrusel: ${totalSlides} slides encontrados`);
 
-    // 3. Función principal para actualizar la vista
     function updateCarousel() {
-        console.log(`    Carrusel: Actualizando a slide ${currentIndex}`);
-    
-        // Mueve el track
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-        // Actualiza slides y maneja el foco
         slides.forEach((slide, index) => {
             const isActive = index === currentIndex;
             slide.setAttribute('aria-hidden', !isActive);
-        
-            // CRÍTICO: Desactiva el foco en slides ocultos
+            
             const focusableElements = slide.querySelectorAll('a, button, [tabindex]');
             focusableElements.forEach(el => {
                 el.setAttribute('tabindex', isActive ? '0' : '-1');
             });
         });
 
-        // Actualiza dots
         if (dots.length > 0) {
             dots.forEach((dot, index) => {
                 const isActive = index === currentIndex;
@@ -70,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 4. Funciones de navegación
     function nextSlide() {
         currentIndex = (currentIndex + 1) % totalSlides;
         updateCarousel();
@@ -89,33 +69,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 5. Control del Auto-play (CORREGIDO)
-    function startAutoPlay() {
-        // Limpiar intervalo existente ANTES de crear uno nuevo
+    // CORREGIDO: Limpieza robusta de intervalos
+    function clearAllIntervals() {
         if (autoPlayInterval !== null) {
             clearInterval(autoPlayInterval);
+            autoPlayInterval = null;
+            console.log('Intervalo limpiado');
         }
+    }
+
+    function startAutoPlay() {
+        // PRIMERO limpiar cualquier intervalo existente
+        clearAllIntervals();
         
         if (isPlaying) {
-            console.log('Carrusel: Auto-play iniciado');
             autoPlayInterval = setInterval(() => {
-                console.log('Carrusel: Auto-play disparado');
+                console.log('Auto-play disparado');
                 nextSlide();
             }, AUTO_PLAY_DELAY);
+            console.log('Auto-play iniciado');
         }
     }
 
     function stopAutoPlay() {
-        if (autoPlayInterval !== null) {
-            clearInterval(autoPlayInterval);
-            autoPlayInterval = null;
-            console.log('Carrusel: Auto-play detenido');
-        }
+        clearAllIntervals();
+        console.log('️Auto-play detenido');
     }
 
     function resetAutoPlay() {
-        console.log('Carrusel: Reiniciando auto-play');
-        stopAutoPlay();
+        console.log('Reiniciando auto-play');
+        clearAllIntervals();
         if (isPlaying) {
             startAutoPlay();
         }
@@ -123,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function togglePause() {
         isPlaying = !isPlaying;
-        console.log(`Carrusel: Pausa ${isPlaying ? 'desactivada' : 'activada'}`);
         
         if (isPlaying) {
             pauseBtn.textContent = 'Pausar';
@@ -134,92 +116,72 @@ document.addEventListener('DOMContentLoaded', () => {
             pauseBtn.setAttribute('aria-pressed', 'true');
             stopAutoPlay();
         }
+        console.log(`️Pausa ${isPlaying ? 'desactivada' : 'activada'}`);
     }
 
-    // 6. Event Listeners
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            console.log('Carrusel: Botón anterior clickeado');
-            prevSlide();
-            resetAutoPlay();
+    // Event Listeners
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoPlay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoPlay();
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToSlide(index);
         });
-    }
+    });
 
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            console.log('Carrusel: Botón siguiente clickeado');
-            nextSlide();
-            resetAutoPlay();
-        });
-    }
+    pauseBtn.addEventListener('click', togglePause);
 
-    if (dots.length > 0) {
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                console.log(`Carrusel: Dot ${index} clickeado`);
-                goToSlide(index);
-            });
-        });
-    }
-
-    if (pauseBtn) {
-        pauseBtn.addEventListener('click', () => {
-            console.log('️Carrusel: Botón pausa clickeado');
-            togglePause();
-        });
-    }
-
-    // Pausa en hover
+    // Pausa en hover/mouseleave
     carousel.addEventListener('mouseenter', () => {
         if (isPlaying) {
-            console.log('Carrusel: Mouse enter - pausando');
-            stopAutoPlay();
+            clearAllIntervals();
         }
     });
 
     carousel.addEventListener('mouseleave', () => {
-        if (isPlaying) {
-            console.log('️Carrusel: Mouse leave - reanudando');
+        if (isPlaying && autoPlayInterval === null) {
             startAutoPlay();
         }
     });
 
-    // Pausa en focus (accesibilidad)
+    // Pausa en focus/focusout
     carousel.addEventListener('focusin', () => {
         if (isPlaying) {
-            console.log('Carrusel: Focus in - pausando');
-            stopAutoPlay();
+            clearAllIntervals();
         }
     });
 
     carousel.addEventListener('focusout', () => {
-        if (isPlaying) {
-            console.log('Carrusel: Focus out - reanudando');
+        if (isPlaying && autoPlayInterval === null) {
             startAutoPlay();
         }
     });
 
-    // 7. Controles de teclado
+    // Controles de teclado
     carousel.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
             e.preventDefault();
-            console.log('Carrusel: Tecla flecha izquierda');
             prevSlide();
             resetAutoPlay();
             if (prevBtn) prevBtn.focus();
         } else if (e.key === 'ArrowRight') {
             e.preventDefault();
-            console.log('Carrusel: Tecla flecha derecha');
             nextSlide();
             resetAutoPlay();
             if (nextBtn) nextBtn.focus();
         }
     });
 
-    // 8. Inicialización
-    console.log('Carrusel: Inicializando primera vista');
+    // Inicialización ÚNICA
+    console.log(' Inicializando...');
     updateCarousel();
     startAutoPlay();
-    
-    console.log('Carrusel: Completado');
+    console.log('Carrusel listo');
 });
