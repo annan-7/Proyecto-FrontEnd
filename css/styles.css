@@ -56,6 +56,13 @@
       outline: none;
     }
 
+    .menu {
+      display: none;
+   }
+
+    .cerrar_menu {
+      display: none;
+    }
     
     .hero {
       display: flex;
@@ -222,19 +229,6 @@
     .carousel__dot.active {
       background: #2e7d32;
     }
-
-    
-    .footer {
-      margin: 1rem 2rem 2rem;
-      padding: 2rem;
-      background: #fff;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      text-align: center;
-      color: #999;
-    }
-
-    
     @media (max-width: 768px) {
       .hero {
         flex-direction: column;
@@ -258,4 +252,6 @@
       .hero__text h1 {
         font-size: 1.5rem;
       }
-    }
+}
+
+
