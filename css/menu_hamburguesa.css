@@ -1,4 +1,8 @@
-       @media (max-width: 480px) {
+     .menu, .cerrar_menu {
+      display: none;
+     }
+     
+      @media (max-width: 480px) {
       .menu, .cerrar_menu {
         display: block;
         border: 0;
