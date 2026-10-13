@@ -1,4 +1,3 @@
-/* mensaje principal (container) */
 
 .container {
   width: 100%;
@@ -15,7 +14,6 @@
   text-shadow: 0.0625rem 0.0625rem 0.0625rem var(--green-primary);
 }
 
-/*volver al inicio link*/
 
 .botton {
   display: inline-block;
