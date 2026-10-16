@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!regexEmail.test(valor.trim())) {
-                    return 'Por favor, ingresa un correo electrónico válido.';
+                    return 'Ingrese un correo electrónico válido.';
                 }
                 return '';
             }
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (primerCampoConError) {
                 primerCampoConError.focus();
             }
-            statusMessage.textContent = 'El formulario contiene errores.';
+            statusMessage.textContent = 'Corriga su formulario.';
             statusMessage.classList.add('status-message--error');
         } else {
             const formData = new FormData(form);
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Nombre enviado:', datosContacto.nombre);
             console.log('Email enviado:', datosContacto.email);
 
-            statusMessage.textContent = '¡Gracias por contactarnos!';
+            statusMessage.textContent = '¡Gracias por confiar en nosotros!';
             statusMessage.classList.add('status-message--exito');
 
             form.reset();
