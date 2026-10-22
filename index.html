@@ -8,6 +8,9 @@
   <link rel="icon" href="./assets/imagenes/logo-2.png" type="image/png">
   <title>EcoRuta</title>
   <script src="./js/carrusel.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="./js/mapa.js" defer></script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -87,9 +90,17 @@
       <button type="button" class="carousel__pause-btn" aria-label="Pausar carrusel" aria-pressed="false">Pausar</button>
     </section>
 
-  </main>
+    </main>
 
-  <footer class="footer">
+    <section class="section map-section" aria-labelledby="mapa-title">
+        <div class="section__header">
+            <h2 class="section__title" id="mapa-title">Ubicaciones de nuestros senderos</h2>
+            <span class="section__subtitle">Explora La Araucanía en el mapa</span>
+        </div>
+        <div id="mapa-ecoruta" class="map-container" role="application" aria-label="Mapa interactivo de senderos en La Araucanía"></div>
+    </section>
+
+    <footer class="footer">
     <p>&copy; 2026 ECORUTAS. Todos los derechos reservados.</p>
   </footer>
 
