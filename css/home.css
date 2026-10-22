@@ -414,23 +414,7 @@ img {
   }
 }
 
-.map-reset-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: var(--green-primary);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-weight: 600;
-}
 
-.map-reset-btn:hover {
-    background: var(--green-dark);
-}
 /* FOOTER */
 .footer {
   margin: 1rem;
