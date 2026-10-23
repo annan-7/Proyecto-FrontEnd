@@ -24,7 +24,9 @@ let activeCategory = 'all';
 function updateResults() {
   const searchTerm = searchInput.value.trim().toLocaleLowerCase();
   const maxDistance = Number(distanceFilter.value);
-  const maxDuration = durationFilter.value ? Number(durationFilter.value) : Infinity;
+  const maxDuration = durationFilter.value && durationFilter.value !== '24'
+    ? Number(durationFilter.value)
+    : Infinity;
   const difficulty = difficultyFilter.value;
   let visibleCount = 0;
 
@@ -34,7 +36,9 @@ function updateResults() {
     const matchesCategory = activeCategory === 'all' || card.dataset.category.split(' ').includes(activeCategory);
     const matchesDifficulty = !difficulty || card.dataset.difficulty === difficulty;
     const matchesDistance = Number(card.dataset.distance) <= maxDistance;
-    const matchesDuration = Number(card.dataset.duration) <= maxDuration;
+    const matchesDuration = durationFilter.value === '24'
+      ? Number(card.dataset.duration) > 8
+      : Number(card.dataset.duration) <= maxDuration;
     const isVisible = matchesSearch && matchesCategory && matchesDifficulty && matchesDistance && matchesDuration;
 
     card.hidden = !isVisible;
@@ -45,6 +49,7 @@ function updateResults() {
   emptyResults.hidden = visibleCount !== 0;
   distanceOutput.textContent = `${distanceFilter.value} km`;
   distanceFilter.setAttribute('aria-valuenow', distanceFilter.value);
+  distanceFilter.setAttribute('aria-valuetext', `${distanceFilter.value} kilómetros`);
 }
 
 chips.forEach((chip) => {
@@ -106,6 +111,10 @@ clearFiltersButton.addEventListener('click', () => {
     chip.setAttribute('aria-pressed', String(isAllChip));
   });
   updateResults();
+});
+
+emptyResults.querySelector('.results__empty-clear').addEventListener('click', () => {
+  clearFiltersButton.click();
 });
 
 updateResults();

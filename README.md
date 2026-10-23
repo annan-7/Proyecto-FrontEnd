@@ -2,6 +2,7 @@
 
 ## Integrantes y roles (Sprint actual)
 
+| Rol ágil | Sprint 0 | Sprint 1  | Sprint 2 (actual) | Sprint 3 |
 | Rol ágil | Sprint 0 | Sprint 1 | Sprint 2 (actual)| Sprint 3 |
 |---|---|---|---|---|
 | Scrum Master | Matías Espinoza | Matías Espinoza | Annan John | Miguel Torres |
