@@ -105,7 +105,7 @@
         return;
       }
 
-      status.textContent = 'Gracias. Hemos recibido tu mensaje en esta demostración local.';
+      status.textContent = 'Formulario validado. Esta demostración no envía ni almacena mensajes.';
       status.dataset.state = 'success';
       form.reset();
     });
