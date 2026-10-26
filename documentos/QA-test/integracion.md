@@ -32,3 +32,9 @@ Herramientas: Chromium/Firefox, DevTools Network y Console, Playwright para regr
 6. Sobre nosotros: main.js debe cargar; registrar por separado imágenes ausentes. No cerrar esta tarjeta hasta corregirlas.
 
 Registrar por caso: fecha, URL, commit, responsable, resultado esperado/obtenido, captura o traza y enlace al PR. Los ensayos con respuestas simuladas no acreditan disponibilidad real de API. No hay evidencia de validación publicada ni de cumplimiento antes del plazo original.
+
+## Validación ejecutada el 26/10/2026
+
+Servidor local, Chromium + Playwright: carrusel siguiente/anterior/pausa, búsqueda de rutas sin resultados, restauración de seis resultados, apertura/cierre de detalle, rechazo de nombre compuesto solo por espacios y confirmación local sin redirección: PASS. Sin errores JavaScript durante estos flujos.
+
+Integración con servicios reales: Leaflet y mosaicos OpenStreetMap cargados, Open-Meteo respondió con temperatura, precipitación, viento y fecha: PASS. Chromium no logró cargar directamente los recursos a través del proxy de esta máquina; para la prueba se reenviaron las solicitudes HTTPS mediante urllib con verificación TLS, devolviendo las respuestas reales al navegador. Esto acredita el renderizado y consumo con datos reales mediante ese intermediario de pruebas; no acredita conectividad directa de Chromium ni validación de la página publicada. Las pruebas anteriores con respuestas controladas verificaron éxito/error de clima. La confirmación del formulario sigue siendo local, sin envío de correo. MockAPI y las fotografías ausentes de Sobre nosotros siguen pendientes.
