@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     status.dataset.state = 'loading';
     status.textContent = 'Cargando condiciones actuales…';
     try {
+      // consumo de la API de Open Meteo para obtener el clima actual en Chillán, Chile
       const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-38.7359&longitude=-72.5904&current=temperature_2m,precipitation,wind_speed_10m&timezone=America%2FSantiago', {signal: AbortSignal.timeout(12000)});
       if (!response.ok) throw new Error('HTTP ' + response.status);
       const body = await response.json();
