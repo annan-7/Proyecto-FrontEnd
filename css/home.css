@@ -1,5 +1,5 @@
 /* ============================================
-   1. VARIABLES Y RESET GLOBAL
+  1. VARIABLES Y RESET GLOBAL
    ============================================ */
 :root {
   --green-primary: #2E7D32;
@@ -35,8 +35,9 @@ img {
   display: block;
 }
 
+
 /* ============================================
-   2. SKIP LINK (Accesibilidad)
+  2. SKIP LINK (Accesibilidad)
    ============================================ */
 .skip-link {
   position: absolute;
@@ -51,6 +52,7 @@ img {
 .skip-link:focus {
   top: 0;
 }
+
 
 /* ============================================
    3. HEADER / NAVBAR
@@ -94,9 +96,6 @@ img {
   color: var(--green-primary);
 }
 
-.menu, .cerrar_menu {
-  display: none; 
-}
 
 /* ============================================
    4. HERO
@@ -162,6 +161,7 @@ img {
   object-fit: cover;
 }
 
+
 /* ============================================
    5. MAIN / BODY
    ============================================ */
@@ -171,6 +171,7 @@ img {
   flex-direction: column;
   gap: 1.5rem;
 }
+
 
 /* ============================================
    6. SECCIÓN GENÉRICA
@@ -200,6 +201,7 @@ img {
   color: var(--text);
   opacity: 0.7;
 }
+
 
 /* ============================================
    7. CARDS (base)
@@ -252,6 +254,7 @@ img {
   margin-bottom: 1rem;
 }
 
+
 /* ============================================
    8. BOTONES (.btn)
    ============================================ */
@@ -271,8 +274,8 @@ img {
 .btn--primary:focus-visible {
   background: var(--green-dark);
   color: var(--white);
-  text-decoration: none;
 }
+
 
 /* ============================================
    9. FOOTER
@@ -287,6 +290,7 @@ img {
   color: var(--text);
   opacity: 0.8;
 }
+
 
 /* ============================================
    10. CARRUSEL
@@ -423,6 +427,7 @@ img {
   box-shadow: 0 0 0 3px var(--green-light);
 }
 
+
 /* ============================================
    11. MAPA
    ============================================ */
@@ -498,8 +503,66 @@ img {
   box-shadow: 0 0 0 3px var(--green-light);
 }
 
+
 /* ============================================
-   12. MEDIA QUERIES (Responsive)
+  12. MEDIA QUERIES (Responsive)
    ============================================ */
 @media (min-width: 768px) {
   .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .navbar__links {
+    gap: 2rem;
+  }
+
+  .hero {
+    flex-direction: row;
+    min-height: 500px;
+    margin: 1rem 2rem;
+  }
+
+  .hero__text h1 {
+    font-size: 2.5rem;
+  }
+
+  .body {
+    margin: 1rem 2rem;
+  }
+
+  .section__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .section__title {
+    font-size: 1.5rem;
+  }
+
+  .footer {
+    margin: 1rem 2rem 2rem;
+  }
+
+  .map-container {
+    height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero__text h1 {
+    font-size: 3rem;
+  }
+
+  .section__title {
+    font-size: 1.75rem;
+  }
+
+  .map-container {
+    height: 600px;
+  }
+}
