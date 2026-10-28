@@ -55,7 +55,7 @@ img {
 
 
 /* ============================================
-   3. HEADER / NAVBAR
+  3. HEADER / NAVBAR
    ============================================ */
 .site-header {
   width: 100%;
@@ -98,11 +98,11 @@ img {
 
 
 /* ============================================
-   4. HERO
+  4. HERO
    ============================================ */
 .hero {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 400px;
   background: var(--white);
   margin: 1rem;
@@ -163,7 +163,7 @@ img {
 
 
 /* ============================================
-   5. MAIN / BODY
+  5. MAIN / BODY
    ============================================ */
 .body {
   margin: 1rem;
@@ -174,7 +174,7 @@ img {
 
 
 /* ============================================
-   6. SECCIÓN GENÉRICA
+  6. SECCIÓN GENÉRICA
    ============================================ */
 .section {
   background: var(--white);
@@ -204,7 +204,7 @@ img {
 
 
 /* ============================================
-   7. CARDS (base)
+  7. CARDS (base)
    ============================================ */
 .card {
   background: var(--white);
@@ -256,7 +256,7 @@ img {
 
 
 /* ============================================
-   8. BOTONES (.btn)
+  8. BOTONES (.btn)
    ============================================ */
 .btn {
   display: inline-block;
@@ -278,7 +278,7 @@ img {
 
 
 /* ============================================
-   9. FOOTER
+  9. FOOTER
    ============================================ */
 .footer {
   margin: 1rem;
@@ -293,7 +293,7 @@ img {
 
 
 /* ============================================
-   10. CARRUSEL
+  10. CARRUSEL
    ============================================ */
 .carousel {
   position: relative;
@@ -322,7 +322,7 @@ img {
 
 .carousel__slide .card {
   width: 100%;
-  max-width: 1100px;
+  max-width: 105rem; 
   height: auto;
   margin: 0 auto;
 }
@@ -330,7 +330,7 @@ img {
 .carousel__slide .card img {
   width: 100%;
   height: auto;
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 4 / 1;
   object-fit: cover;
 }
 
@@ -429,7 +429,7 @@ img {
 
 
 /* ============================================
-   11. MAPA
+  11. MAPA
    ============================================ */
 .map-section {
   background: var(--white);
@@ -507,15 +507,13 @@ img {
 /* ============================================
   12. MEDIA QUERIES (Responsive)
    ============================================ */
+@media (max-width: 767px) {
+  .hero {
+    flex-direction: column;
+  }
+}
+
 @media (min-width: 768px) {
-  .navbar {
-    padding: 1rem 2rem;
-  }
-
-  .navbar__links {
-    gap: 2rem;
-  }
-
   .hero {
     flex-direction: row;
     min-height: 500px;
@@ -524,45 +522,5 @@ img {
 
   .hero__text h1 {
     font-size: 2.5rem;
-  }
-
-  .body {
-    margin: 1rem 2rem;
-  }
-
-  .section__header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .section__title {
-    font-size: 1.5rem;
-  }
-
-  .footer {
-    margin: 1rem 2rem 2rem;
-  }
-
-  .map-container {
-    height: 500px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero {
-    min-height: 600px;
-  }
-
-  .hero__text h1 {
-    font-size: 3rem;
-  }
-
-  .section__title {
-    font-size: 1.75rem;
-  }
-
-  .map-container {
-    height: 600px;
   }
 }
