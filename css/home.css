@@ -35,6 +35,7 @@ img {
   display: block;
 }
 
+
 /* ============================================
   2. SKIP LINK (Accesibilidad)
    ============================================ */
@@ -51,6 +52,7 @@ img {
 .skip-link:focus {
   top: 0;
 }
+
 
 /* ============================================
   3. HEADER / NAVBAR
@@ -94,9 +96,6 @@ img {
   color: var(--green-primary);
 }
 
-.menu, .cerrar_menu {
-  display: none; 
-}
 
 /* ============================================
   4. HERO
@@ -162,6 +161,7 @@ img {
   object-fit: cover;
 }
 
+
 /* ============================================
   5. MAIN / BODY
    ============================================ */
@@ -171,6 +171,7 @@ img {
   flex-direction: column;
   gap: 1.5rem;
 }
+
 
 /* ============================================
   6. SECCIÓN GENÉRICA
@@ -200,6 +201,7 @@ img {
   color: var(--text);
   opacity: 0.7;
 }
+
 
 /* ============================================
   7. CARDS (base)
@@ -252,6 +254,7 @@ img {
   margin-bottom: 1rem;
 }
 
+
 /* ============================================
   8. BOTONES (.btn)
    ============================================ */
@@ -271,8 +274,8 @@ img {
 .btn--primary:focus-visible {
   background: var(--green-dark);
   color: var(--white);
-  text-decoration: none;
 }
+
 
 /* ============================================
   9. FOOTER
@@ -287,6 +290,7 @@ img {
   color: var(--text);
   opacity: 0.8;
 }
+
 
 /* ============================================
   10. CARRUSEL
@@ -423,6 +427,7 @@ img {
   box-shadow: 0 0 0 3px var(--green-light);
 }
 
+
 /* ============================================
   11. MAPA
    ============================================ */
@@ -497,6 +502,7 @@ img {
   outline: none;
   box-shadow: 0 0 0 3px var(--green-light);
 }
+
 
 /* ============================================
   12. MEDIA QUERIES (Responsive)
