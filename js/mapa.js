@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mapContainer.textContent = 'No se pudo cargar el mapa. Comprueba tu conexión y recarga la página.';
         return;
     }
-    console.log('🗺️ Mapa: Iniciando...');
+    console.log('Mapa: Iniciando...');
 
     // 1. Inicializar el mapa centrado en La Araucanía
     const map = L.map('mapa-ecoruta').setView([-38.7359, -72.5904], 13);
