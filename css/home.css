@@ -1,5 +1,5 @@
 /* ============================================
-   1. VARIABLES Y RESET GLOBAL
+  1. VARIABLES Y RESET GLOBAL
    ============================================ */
 :root {
   --green-primary: #2E7D32;
@@ -35,8 +35,9 @@ img {
   display: block;
 }
 
+
 /* ============================================
-   2. SKIP LINK (Accesibilidad)
+  2. SKIP LINK (Accesibilidad)
    ============================================ */
 .skip-link {
   position: absolute;
@@ -52,8 +53,9 @@ img {
   top: 0;
 }
 
+
 /* ============================================
-   3. HEADER / NAVBAR
+  3. HEADER / NAVBAR
    ============================================ */
 .site-header {
   width: 100%;
@@ -94,16 +96,13 @@ img {
   color: var(--green-primary);
 }
 
-.menu, .cerrar_menu {
-  display: none; 
-}
 
 /* ============================================
-   4. HERO
+  4. HERO
    ============================================ */
 .hero {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 400px;
   background: var(--white);
   margin: 1rem;
@@ -162,8 +161,9 @@ img {
   object-fit: cover;
 }
 
+
 /* ============================================
-   5. MAIN / BODY
+  5. MAIN / BODY
    ============================================ */
 .body {
   margin: 1rem;
@@ -172,8 +172,9 @@ img {
   gap: 1.5rem;
 }
 
+
 /* ============================================
-   6. SECCIÓN GENÉRICA
+  6. SECCIÓN GENÉRICA
    ============================================ */
 .section {
   background: var(--white);
@@ -201,8 +202,9 @@ img {
   opacity: 0.7;
 }
 
+
 /* ============================================
-   7. CARDS (base)
+  7. CARDS (base)
    ============================================ */
 .card {
   background: var(--white);
@@ -252,8 +254,9 @@ img {
   margin-bottom: 1rem;
 }
 
+
 /* ============================================
-   8. BOTONES (.btn)
+  8. BOTONES (.btn)
    ============================================ */
 .btn {
   display: inline-block;
@@ -271,11 +274,11 @@ img {
 .btn--primary:focus-visible {
   background: var(--green-dark);
   color: var(--white);
-  text-decoration: none;
 }
 
+
 /* ============================================
-   9. FOOTER
+  9. FOOTER
    ============================================ */
 .footer {
   margin: 1rem;
@@ -288,8 +291,9 @@ img {
   opacity: 0.8;
 }
 
+
 /* ============================================
-   10. CARRUSEL
+  10. CARRUSEL
    ============================================ */
 .carousel {
   position: relative;
@@ -318,7 +322,7 @@ img {
 
 .carousel__slide .card {
   width: 100%;
-  max-width: 1100px;
+  max-width: 105rem; 
   height: auto;
   margin: 0 auto;
 }
@@ -326,7 +330,7 @@ img {
 .carousel__slide .card img {
   width: 100%;
   height: auto;
-  aspect-ratio: 21 / 9;
+  aspect-ratio: 4 / 1;
   object-fit: cover;
 }
 
@@ -423,8 +427,9 @@ img {
   box-shadow: 0 0 0 3px var(--green-light);
 }
 
+
 /* ============================================
-   11. MAPA
+  11. MAPA
    ============================================ */
 .map-section {
   background: var(--white);
@@ -498,10 +503,24 @@ img {
   box-shadow: 0 0 0 3px var(--green-light);
 }
 
-/* ============================================
-   12. MEDIA QUERIES (Responsive)
-   ============================================ */
-@media (min-width: 768px) {
-  .navbar {
 
-.map-container { height: 420px; min-height: 320px; width: 100%; z-index: 0; }
+/* ============================================
+  12. MEDIA QUERIES (Responsive)
+   ============================================ */
+@media (max-width: 767px) {
+  .hero {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    min-height: 500px;
+    margin: 1rem 2rem;
+  }
+
+  .hero__text h1 {
+    font-size: 2.5rem;
+  }
+}
