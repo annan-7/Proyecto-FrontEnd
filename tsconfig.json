@@ -2,8 +2,8 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDir":"./ts",
-    "outDir":"./dist/js/",
+    "rootDir": "./ts",
+    "outDir": "./dist/js/",
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "ES6",
@@ -38,6 +38,14 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "skipLibCheck": true
+  },
+  "include": [
+    "ts/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "js"
+  ]
 }
