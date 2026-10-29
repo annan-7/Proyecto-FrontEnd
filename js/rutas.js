@@ -9,13 +9,24 @@ const clearFiltersButton = document.querySelector('.filters__clear');
 const routeCards = [...document.querySelectorAll('.route-card')];
 const resultsNumber = document.querySelector('#results-number');
 const emptyResults = document.querySelector('.results__empty');
+const detailButtons = document.querySelectorAll('[data-route-details]');
+const routeDialog = document.querySelector('.route-dialog');
+const dialogImage = document.querySelector('[data-dialog-image]');
+const dialogTitle = document.querySelector('[data-dialog-title]');
+const dialogLocation = document.querySelector('[data-dialog-location]');
+const dialogDifficulty = document.querySelector('[data-dialog-difficulty]');
+const dialogDistance = document.querySelector('[data-dialog-distance]');
+const dialogDuration = document.querySelector('[data-dialog-duration]');
+const closeDialogButton = document.querySelector('[data-dialog-close]');
 
 let activeCategory = 'all';
 
 function updateResults() {
   const searchTerm = searchInput.value.trim().toLocaleLowerCase();
   const maxDistance = Number(distanceFilter.value);
-  const maxDuration = durationFilter.value ? Number(durationFilter.value) : Infinity;
+  const maxDuration = durationFilter.value && durationFilter.value !== '24'
+    ? Number(durationFilter.value)
+    : Infinity;
   const difficulty = difficultyFilter.value;
   let visibleCount = 0;
 
@@ -25,7 +36,9 @@ function updateResults() {
     const matchesCategory = activeCategory === 'all' || card.dataset.category.split(' ').includes(activeCategory);
     const matchesDifficulty = !difficulty || card.dataset.difficulty === difficulty;
     const matchesDistance = Number(card.dataset.distance) <= maxDistance;
-    const matchesDuration = Number(card.dataset.duration) <= maxDuration;
+    const matchesDuration = durationFilter.value === '24'
+      ? Number(card.dataset.duration) > 8
+      : Number(card.dataset.duration) <= maxDuration;
     const isVisible = matchesSearch && matchesCategory && matchesDifficulty && matchesDistance && matchesDuration;
 
     card.hidden = !isVisible;
@@ -36,6 +49,7 @@ function updateResults() {
   emptyResults.hidden = visibleCount !== 0;
   distanceOutput.textContent = `${distanceFilter.value} km`;
   distanceFilter.setAttribute('aria-valuenow', distanceFilter.value);
+  distanceFilter.setAttribute('aria-valuetext', `${distanceFilter.value} kilómetros`);
 }
 
 chips.forEach((chip) => {
@@ -60,6 +74,31 @@ difficultyFilter.addEventListener('change', updateResults);
 distanceFilter.addEventListener('input', updateResults);
 durationFilter.addEventListener('change', updateResults);
 
+detailButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.route-card');
+    const image = card.querySelector('.route-card__image');
+    const title = card.querySelector('.route-card__title').textContent;
+    const location = card.querySelector('.route-card__location').textContent.trim();
+    const difficulty = card.querySelector('.route-card__badge').textContent.trim();
+
+    dialogImage.src = image.src;
+    dialogImage.alt = image.alt;
+    dialogTitle.textContent = title;
+    dialogLocation.textContent = location;
+    dialogDifficulty.textContent = `Dificultad: ${difficulty}`;
+    dialogDistance.textContent = `Distancia: ${card.dataset.distance} km`;
+    dialogDuration.textContent = `Duración: ${card.dataset.duration} h`;
+    routeDialog.showModal();
+  });
+});
+
+closeDialogButton.addEventListener('click', () => routeDialog.close());
+
+routeDialog.addEventListener('click', (event) => {
+  if (event.target === routeDialog) routeDialog.close();
+});
+
 clearFiltersButton.addEventListener('click', () => {
   activeCategory = 'all';
   searchInput.value = '';
@@ -72,6 +111,10 @@ clearFiltersButton.addEventListener('click', () => {
     chip.setAttribute('aria-pressed', String(isAllChip));
   });
   updateResults();
+});
+
+emptyResults.querySelector('.results__empty-clear').addEventListener('click', () => {
+  clearFiltersButton.click();
 });
 
 updateResults();

@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Conoce la historia, misión y visión de ECORUTAS. Somos un equipo comprometido con la naturaleza y el senderismo sostenible.">
   <title>Sobre Nosotros | ECORUTAS</title>
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/nosotros.css">
+  <link rel="stylesheet" href="../css/menu_hamburguesa.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -20,7 +21,9 @@
   <header class="site-header" role="banner">
     <nav class="navbar" aria-label="Navegación principal">
       <a href="../index.html" class="navbar__logo" aria-label="Inicio de ECORUTAS">ECORUTAS</a>
-      <ul class="navbar__links" role="list">
+      <button class="menu" id="abrir"><i class="bi bi-list"></i></button>
+      <ul class="navbar__links" id="nav" role="list">
+        <button class="cerrar_menu" id="cerrar"><i class="bi bi-x"></i></button>
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="./rutas.html">Rutas</a></li>
         <li><a href="./contacto.html">Contacto</a></li>
@@ -205,6 +208,7 @@
         <p>&copy; 2026 Descubre la Naturaleza. Todos los derechos reservados.</p>
     </footer>
 
-  <script src="js/main.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/menu_hamburguesa.js"></script>
 </body>
 </html>
