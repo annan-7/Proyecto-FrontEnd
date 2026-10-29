@@ -37,9 +37,7 @@
 }
 
 @media (max-width: 480px) {
-.footer_a {
-  display: flex;
-  ;
-
+.footer_a a {
+  display: none;
 }
 }
