@@ -1,4 +1,4 @@
-function generarMenuDinamico(items) {
+export function generarMenuDinamico(items) {
     let htmlMenu = "<ul>";
     for (let item of items) {
         htmlMenu += `<li><a href="${item.url}">${item.nombre}</a></li>`;
@@ -6,7 +6,7 @@ function generarMenuDinamico(items) {
     htmlMenu += "</ul>";
     return htmlMenu;
 }
-function obtenerConfiguracionActual() {
+export function obtenerConfiguracionActual() {
     return {
         nombreSitio: "EcoRutas",
         version: "1.0",
@@ -15,5 +15,4 @@ function obtenerConfiguracionActual() {
         idioma: "es"
     };
 }
-export {};
 //# sourceMappingURL=modulo-global.js.map
