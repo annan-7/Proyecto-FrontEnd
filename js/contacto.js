@@ -37,6 +37,7 @@ function validarFormulario(datos) {
 function enviarFormulario(datos) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
+            // Si el correo contiene 'error', simulamos un fallo de red/servidor
             if (datos.email.includes('error')) {
                 reject(new Error('No se pudo enviar el mensaje. Intente de nuevo más tarde.'));
             }
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form || !statusMessage || !submitButton) {
         return;
     }
+    // Referencias a los campos del formulario
     const camposMap = [
         {
             key: 'nombre',
@@ -78,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         input?.addEventListener('input', () => {
             if (input.getAttribute('aria-invalid') === 'true') {
                 input.removeAttribute('aria-invalid');
-                input.removeAttribute('aria-describedby');
+                input.removeAttribute('aria-describedby'); // Desvincular dinámicamente
                 if (error)
                     error.textContent = '';
             }
@@ -89,20 +91,23 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         statusMessage.textContent = '';
         statusMessage.className = 'status-message';
+        // 1. Extraer datos estructurados en IFormData
         const formData = new FormData(form);
         const datos = {
             nombre: formData.get('nombre') || '',
             email: formData.get('email') || '',
             mensaje: formData.get('mensaje') || ''
         };
+        // 2. Ejecutar validación tipada
         const errores = validarFormulario(datos);
         const tieneErrores = Object.keys(errores).length > 0;
-        // Forzamos el tipo explícito en la declaración y en el uso para evitar errores de 'never'
         let primerCampoConError = null;
+        // 3. Vincular errores y accesibilidad (aria-describedby)
         camposMap.forEach(({ key, input, error }) => {
             const mensajeError = errores[key];
             if (mensajeError && input && error) {
                 input.setAttribute('aria-invalid', 'true');
+                // Vinculación dinámica de aria-describedby
                 const idError = `error-${key}`;
                 input.setAttribute('aria-describedby', idError);
                 error.textContent = mensajeError;
@@ -117,32 +122,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         if (tieneErrores) {
-            if (primerCampoConError && typeof primerCampoConError.focus === 'function') {
-                primerCampoConError.focus();
-            }
+            primerCampoConError?.focus();
             statusMessage.textContent = 'Corriga su formulario.';
             statusMessage.classList.add('status-message--error');
             return;
         }
+        // 4. Manejo de estados asíncronos (Loading, Success, Error)
         try {
+            // ESTADO: LOADING
             submitButton.disabled = true;
             submitButton.textContent = 'Enviando...';
             statusMessage.textContent = 'Procesando mensaje...';
             statusMessage.className = 'status-message status-message--info';
+            // Petición asíncrona simulada
             await enviarFormulario(datos);
+            // Mostrar objeto guardado en consola como en tu JS original
             console.log('Datos guardados en la variable:', datos);
             console.log('Nombre enviado:', datos.nombre);
             console.log('Email enviado:', datos.email);
+            // ESTADO: SUCCESS
             statusMessage.textContent = '¡Gracias por confiar en nosotros!';
             statusMessage.className = 'status-message status-message--exito';
             form.reset();
         }
         catch (error) {
+            // ESTADO: ERROR
             const mensajeError = error instanceof Error ? error.message : 'Error al procesar el envío.';
             statusMessage.textContent = mensajeError;
             statusMessage.className = 'status-message status-message--error';
         }
         finally {
+            // Restablecer botón
             submitButton.disabled = false;
             submitButton.textContent = 'Enviar Mensaje';
         }
