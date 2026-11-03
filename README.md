@@ -2,7 +2,12 @@
 
 ## Integrantes y roles (Sprint actual)
 
+<<<<<<< HEAD
 | Rol ágil | Sprint 0 | Sprint 1  | Sprint 2 (actual)| Sprint 3 |
+=======
+| Rol ágil | Sprint 0 | Sprint 1  | Sprint 2 (actual) | Sprint 3 |
+| Rol ágil | Sprint 0 | Sprint 1 | Sprint 2 (actual)| Sprint 3 |
+>>>>>>> 00fae17a0ded7bf8489776fddb57207d9399fe2e
 |---|---|---|---|---|
 | Scrum Master | Matías Espinoza | Matías Espinoza | Annan John | Miguel Torres |
 | Project Owner | Tomás Mardones | Tomás Mardones | Matías Espinoza | Catalina Ojeda |
@@ -21,7 +26,7 @@
 - (Framework a definir)
 - (API consumida)
 
-## Cómo ejecutar el proyecto
+## Cómo ejecutar el proyecto(no por el momento)
 
 ```bash
 # Instalar dependencias
