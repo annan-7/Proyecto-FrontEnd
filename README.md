@@ -3,9 +3,12 @@
 ## Integrantes y roles (Sprint actual)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 | Rol ágil | Sprint 0 | Sprint 1  | Sprint 2 (actual)| Sprint 3 |
 =======
 | Rol ágil | Sprint 0 | Sprint 1  | Sprint 2 (actual) | Sprint 3 |
+=======
+>>>>>>> 2c299a11749af87d349df82fba48282af05d5003
 | Rol ágil | Sprint 0 | Sprint 1 | Sprint 2 (actual)| Sprint 3 |
 >>>>>>> 00fae17a0ded7bf8489776fddb57207d9399fe2e
 |---|---|---|---|---|
