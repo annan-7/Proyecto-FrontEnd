@@ -1,6 +1,4 @@
-// ============================================
-// 1. DEFINICIÓN DE INTERFACES
-// ============================================
+
 
 interface IFormData {
     nombre: string;
@@ -14,9 +12,7 @@ interface IFormErrors {
     mensaje?: string;
 }
 
-// ============================================
-// 2. FUNCIÓN DE VALIDACIÓN TIPADA
-// ============================================
+
 
 function validarFormulario(datos: IFormData): IFormErrors {
     const errores: IFormErrors = {};
@@ -46,9 +42,7 @@ function validarFormulario(datos: IFormData): IFormErrors {
     return errores;
 }
 
-// ============================================
-// 3. MANEJO ASÍNCRONO (Simulación de Envío)
-// ============================================
+
 
 function enviarFormulario(datos: IFormData): Promise<void> {
     return new Promise((resolve, reject) => {
@@ -63,9 +57,7 @@ function enviarFormulario(datos: IFormData): Promise<void> {
     });
 }
 
-// ============================================
-// 4. INTEGRACIÓN Y MANEJO DEL DOM
-// ============================================
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contacto-form') as HTMLFormElement | null;

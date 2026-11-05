@@ -1,12 +1,4 @@
-/**
- * Modulo de Carrusel Accesible para EcoRuta
- * Version TypeScript con interfaz IEvento, funciones tipadas
- * y accesibilidad dinamica.
- */
 
-// ==========================================
-// 1. INTERFAZ IEVENTO PARA LOS DATOS DEL CARRUSEL
-// ==========================================
 export interface IEvento {
     id: number;
     nombre: string;
@@ -16,7 +8,6 @@ export interface IEvento {
     tipo?: string;
 }
 
-// Datos actuales del carrusel mapeados a la interfaz
 const datosCarrusel: IEvento[] = [
     {
         id: 1,
@@ -44,13 +35,11 @@ const datosCarrusel: IEvento[] = [
     }
 ];
 
-// ==========================================
-// 2. LOGICA PRINCIPAL Y TIPIFICACION
-// ==========================================
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Carrusel: Iniciando...');
 
-    // Seleccion de elementos del DOM
+    
     const carousel: HTMLElement | null = document.querySelector('.carousel');
     if (!carousel) {
         console.log('Carrusel: No se encontro el elemento .carousel');
@@ -78,9 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(`Carrusel: ${totalSlides} slides cargados desde IEvento`);
 
-    // ==========================================
-    // 3. ACCESIBILIDAD DINAMICA
-    // ==========================================
+  
     function gestionarAccesibilidad(slide: HTMLElement, isActive: boolean): void {
         slide.setAttribute('aria-hidden', String(!isActive));
         slide.setAttribute('aria-roledescription', 'diapositiva');
@@ -112,9 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         actualizarIndicadores(currentIndex);
     }
 
-    // ==========================================
-    // 4. FUNCIONES DE NAVEGACION TIPADAS
-    // ==========================================
+    
     function nextSlide(): void {
         currentIndex = (currentIndex + 1) % totalSlides;
         updateCarousel();
@@ -133,9 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ==========================================
-    // 5. CONTROL DEL AUTO-PLAY
-    // ==========================================
+    
     function clearAllIntervals(): void {
         if (autoPlayInterval !== null) {
             clearInterval(autoPlayInterval);
@@ -167,9 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isPlaying ? startAutoPlay() : stopAutoPlay();
     }
 
-    // ==========================================
-    // 6. EVENT LISTENERS
-    // ==========================================
+    
     prevBtn.addEventListener('click', () => {
         prevSlide();
         resetAutoPlay();
@@ -216,9 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==========================================
-    // 7. INICIALIZACION
-    // ==========================================
+    
     console.log('Carrusel: Inicializando primera vista');
     updateCarousel();
 

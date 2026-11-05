@@ -7,6 +7,7 @@ pnpm-debug.log*
 .pnpm-store/
 .npm
 .yarn-integrity
+node_modules
 
 # Coverage
 coverage/
@@ -49,4 +50,8 @@ $RECYCLE.BIN/
 .fuse_hidden*
 .directory
 .Trash-*
+<<<<<<< HEAD
 .nfs*
+=======
+.nfs*
+>>>>>>> 00fae17a0ded7bf8489776fddb57207d9399fe2e

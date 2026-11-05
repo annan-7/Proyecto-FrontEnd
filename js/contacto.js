@@ -1,10 +1,4 @@
 "use strict";
-// ============================================
-// 1. DEFINICIÓN DE INTERFACES
-// ============================================
-// ============================================
-// 2. FUNCIÓN DE VALIDACIÓN TIPADA
-// ============================================
 function validarFormulario(datos) {
     const errores = {};
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -31,9 +25,6 @@ function validarFormulario(datos) {
     }
     return errores;
 }
-// ============================================
-// 3. MANEJO ASÍNCRONO (Simulación de Envío)
-// ============================================
 function enviarFormulario(datos) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -47,9 +38,6 @@ function enviarFormulario(datos) {
         }, 1500);
     });
 }
-// ============================================
-// 4. INTEGRACIÓN Y MANEJO DEL DOM
-// ============================================
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contacto-form');
     const statusMessage = document.getElementById('status-message');
