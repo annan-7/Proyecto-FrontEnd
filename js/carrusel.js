@@ -189,3 +189,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
     console.log('Carrusel: Completado');
 });
+export {};
