@@ -46,11 +46,21 @@ function validarFormulario(datos: IFormData): IFormErrors {
     return errores;
 }
 
+<<<<<<< HEAD
 
+=======
+// ============================================
+// 3. MANEJO ASÍNCRONO (Simulación de Envío)
+// ============================================
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
 
 function enviarFormulario(datos: IFormData): Promise<void> {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
+<<<<<<< HEAD
+=======
+            // Si el correo contiene 'error', simulamos un fallo de red/servidor
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
             if (datos.email.includes('error')) {
                 reject(new Error('No se pudo enviar el mensaje. Intente de nuevo más tarde.'));
             } else {
@@ -73,6 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+<<<<<<< HEAD
+=======
+    // Referencias a los campos del formulario
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
     const camposMap = [
         {
             key: 'nombre' as keyof IFormData,
@@ -96,7 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
         input?.addEventListener('input', () => {
             if (input.getAttribute('aria-invalid') === 'true') {
                 input.removeAttribute('aria-invalid');
+<<<<<<< HEAD
                 input.removeAttribute('aria-describedby');
+=======
+                input.removeAttribute('aria-describedby'); // Desvincular dinámicamente
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
                 if (error) error.textContent = '';
             }
         });
@@ -109,6 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
         statusMessage.textContent = '';
         statusMessage.className = 'status-message';
 
+<<<<<<< HEAD
+=======
+        // 1. Extraer datos estructurados en IFormData
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
         const formData = new FormData(form);
         const datos: IFormData = {
             nombre: (formData.get('nombre') as string) || '',
@@ -116,19 +138,37 @@ document.addEventListener('DOMContentLoaded', () => {
             mensaje: (formData.get('mensaje') as string) || ''
         };
 
+<<<<<<< HEAD
         const errores: IFormErrors = validarFormulario(datos);
         const tieneErrores = Object.keys(errores).length > 0;
 
         // Forzamos el tipo explícito en la declaración y en el uso para evitar errores de 'never'
         let primerCampoConError: any = null;
 
+=======
+        // 2. Ejecutar validación tipada
+        const errores: IFormErrors = validarFormulario(datos);
+        const tieneErrores = Object.keys(errores).length > 0;
+
+        let primerCampoConError: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null = null;
+
+        // 3. Vincular errores y accesibilidad (aria-describedby)
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
         camposMap.forEach(({ key, input, error }) => {
             const mensajeError = errores[key];
 
             if (mensajeError && input && error) {
                 input.setAttribute('aria-invalid', 'true');
+<<<<<<< HEAD
                 const idError = `error-${key}`;
                 input.setAttribute('aria-describedby', idError);
+=======
+                
+                // Vinculación dinámica de aria-describedby
+                const idError = `error-${key}`;
+                input.setAttribute('aria-describedby', idError);
+                
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
                 error.textContent = mensajeError;
 
                 if (!primerCampoConError) {
@@ -142,36 +182,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (tieneErrores) {
+<<<<<<< HEAD
             if (primerCampoConError && typeof primerCampoConError.focus === 'function') {
                 primerCampoConError.focus();
             }
+=======
+            (primerCampoConError as HTMLElement | null)?.focus();
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
             statusMessage.textContent = 'Corriga su formulario.';
             statusMessage.classList.add('status-message--error');
             return;
         }
 
+<<<<<<< HEAD
         try {
+=======
+        // 4. Manejo de estados asíncronos (Loading, Success, Error)
+        try {
+            // ESTADO: LOADING
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
             submitButton.disabled = true;
             submitButton.textContent = 'Enviando...';
             statusMessage.textContent = 'Procesando mensaje...';
             statusMessage.className = 'status-message status-message--info';
 
+<<<<<<< HEAD
             await enviarFormulario(datos);
 
+=======
+            // Petición asíncrona simulada
+            await enviarFormulario(datos);
+
+            // Mostrar objeto guardado en consola como en tu JS original
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
             console.log('Datos guardados en la variable:', datos);
             console.log('Nombre enviado:', datos.nombre);
             console.log('Email enviado:', datos.email);
 
+<<<<<<< HEAD
+=======
+            // ESTADO: SUCCESS
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
             statusMessage.textContent = '¡Gracias por confiar en nosotros!';
             statusMessage.className = 'status-message status-message--exito';
             form.reset();
 
         } catch (error) {
+<<<<<<< HEAD
+=======
+            // ESTADO: ERROR
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
             const mensajeError = error instanceof Error ? error.message : 'Error al procesar el envío.';
             statusMessage.textContent = mensajeError;
             statusMessage.className = 'status-message status-message--error';
 
         } finally {
+<<<<<<< HEAD
+=======
+            // Restablecer botón
+>>>>>>> cde2c0be7dc365fc5af042fa023ad08b07033d95
             submitButton.disabled = false;
             submitButton.textContent = 'Enviar Mensaje';
         }
