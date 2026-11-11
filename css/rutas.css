@@ -683,3 +683,14 @@
     padding: 1.25rem;
   }
 }
+
+/* Datos del catálogo Ecorutas; se mantienen las clases y el diseño existentes. */
+.route-card__badge--expert { background: #51246b; }
+.route-card__description { margin-block: .5rem; }
+.route-card__credit { font-size: .75rem; line-height: 1.5; margin-block: .75rem; overflow-wrap: anywhere; }
+.route-card__credit a { color: #22543d; text-decoration: underline; }
+.route-card__credit p { margin-block: .25rem; }
+#routes-status[data-state="error"], #route-detail-status[data-state="error"] { color: #8a211a; }
+#routes-retry[hidden], #route-detail-retry[hidden], .route-card__credit[hidden], .route-dialog__image[hidden] { display: none; }
+.route-dialog__content [data-dialog-extra] p { margin-block: .75rem; }
+.route-card__title, .route-dialog__title { overflow-wrap: anywhere; }
