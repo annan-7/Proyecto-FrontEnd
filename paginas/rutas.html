@@ -74,6 +74,7 @@
             <legend class="visually-hidden">Filtrar por tipo de ruta</legend>
             <button type="button" class="chip chip--active" aria-pressed="true" data-filter="all">Todas</button>
             <button type="button" class="chip" aria-pressed="false" data-filter="senderismo">Senderismo</button>
+            <button type="button" class="chip" aria-pressed="false" data-filter="trekking">Trekking</button>
             <button type="button" class="chip" aria-pressed="false" data-filter="ciclismo">Ciclismo</button>
             <button type="button" class="chip" aria-pressed="false" data-filter="montaña">Montaña</button>
             <button type="button" class="chip" aria-pressed="false" data-filter="costa">Costa</button>
@@ -93,9 +94,17 @@
                 <label for="filter-difficulty" class="filter-group__label">Dificultad</label>
                 <select id="filter-difficulty" class="filter-group__select">
                   <option value="">Todas</option>
-                  <option value="easy">Fácil</option>
-                  <option value="medium">Media</option>
-                  <option value="hard">Difícil</option>
+                  <option value="facil">Fácil</option>
+                  <option value="moderada">Moderada</option>
+                  <option value="dificil">Difícil</option>
+                  <option value="experto">Experto</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filter-location" class="filter-group__label">Ubicación o región</label>
+                <select id="filter-location" class="filter-group__select">
+                  <option value="">Todas las ubicaciones</option>
                 </select>
               </div>
 
@@ -123,19 +132,21 @@
         </div>
 
         
-        <div class="results">
-          <p class="results__count" role="status" aria-live="polite" aria-atomic="true">
-            <span id="results-number">6</span> rutas encontradas
+        <div class="results" aria-live="polite" aria-atomic="true">
+          <p class="results__count">
+            <span id="results-number">0</span> rutas encontradas
           </p>
 
-          <ul class="routes-grid" role="list" aria-label="Lista de rutas disponibles">
-
-            
-            <li class="route-card" role="listitem" data-category="senderismo" data-difficulty="easy" data-distance="5.2" data-duration="2.5">
+          <p id="routes-status" role="status" aria-live="polite">Cargando rutas…</p>
+          <button id="routes-retry" class="filters__clear" type="button" hidden>Reintentar</button>
+          <p id="routes-photo-status" class="route-card__credit" role="status"></p>
+          <ul id="routes-grid" class="routes-grid" role="list" aria-label="Lista de rutas disponibles" aria-busy="true"></ul>
+          <template id="route-card-template">
+<li class="route-card" role="listitem">
               <article class="route-card__article">
                 <div class="route-card__image-wrapper">
                   <img
-                    src="../assets/imagenes/optimized/BosqueNativo-960.webp" srcset="../assets/imagenes/optimized/BosqueNativo-640.webp 640w, ../assets/imagenes/optimized/BosqueNativo-960.webp 960w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw"
+                    src="../assets/imagenes/ruta-sin-foto.svg"
                     alt="Sendero Verde entre árboles con camino de tierra"
                     class="route-card__image"
                     loading="lazy"
@@ -145,7 +156,8 @@
                   <span class="route-card__badge route-card__badge--easy">Fácil</span>
                 </div>
                 <div class="route-card__content">
-                  <h3 class="route-card__title">Sendero del Bosque Nativo</h3>
+                  <h3 class="route-card__title"></h3>
+                  <p class="route-card__description" data-card-description></p>
                   <p class="route-card__location">
                     <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -168,6 +180,7 @@
                       2h 30min
                     </span>
                   </div>
+                  <div class="route-card__credit" data-card-credit></div>
                   <button type="button" class="route-card__link" data-route-details aria-label="Ver detalles de Sendero del Bosque Nativo">
                     Ver detalles
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -177,248 +190,8 @@
                 </div>
               </article>
             </li>
-
-            
-            <li class="route-card" role="listitem" data-category="montaña" data-difficulty="hard" data-distance="18" data-duration="8">
-              <article class="route-card__article">
-                <div class="route-card__image-wrapper">
-                  <img
-                    src="../assets/imagenes/optimized/Cumbre-960.webp" srcset="../assets/imagenes/optimized/Cumbre-640.webp 640w, ../assets/imagenes/optimized/Cumbre-960.webp 960w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw"
-                    alt="Cumbre andina con nieve y cielo azul"
-                    class="route-card__image"
-                    loading="lazy"
-                    width="400"
-                    height="250"
-                  >
-                  <span class="route-card__badge route-card__badge--hard">Difícil</span>
-                </div>
-                <div class="route-card__content">
-                  <h3 class="route-card__title">Cumbre Andina</h3>
-                  <p class="route-card__location">
-                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Cordillera de los Andes
-                  </p>
-                  <div class="route-card__meta">
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                      </svg>
-                      18 km
-                    </span>
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                      </svg>
-                      8h
-                    </span>
-                  </div>
-                  <button type="button" class="route-card__link" data-route-details aria-label="Ver detalles de Cumbre Andina">
-                    Ver detalles
-                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                </div>
-              </article>
-            </li>
-
-            
-            <li class="route-card" role="listitem" data-category="ciclismo costa" data-difficulty="medium" data-distance="12" data-duration="1.75">
-              <article class="route-card__article">
-                <div class="route-card__image-wrapper">
-                  <img
-                    src="../assets/imagenes/optimized/Ciclovia-960.webp" srcset="../assets/imagenes/optimized/Ciclovia-640.webp 640w, ../assets/imagenes/optimized/Ciclovia-960.webp 960w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw"
-                    alt="Ciclovía junto a la costa con vista al mar"
-                    class="route-card__image"
-                    loading="lazy"
-                    width="400"
-                    height="250"
-                  >
-                  <span class="route-card__badge route-card__badge--medium">Media</span>
-                </div>
-                <div class="route-card__content">
-                  <h3 class="route-card__title">Ciclovía Costera</h3>
-                  <p class="route-card__location">
-                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Litoral Central
-                  </p>
-                  <div class="route-card__meta">
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                      </svg>
-                      12 km
-                    </span>
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                      </svg>
-                      1h 45min
-                    </span>
-                  </div>
-                  <button type="button" class="route-card__link" data-route-details aria-label="Ver detalles de Ciclovía Costera">
-                    Ver detalles
-                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                </div>
-              </article>
-            </li>
-
-            
-            <li class="route-card" role="listitem" data-category="senderismo" data-difficulty="easy" data-distance="3.8" data-duration="1.5">
-              <article class="route-card__article">
-                <div class="route-card__image-wrapper">
-                  <img
-                    src="../assets/imagenes/optimized/ruta-lago-960.webp" srcset="../assets/imagenes/optimized/ruta-lago-640.webp 640w, ../assets/imagenes/optimized/ruta-lago-960.webp 960w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw"
-                    alt="Sendero junto a un lago de montaña"
-                    class="route-card__image"
-                    loading="lazy"
-                    width="400"
-                    height="250"
-                  >
-                  <span class="route-card__badge route-card__badge--easy">Fácil</span>
-                </div>
-                <div class="route-card__content">
-                  <h3 class="route-card__title">Sendero del Lago Escondido</h3>
-                  <p class="route-card__location">
-                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Región de los Lagos
-                  </p>
-                  <div class="route-card__meta">
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                      </svg>
-                      3.8 km
-                    </span>
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                      </svg>
-                      1h 30min
-                    </span>
-                  </div>
-                  <button type="button" class="route-card__link" data-route-details aria-label="Ver detalles de Sendero del Lago Escondido">
-                    Ver detalles
-                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                </div>
-              </article>
-            </li>
-
-            
-            <li class="route-card" role="listitem" data-category="montaña" data-difficulty="hard" data-distance="22" data-duration="10">
-              <article class="route-card__article">
-                <div class="route-card__image-wrapper">
-                  <img
-                    src="../assets/imagenes/optimized/volcan-960.webp" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw"
-                    alt="Volcán con sendero de montaña"
-                    class="route-card__image"
-                    loading="lazy"
-                    width="400"
-                    height="250"
-                  >
-                  <span class="route-card__badge route-card__badge--hard">Difícil</span>
-                </div>
-                <div class="route-card__content">
-                  <h3 class="route-card__title">Ascenso al Volcán</h3>
-                  <p class="route-card__location">
-                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Zona Volcánica Sur
-                  </p>
-                  <div class="route-card__meta">
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                      </svg>
-                      22 km
-                    </span>
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                      </svg>
-                      10h
-                    </span>
-                  </div>
-                  <button type="button" class="route-card__link" data-route-details aria-label="Ver detalles de Ascenso al Volcán">
-                    Ver detalles
-                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                </div>
-              </article>
-            </li>
-
-            
-            <li class="route-card" role="listitem" data-category="senderismo" data-difficulty="medium" data-distance="9" data-duration="4">
-              <article class="route-card__article">
-                <div class="route-card__image-wrapper">
-                  <img
-                    src="../assets/imagenes/optimized/parque-960.webp" srcset="../assets/imagenes/optimized/parque-640.webp 640w, ../assets/imagenes/optimized/parque-960.webp 678w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw"
-                    alt="Parque nacional con sendero entre árboles"
-                    class="route-card__image"
-                    loading="lazy"
-                    width="400"
-                    height="250"
-                  >
-                  <span class="route-card__badge route-card__badge--medium">Media</span>
-                </div>
-                <div class="route-card__content">
-                  <h3 class="route-card__title">Ruta del Parque Nacional</h3>
-                  <p class="route-card__location">
-                    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                      <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Parque Nacional Central
-                  </p>
-                  <div class="route-card__meta">
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                      </svg>
-                      9 km
-                    </span>
-                    <span class="route-card__meta-item">
-                      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polyline points="12 6 12 12 16 14"></polyline>
-                      </svg>
-                      4h
-                    </span>
-                  </div>
-                  <button type="button" class="route-card__link" data-route-details aria-label="Ver detalles de Ruta del Parque Nacional">
-                    Ver detalles
-                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                </div>
-              </article>
-            </li>
-
-          </ul>
+          </template>
+          <noscript>Activa JavaScript para consultar las rutas de Ecorutas.</noscript>
 
           
           <div class="results__empty" hidden>
@@ -434,17 +207,21 @@
 
           <dialog class="route-dialog" aria-labelledby="route-dialog-title">
             <button type="button" class="route-dialog__close" data-dialog-close aria-label="Cerrar detalles">&times;</button>
-            <img class="route-dialog__image" data-dialog-image alt="">
+            <img class="route-dialog__image" data-dialog-image alt="" width="560" height="220" loading="lazy" hidden>
             <div class="route-dialog__content">
               <p class="route-dialog__eyebrow">Detalle de la ruta</p>
               <h2 id="route-dialog-title" class="route-dialog__title" data-dialog-title></h2>
+              <p id="route-detail-status" role="status" aria-live="polite"></p>
+              <button id="route-detail-retry" class="filters__clear" type="button" hidden>Reintentar detalles</button>
               <p class="route-dialog__location" data-dialog-location></p>
               <div class="route-dialog__meta">
                 <span data-dialog-difficulty></span>
                 <span data-dialog-distance></span>
                 <span data-dialog-duration></span>
               </div>
-              <p class="route-dialog__text">Consulta la información de esta ruta y prepara tu próxima salida en contacto con la naturaleza.</p>
+              <p class="route-dialog__text" data-dialog-description></p>
+              <div data-dialog-extra></div>
+              <div class="route-card__credit" data-dialog-credit></div>
             </div>
           </dialog>
 
