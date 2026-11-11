@@ -5,32 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Conoce la historia, misión y visión de ECORUTAS. Somos un equipo comprometido con la naturaleza y el senderismo sostenible.">
   <title>Sobre Nosotros | ECORUTAS</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/theme.js"></script>
+  <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/nosotros.css">
-  <link rel="stylesheet" href="../css/menu_hamburguesa.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <header class="site-header" role="banner">
-    <nav class="navbar" aria-label="Navegación principal">
-      <a href="../index.html" class="navbar__logo" aria-label="Inicio de ECORUTAS">ECORUTAS</a>
-      <button class="menu" id="abrir"><i class="bi bi-list"></i></button>
-      <ul class="navbar__links" id="nav" role="list">
-        <button class="cerrar_menu" id="cerrar"><i class="bi bi-x"></i></button>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="./rutas.html">Rutas</a></li>
-        <li><a href="./contacto.html">Contacto</a></li>
-        <li><a href="./sobre_nosotros.html" aria-current="page">Sobre nosotros</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- site-header -->
+<header class="site-header"><nav class="navbar container" aria-label="Navegación principal">
+ <a class="navbar__logo" href="../index.html" aria-label="EcoRutas, inicio"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 25 13 7l6 10 4-6 6 14H3Z"/><path d="m10 13 3 3 3-3M17 25l4-5"/></svg><span>EcoRutas</span></a>
+ <button type="button" class="menu" aria-expanded="false" aria-controls="nav" id="abrir"><span class="menu-label">Menú</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+ <ul class="navbar__links" id="nav"><li><a href="../index.html">Inicio</a></li>
+<li><a href="../paginas/rutas.html">Rutas</a></li>
+<li><a href="../paginas/sobre_nosotros.html" aria-current="page">Sobre nosotros</a></li>
+<li><a href="../paginas/contacto.html">Contacto</a></li></ul>
+ <label class="theme-control"><span class="visually-hidden">Tema de color</span><select id="theme-select" aria-label="Tema de color"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Oscuro</option></select></label>
+ </nav></header>
+<!-- /site-header -->
 
   <!-- Contenido principal -->
   <main id="main-content">
@@ -54,7 +48,7 @@
             <p>A lo largo de estos años, hemos recorrido más de 500 kilómetros de senderos, documentado decenas de rutas y construido una comunidad apasionada por el turismo de naturaleza responsable.</p>
           </div>
           <div class="section__image">
-            <img src="assets/images/nosotros-historia.jpg" alt="Equipo de ECORUTAS explorando un sendero en el bosque nativo" loading="lazy" width="600" height="400">
+            <img src="../assets/imagenes/optimized/BosqueNativo-960.webp" srcset="../assets/imagenes/optimized/BosqueNativo-640.webp 640w, ../assets/imagenes/optimized/BosqueNativo-960.webp 960w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw" alt="Sendero entre árboles del bosque nativo" loading="lazy" width="600" height="400">
           </div>
         </div>
       </div>
@@ -69,10 +63,8 @@
           <!-- Misión -->
           <article class="mv-card mv-card--mision" aria-labelledby="mision-title">
             <div class="mv-card__icon" aria-hidden="true">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
-            </div>
+              
+            
             <h3 id="mision-title" class="mv-card__title">Misión</h3>
             <p class="mv-card__text">Facilitar el acceso a rutas de senderismo seguras y sostenibles, promoviendo el turismo responsable y la conservación del patrimonio natural de La Araucanía y Chile. Queremos que cada persona pueda descubrir y disfrutar la naturaleza de forma consciente y respetuosa.</p>
           </article>
@@ -80,13 +72,9 @@
           
           <article class="mv-card mv-card--vision" aria-labelledby="vision-title">
             <div class="mv-card__icon" aria-hidden="true">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-            </div>
+              
             <h3 id="vision-title" class="mv-card__title">Visión</h3>
-            <p class="mv-card__text">Ser la plataforma líder en Chile para el descubrimiento de rutas de naturaleza, reconocida por nuestra compromiso con la sostenibilidad, la calidad de nuestra información y el impacto positivo en las comunidades locales y la conservación ambiental.</p>
+            <p class="mv-card__text">Ser la plataforma líder en Chile para el descubrimiento de rutas de naturaleza, reconocida por nuestro compromiso con la sostenibilidad, la calidad de nuestra información y el impacto positivo en las comunidades locales y la conservación ambiental.</p>
           </article>
         </div>
       </div>
@@ -99,25 +87,25 @@
         
         <div class="valores-grid">
           <article class="valor-card" aria-labelledby="valor1-title">
-            <div class="valor-card__icon" aria-hidden="true">🌿</div>
+            
             <h3 id="valor1-title" class="valor-card__title">Sostenibilidad</h3>
             <p class="valor-card__text">Promovemos prácticas de turismo responsable que minimicen el impacto ambiental y respeten los ecosistemas.</p>
           </article>
 
           <article class="valor-card" aria-labelledby="valor2-title">
-            <div class="valor-card__icon" aria-hidden="true">🤝</div>
+            
             <h3 id="valor2-title" class="valor-card__title">Comunidad</h3>
             <p class="valor-card__text">Conectamos personas con intereses comunes y apoyamos a las comunidades locales a través del turismo sostenible.</p>
           </article>
 
           <article class="valor-card" aria-labelledby="valor3-title">
-            <div class="valor-card__icon" aria-hidden="true">🔍</div>
+            
             <h3 id="valor3-title" class="valor-card__title">Calidad</h3>
             <p class="valor-card__text">Proporcionamos información verificada, actualizada y detallada para una experiencia segura y enriquecedora.</p>
           </article>
 
           <article class="valor-card" aria-labelledby="valor4-title">
-            <div class="valor-card__icon" aria-hidden="true">❤️</div>
+            
             <h3 id="valor4-title" class="valor-card__title">Pasión</h3>
             <p class="valor-card__text">Amamos la naturaleza y transmitimos esa pasión en cada ruta que compartimos y cada persona que acompañamos.</p>
           </article>
@@ -135,7 +123,7 @@
           
           <article class="equipo-card" role="listitem">
             <div class="equipo-card__image-wrapper">
-              <img src="assets/images/equipo-matias.jpg" alt="Matías - Fundador y coordinador de ECORUTAS" class="equipo-card__image" loading="lazy" width="300" height="300">
+              <span class="team-placeholder" aria-hidden="true">M</span>
             </div>
             <div class="equipo-card__content">
               <h3 class="equipo-card__name">Matías</h3>
@@ -146,7 +134,7 @@
 
           <article class="equipo-card" role="listitem">
             <div class="equipo-card__image-wrapper">
-              <img src="assets/images/equipo-annan.jpg" alt="Annan - Especialista en rutas y cartografía" class="equipo-card__image" loading="lazy" width="300" height="300">
+              <span class="team-placeholder" aria-hidden="true">A</span>
             </div>
             <div class="equipo-card__content">
               <h3 class="equipo-card__name">Annan</h3>
@@ -157,7 +145,7 @@
 
           <article class="equipo-card" role="listitem">
             <div class="equipo-card__image-wrapper">
-              <img src="assets/images/equipo-tomas.jpg" alt="Tomás - Coordinador de comunidad y contacto" class="equipo-card__image" loading="lazy" width="300" height="300">
+              <span class="team-placeholder" aria-hidden="true">T</span>
             </div>
             <div class="equipo-card__content">
               <h3 class="equipo-card__name">Tomás</h3>
@@ -168,7 +156,7 @@
 
           <article class="equipo-card" role="listitem">
             <div class="equipo-card__image-wrapper">
-              <img src="assets/images/equipo-catalina.jpg" alt="Catalina - Directora de contenido y storytelling" class="equipo-card__image" loading="lazy" width="300" height="300">
+              <span class="team-placeholder" aria-hidden="true">C</span>
             </div>
             <div class="equipo-card__content">
               <h3 class="equipo-card__name">Catalina</h3>
@@ -179,7 +167,7 @@
 
           <article class="equipo-card" role="listitem">
             <div class="equipo-card__image-wrapper">
-              <img src="assets/images/equipo-miguel.jpg" alt="Miguel - Diseñador UX/UI y desarrollo frontend" class="equipo-card__image" loading="lazy" width="300" height="300">
+              <span class="team-placeholder" aria-hidden="true">M</span>
             </div>
             <div class="equipo-card__content">
               <h3 class="equipo-card__name">Miguel</h3>
@@ -204,11 +192,14 @@
     </section>
 
   </main>
-    <footer class="footer" role="contentinfo">
-        <p>&copy; 2026 Descubre la Naturaleza. Todos los derechos reservados.</p>
-    </footer>
 
-  <script src="../js/main.js"></script>
-  <script src="../js/menu_hamburguesa.js"></script>
+  <!-- site-footer -->
+<footer class="site-footer"><div class="container footer-grid"><div><a class="navbar__logo" href="../index.html"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 25 13 7l6 10 4-6 6 14H3Z"/><path d="m10 13 3 3 3-3M17 25l4-5"/></svg><span>EcoRutas</span></a><p>Explora con calma. Cuida lo que descubres.</p><p class="footer-location">Desde La Araucanía, Chile.</p></div><nav aria-label="Navegación secundaria"><ul><li><a href="../index.html">Inicio</a></li>
+<li><a href="../paginas/rutas.html">Rutas</a></li>
+<li><a href="../paginas/sobre_nosotros.html" aria-current="page">Sobre nosotros</a></li>
+<li><a href="../paginas/contacto.html">Contacto</a></li></ul></nav></div><div class="container footer-bottom"><span>© 2026 EcoRutas</span><span>Turismo de naturaleza responsable</span></div></footer>
+<!-- /site-footer -->
+<script src="../js/navigation.js" defer></script>
+<script src="../js/main.js" defer></script>
 </body>
 </html>

@@ -3,48 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="icon" href="./assets/imagenes/logo-2.png" type="image/png">
+  <title>EcoRutas | Explora la naturaleza de tu tierra</title>
+  <meta name="description" content="Descubre senderos, bosques y paisajes de Chile. Busca rutas por dificultad, distancia y duración; prepara tu próxima salida con EcoRutas.">
+  <script src="./js/theme.js"></script>
   <link rel="stylesheet" href="./css/global.css">
   <link rel="stylesheet" href="./css/home.css">
-  <link rel="icon" href="./assets/imagenes/logo-2.png" type="image/png">
-  <title>EcoRuta</title>
-  <script src="./js/carrusel.js" defer></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="./js/mapa.js" defer></script>
-<script src="./js/clima.js" defer></script></head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+</head>
 <body>
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-
-  <header class="site-header">
-    <nav class="navbar" aria-label="Navegación principal">
-      <a href="./index.html" class="navbar__logo" aria-label="Inicio de ECORUTAS">ECORUTAS</a>
-      <ul class="navbar__links">
-        <li><a href="./index.html" aria-current="page">Inicio</a></li>
-        <li><a href="./paginas/rutas.html">Rutas</a></li>
-        <li><a href="./paginas/contacto.html">Contacto</a></li>
-        <li><a href="./paginas/sobre_nosotros.html">Sobre nosotros</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="hero" aria-label="Banner principal">
-    <div class="hero__text">
-      <p class="hero__eyebrow">Rutas para respirar, explorar y cuidar</p>
-      <h1>Descubre la naturaleza de tu tierra</h1>
-      <p>Encuentra senderos, paisajes y experiencias al aire libre en La Araucanía.</p>
-      <a class="btn btn--primary" href="./paginas/rutas.html">Explorar rutas</a>
-    </div>
-    <div class="hero__image">
-      <img src="./assets/imagenes/paisaje.jpg" alt="Paisaje natural de La Araucanía" width="800" height="600" fetchpriority="high">
-    </div>
-  </section>
-
-  <main id="main-content" class="body">
-
-    <section class="section carousel" aria-labelledby="senderos-title" aria-roledescription="carrusel">
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<!-- site-header -->
+<header class="site-header"><nav class="navbar container" aria-label="Navegación principal">
+ <a class="navbar__logo" href="./index.html" aria-label="EcoRutas, inicio"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 25 13 7l6 10 4-6 6 14H3Z"/><path d="m10 13 3 3 3-3M17 25l4-5"/></svg><span>EcoRutas</span></a>
+ <button type="button" class="menu" aria-expanded="false" aria-controls="nav" id="abrir"><span class="menu-label">Menú</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+ <ul class="navbar__links" id="nav"><li><a href="./index.html" aria-current="page">Inicio</a></li>
+<li><a href="./paginas/rutas.html">Rutas</a></li>
+<li><a href="./paginas/sobre_nosotros.html">Sobre nosotros</a></li>
+<li><a href="./paginas/contacto.html">Contacto</a></li></ul>
+ <label class="theme-control"><span class="visually-hidden">Tema de color</span><select id="theme-select" aria-label="Tema de color"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Oscuro</option></select></label>
+ </nav></header>
+<!-- /site-header -->
+<main id="main-content">
+ <section class="hero container" aria-labelledby="hero-title">
+  <div class="hero__text">
+   <p class="hero__eyebrow"><span aria-hidden="true"></span> Desde La Araucanía, Chile</p>
+   <h1 id="hero-title">Tu próxima pausa está afuera.</h1>
+   <p>Camina entre bosques, descubre nuevos paisajes y vuelve a conectar con la naturaleza de tu tierra.</p>
+   <a class="btn btn--primary" href="./paginas/rutas.html">Explorar rutas <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 5 7 7-7 7"/></svg></a>
+  </div>
+  <figure class="hero__image"><img src="./assets/imagenes/optimized/paisaje-960.webp" srcset="./assets/imagenes/optimized/paisaje-640.webp 640w, ./assets/imagenes/optimized/paisaje-960.webp 960w" sizes="(min-width: 960px) 630px, (min-width: 640px) 50vw, 100vw" alt="Montañas y paisaje natural de La Araucanía" width="960" height="448" fetchpriority="high"><figcaption>Un respiro en el sur de Chile</figcaption></figure>
+ </section>
+ <form class="home-search container" action="./paginas/rutas.html" role="search" aria-label="Encuentra tu próxima ruta">
+  <div class="home-search__field"><label for="home-search">¿Dónde quieres explorar?</label><input id="home-search" type="search" name="search" placeholder="Bosque, lago o nombre de la ruta"></div>
+  <div class="home-search__field"><label for="home-difficulty">A tu ritmo</label><select name="difficulty" id="home-difficulty"><option value="">Todas las dificultades</option><option value="easy">Fácil</option><option value="medium">Media</option><option value="hard">Difícil</option></select></div>
+  <button class="btn btn--primary" type="submit"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/></svg>Buscar rutas</button>
+ </form>
+<section class="section carousel container" aria-labelledby="senderos-title" aria-roledescription="carrusel">
       <div class="section__header">
-        <h2 class="section__title" id="senderos-title">Senderos destacados</h2>
-        <span class="section__subtitle">Elige tu próximo paisaje</span>
+        <div><h2 class="section__title" id="senderos-title">Un sendero para cada aventura</h2><p class="section__subtitle">Bosques, lagos y cumbres. Encuentra tu lugar.</p></div>
+        <a class="section-link" href="./paginas/rutas.html">Ver todas las rutas</a>
       </div>
 
       <!-- Botones de navegación (FUERA del ul) -->
@@ -52,65 +51,65 @@
       <button type="button" class="carousel__btn carousel__btn--next" aria-label="Diapositiva siguiente">&#10095;</button>
 
       <!-- Track con slides -->
-      <ul class="carousel__track" role="list" aria-live="polite">
+      <ul class="carousel__track" role="list" >
         <li class="carousel__slide" role="listitem" aria-roledescription="diapositiva" aria-hidden="false" data-index="0">
           <article class="card">
-            <img src="./assets/imagenes/BosqueNativo.webp" alt="Bosque nativo con un sendero" loading="lazy" width="400" height="250">
-            <h3>Sendero del Bosque Nativo</h3>
+            <img src="./assets/imagenes/optimized/BosqueNativo-960.webp" srcset="./assets/imagenes/optimized/BosqueNativo-640.webp 640w, ./assets/imagenes/optimized/BosqueNativo-960.webp 960w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw" alt="Bosque nativo con un sendero" loading="lazy" width="400" height="250">
+            <h3>Sendero del Bosque Nativo</h3><p class="card__meta">Fácil · 5,2 km · 2 h 30 min</p>
             <p>Una caminata amable entre árboles y sonidos del bosque.</p>
-            <a href="./paginas/rutas.html" aria-label="Ver detalles del Sendero del Bosque Nativo">Ver rutas</a>
+            <a href="./paginas/rutas.html?search=Bosque+Nativo" aria-label="Ver rutas del Bosque Nativo">Ver rutas</a>
           </article>
         </li>
-        <li class="carousel__slide" role="listitem" aria-roledescription="diapositiva" aria-hidden="true" data-index="1">
+        <li class="carousel__slide" role="listitem" aria-roledescription="diapositiva" aria-hidden="false" data-index="1">
           <article class="card">
-            <img src="./assets/imagenes/ruta-lago.webp" alt="Lago rodeado de montañas" loading="lazy" width="400" height="250">
-            <h3>Lago Escondido</h3>
+            <img src="./assets/imagenes/optimized/ruta-lago-960.webp" srcset="./assets/imagenes/optimized/ruta-lago-640.webp 640w, ./assets/imagenes/optimized/ruta-lago-960.webp 960w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw" alt="Lago rodeado de montañas" loading="lazy" width="400" height="250">
+            <h3>Lago Escondido</h3><p class="card__meta">Fácil · 3,8 km · 1 h 30 min</p>
             <p>Un recorrido breve para conectar con el paisaje del sur.</p>
-            <a href="./paginas/rutas.html" aria-label="Ver detalles del Lago Escondido">Ver rutas</a>
+            <a href="./paginas/rutas.html?search=Lago+Escondido" aria-label="Ver rutas del Lago Escondido">Ver rutas</a>
           </article>
         </li>
-        <li class="carousel__slide" role="listitem" aria-roledescription="diapositiva" aria-hidden="true" data-index="2">
+        <li class="carousel__slide" role="listitem" aria-roledescription="diapositiva" aria-hidden="false" data-index="2">
           <article class="card">
-            <img src="./assets/imagenes/Cumbre.jpg" alt="Cumbre de montaña" loading="lazy" width="400" height="250">
-            <h3>Cumbre Andina</h3>
+            <img src="./assets/imagenes/optimized/Cumbre-960.webp" srcset="./assets/imagenes/optimized/Cumbre-640.webp 640w, ./assets/imagenes/optimized/Cumbre-960.webp 960w" sizes="(min-width: 960px) 400px, (min-width: 640px) 50vw, 100vw" alt="Cumbre de montaña" loading="lazy" width="400" height="250">
+            <h3>Cumbre Andina</h3><p class="card__meta">Difícil · 18 km · 8 h</p>
             <p>Desafíos de montaña para quienes buscan nuevos horizontes.</p>
-            <a href="./paginas/rutas.html" aria-label="Ver detalles de la Cumbre Andina">Ver rutas</a>
+            <a href="./paginas/rutas.html?search=Cumbre+Andina" aria-label="Ver rutas de la Cumbre Andina">Ver rutas</a>
           </article>
         </li>
       </ul>
 
       <!-- Dots indicadores -->
-      <div class="carousel__dots" role="tablist" aria-label="Controles de diapositivas">
-        <button type="button" class="carousel__dot active" role="tab" aria-selected="true" aria-label="Ir a la diapositiva 1" data-target="0"></button>
-        <button type="button" class="carousel__dot" role="tab" aria-selected="false" aria-label="Ir a la diapositiva 2" data-target="1"></button>
-        <button type="button" class="carousel__dot" role="tab" aria-selected="false" aria-label="Ir a la diapositiva 3" data-target="2"></button>
+      <div class="carousel__dots" role="group" aria-label="Controles de diapositivas">
+        <button type="button" class="carousel__dot active" aria-pressed="true" aria-label="Ir a la diapositiva 1" data-target="0"></button>
+        <button type="button" class="carousel__dot" aria-pressed="false" aria-label="Ir a la diapositiva 2" data-target="1"></button>
+        <button type="button" class="carousel__dot" aria-pressed="false" aria-label="Ir a la diapositiva 3" data-target="2"></button>
       </div>
 
       <!-- Botón de pausa (WCAG 2.2.2) -->
-      <button type="button" class="carousel__pause-btn" aria-label="Pausar carrusel" aria-pressed="false">Pausar</button>
+      <button type="button" class="carousel__pause-btn" aria-label="Reproducir carrusel" aria-pressed="false">Reproducir</button>
     </section>
-
-    </main>
-
-    <section class="section map-section" aria-labelledby="mapa-title">
-        <div class="section__header">
-            <h2 class="section__title" id="mapa-title">Ubicaciones de nuestros senderos</h2>
-            <span class="section__subtitle">Explora La Araucanía en el mapa</span>
-        </div>
-        <div id="mapa-ecoruta" class="map-container" role="application" aria-label="Mapa interactivo de senderos en La Araucanía"></div>
-    </section>
-
-    <section class="section" aria-labelledby="clima-title">
-      <h2 id="clima-title">Tiempo actual en Temuco</h2>
-      <p>Consulta las condiciones antes de planificar tu salida. No reemplaza avisos oficiales de seguridad.</p>
-      <p id="clima-status" role="status" aria-live="polite"></p>
-      <p id="clima-data" hidden></p>
-      <button id="clima-retry" type="button">Actualizar clima</button>
-      <p>Datos: <a href="https://open-meteo.com/">Open-Meteo</a>. Referencia urbana de Temuco; las condiciones de montaña pueden variar.</p>
-    </section>
-    <footer class="footer">
-    <p>&copy; 2026 ECORUTAS. Todos los derechos reservados.</p>
-  </footer>
-
+ <section class="section map-section container" aria-labelledby="mapa-title">
+  <div class="section__header"><div><p class="eyebrow">Explora el territorio</p><h2 id="mapa-title">La aventura empieza cerca.</h2><p class="section__subtitle">Ubícate en La Araucanía y prepara tu recorrido.</p></div><a class="section-link" href="./paginas/rutas.html">Explorar el listado de rutas</a></div>
+  <div class="map-layout">
+   <div class="map-copy"><h3>La Araucanía, punto de partida</h3><p>Desde Temuco, abre el mapa y explora los paisajes del sur.</p><p class="map-note">El marcador indica Temuco como referencia regional. Las rutas aún no cuentan con coordenadas verificadas.</p><button id="map-reset" type="button">Volver a Temuco</button><a href="./paginas/rutas.html">Consultar rutas y dificultades</a></div>
+   <div><p id="map-status" class="map-status" role="status"></p><div id="mapa-ecoruta" class="map-container" role="region" aria-label="Mapa de referencia de La Araucanía" aria-describedby="map-help"></div><p id="map-help" class="map-help">Usa Tab para acceder al mapa, las flechas para desplazarte y + / − para cambiar el zoom.</p></div>
+  </div>
+ </section>
+ <section class="weather-section container" aria-labelledby="clima-title">
+  <div><p class="eyebrow">Antes de salir</p><h2 id="clima-title">Tiempo actual en Temuco</h2><p class="weather-note">Referencia urbana. Las condiciones en montaña pueden variar; consulta los avisos oficiales antes de salir.</p></div>
+  <div class="weather-data"><p id="clima-status" role="status" aria-live="polite"></p><p id="clima-data" hidden></p><button id="clima-retry" type="button">Actualizar clima</button><p class="weather-source">Datos de <a href="https://open-meteo.com/">Open-Meteo</a></p></div>
+ </section>
+</main>
+<!-- site-footer -->
+<footer class="site-footer"><div class="container footer-grid"><div><a class="navbar__logo" href="./index.html"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 25 13 7l6 10 4-6 6 14H3Z"/><path d="m10 13 3 3 3-3M17 25l4-5"/></svg><span>EcoRutas</span></a><p>Explora con calma. Cuida lo que descubres.</p><p class="footer-location">Desde La Araucanía, Chile.</p></div><nav aria-label="Navegación secundaria"><ul><li><a href="./index.html" aria-current="page">Inicio</a></li>
+<li><a href="./paginas/rutas.html">Rutas</a></li>
+<li><a href="./paginas/sobre_nosotros.html">Sobre nosotros</a></li>
+<li><a href="./paginas/contacto.html">Contacto</a></li></ul></nav></div><div class="container footer-bottom"><span>© 2026 EcoRutas</span><span>Turismo de naturaleza responsable</span></div></footer>
+<!-- /site-footer -->
+<script src="./js/navigation.js" defer></script>
+<script src="./js/featured.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="./js/mapa.js" defer></script>
+<script src="./js/clima.js" defer></script>
 </body>
 </html>

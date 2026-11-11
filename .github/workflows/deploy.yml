@@ -88,6 +88,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: install dependencies
+        run: npm install
+
+      - name: Build TypeScript
+        run: npm run build
+        
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
