@@ -63,15 +63,38 @@ document.addEventListener('DOMContentLoaded', () => {
             error: document.getElementById('error-mensaje')
         }
     ];
-    // Limpiar alertas al escribir
-    camposMap.forEach(({ input, error }) => {
-        input?.addEventListener('input', () => {
-            if (input.getAttribute('aria-invalid') === 'true') {
-                input.removeAttribute('aria-invalid');
-                input.removeAttribute('aria-describedby'); // Desvincular dinámicamente
-                if (error)
-                    error.textContent = '';
-            }
+    // Función auxiliar para validar y mostrar/limpiar error de un solo campo
+    const validarCampoIndividual = (key, input, errorSpan) => {
+        // Creamos un objeto temporal con los valores actuales del formulario
+        const datosActuales = {
+            nombre: document.getElementById('nombre')?.value || '',
+            email: document.getElementById('email')?.value || '',
+            mensaje: document.getElementById('mensaje')?.value || ''
+        };
+        const errores = validarFormulario(datosActuales);
+        const mensajeError = errores[key];
+        if (mensajeError) {
+            input.setAttribute('aria-invalid', 'true');
+            input.setAttribute('aria-describedby', `error-${key}`);
+            errorSpan.textContent = mensajeError;
+        }
+        else {
+            input.removeAttribute('aria-invalid');
+            input.removeAttribute('aria-describedby');
+            errorSpan.textContent = '';
+        }
+    };
+    // Validación en tiempo real: eventos 'blur' e 'input'
+    camposMap.forEach(({ key, input, error }) => {
+        if (!input || !error)
+            return;
+        // 1. Al salir del campo (blur): valida inmediatamente
+        input.addEventListener('blur', () => {
+            validarCampoIndividual(key, input, error);
+        });
+        // 2. Mientras escribe (input): revalida en tiempo real
+        input.addEventListener('input', () => {
+            validarCampoIndividual(key, input, error);
         });
     });
     // Evento Submit
