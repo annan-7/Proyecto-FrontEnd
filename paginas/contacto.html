@@ -33,25 +33,31 @@
         </section>
 
         <section class="contacto-form-section">
-            <h2>Escríbenos</h2><p id="contact-note">Formulario de demostración: puedes validar tu mensaje, pero todavía no se envía ni almacena.</p>
-            <form class="contacto-form" action="#form-status" method="post" aria-describedby="contact-note">
+            <h2>Escríbenos</h2>
+            <p id="contact-note">Formulario de demostración: puedes validar tu mensaje, pero todavía no se envía ni almacena.</p>
+            
+            <form id="contacto-form" class="contacto-form" action="#status-message" method="post" aria-describedby="contact-note" novalidate>
                 <div class="form-group">    
                     <label for="nombre">Nombre</label>
                     <input type="text" autocomplete="name" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    <span id="error-nombre" class="error-message" aria-live="polite"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Correo</label>
                     <input type="email" autocomplete="email" id="email" name="email" placeholder="tu@email.com" required>
+                    <span id="error-email" class="error-message" aria-live="polite"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="mensaje">Mensaje</label>
                     <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    <span id="error-mensaje" class="error-message" aria-live="polite"></span>
                 </div>
 
                 <button type="submit">Validar mensaje</button>
-            <p id="form-status" role="status" aria-live="polite"></p></form>
+                <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+            </form>
         </section>
 
     </div></main>
@@ -63,5 +69,8 @@
 <li><a href="../paginas/contacto.html" aria-current="page">Contacto</a></li></ul></nav></div><div class="container footer-bottom"><span>© 2026 EcoRutas</span><span>Turismo de naturaleza responsable</span></div></footer>
 <!-- /site-footer --><script src="../js/navigation.js" defer></script>
 <script src="../js/main.js" defer></script>
+<script src="../js/navigation.js" defer></script>
+<script src="../js/main.js" defer></script>
+<script src="../js/contacto.js" defer></script>
 </body>
 </html>
