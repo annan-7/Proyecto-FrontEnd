@@ -39,6 +39,13 @@
   <div class="home-search__field"><label for="home-search">¿Dónde quieres explorar?</label><input id="home-search" type="search" name="search" placeholder="Bosque, lago o nombre de la ruta"></div>
   <div class="home-search__field"><label for="home-difficulty">A tu ritmo</label><select name="difficulty" id="home-difficulty"><option value="">Todas las dificultades</option><option value="easy">Fácil</option><option value="medium">Media</option><option value="hard">Difícil</option></select></div>
   <button class="btn btn--primary" type="submit"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/></svg>Buscar rutas</button>
+    <button 
+    type="button" 
+    id="btn-modo-lectura"
+    class="btn btn--secondary"
+    aria-pressed="false"
+    aria-label="Activar modo de lectura">
+  </button>
  </form>
 <section class="section carousel container" aria-labelledby="senderos-title" aria-roledescription="carrusel">
       <div class="section__header">
@@ -111,5 +118,6 @@
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <script src="./js/mapa.js" defer></script>
 <script src="./js/clima.js" defer></script>
+<script src="./js/modo-lectura.js" defer></script>
 </body>
 </html>
