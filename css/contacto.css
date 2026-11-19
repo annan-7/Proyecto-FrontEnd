@@ -11,4 +11,38 @@
 .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
 .contacto-form button { justify-self: start; }
 #form-status { margin: 0; }
+
+/* Mensaje de estado general (corregido el ID de #form-status a #status-message) */
+#status-message {
+    margin: 0;
+    font-weight: 600;
+}
+
+.status-message--error {
+    color: #dc2626;
+}
+
+.status-message--info {
+    color: var(--muted);
+}
+
+.status-message--exito {
+    color: #15803d;
+}
+
+/* Mensajes de error por campo y feedback visual accesible */
+.error-message {
+    display: block;
+    color: #dc2626;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 6px;
+    min-height: 1.25em;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: #dc2626;
+    outline: 2px solid rgba(220, 38, 38, 0.25);
+}
 @media (min-width: 960px) { .contacto-container { grid-template-columns: 1fr 1.4fr; gap: 80px; } .contacto-info { padding: 32px; } }
