@@ -2,7 +2,7 @@
 
 ## Integrantes y roles (Sprint actual)
 
-| Rol ágil | Sprint 0 | Sprint 1 | Sprint 2 (actual)| Sprint 3 |
+| Rol ágil | Sprint 0 | Sprint 1 | Sprint 2 | Sprint 3 (Actual) |
 |---|---|---|---|---|
 | Scrum Master | Matías Espinoza | Matías Espinoza | Annan John | Miguel Torres |
 | Project Owner | Tomás Mardones | Tomás Mardones | Matías Espinoza | Catalina Ojeda |
@@ -43,7 +43,7 @@ Enlace al tablero: [(Tablero)](https://trello.com/invite/b/6a7d08bce56e803c8918e
 
 ## Enlace de despliegue
 
-+ [EcoRuta Web](https://annan-7.github.io/Proyecto-FrontEnd/index.html)
++ [EcoRuta Web](https://scintillating-capybara-d515c7.netlify.app/)
 
 ## Build y validación
 

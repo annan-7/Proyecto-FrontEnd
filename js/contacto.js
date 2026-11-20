@@ -63,15 +63,42 @@ document.addEventListener('DOMContentLoaded', () => {
             error: document.getElementById('error-mensaje')
         }
     ];
-    // Limpiar alertas al escribir
-    camposMap.forEach(({ input, error }) => {
-        input?.addEventListener('input', () => {
-            if (input.getAttribute('aria-invalid') === 'true') {
-                input.removeAttribute('aria-invalid');
-                input.removeAttribute('aria-describedby'); // Desvincular dinámicamente
-                if (error)
-                    error.textContent = '';
-            }
+// Función para validar un campo individual en tiempo real
+    function validarCampoIndividual(key, input, error) {
+        if (!input || !error) return;
+
+        // Creamos un objeto temporal con los valores actuales para reutilizar tu función validarFormulario
+        const datosActuales = {
+            nombre: document.getElementById('nombre')?.value || '',
+            email: document.getElementById('email')?.value || '',
+            mensaje: document.getElementById('mensaje')?.value || ''
+        };
+
+        const errores = validarFormulario(datosActuales);
+        const mensajeError = errores[key];
+
+        if (mensajeError) {
+            input.setAttribute('aria-invalid', 'true');
+            input.setAttribute('aria-describedby', `error-${key}`);
+            error.textContent = mensajeError;
+        } else {
+            input.removeAttribute('aria-invalid');
+            input.removeAttribute('aria-describedby');
+            error.textContent = '';
+        }
+    }
+
+    // Validar en tiempo real al escribir (input) y al salir del campo (blur)
+    camposMap.forEach(({ key, input, error }) => {
+        if (!input) return;
+
+        input.addEventListener('blur', () => {
+            validarCampoIndividual(key, input, error);
+        });
+
+        input.addEventListener('input', () => {
+            // Valida mientras escribe si el usuario ya interactuó o si ya tiene contenido
+            validarCampoIndividual(key, input, error);
         });
     });
     // Evento Submit
