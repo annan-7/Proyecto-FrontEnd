@@ -4,6 +4,80 @@
         .toLocaleLowerCase('es')
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '');
+    const loadCatalog = async () => {
+        const grid = document.querySelector('.routes-grid');
+        const template = grid?.querySelector('.route-card')?.cloneNode(true);
+        if (!grid || !template)
+            return;
+        grid.replaceChildren();
+        const status = document.createElement('p');
+        status.setAttribute('role', 'status');
+        grid.before(status);
+        const retry = document.createElement('button');
+        retry.type = 'button';
+        retry.textContent = 'Reintentar carga';
+        retry.hidden = true;
+        status.after(retry);
+        const load = async () => {
+            retry.hidden = true;
+            status.textContent = 'Cargando rutas…';
+            try {
+                const routes = await EcoCatalog.load();
+                const difficulty = { facil: ['easy', 'Fácil'], moderada: ['medium', 'Moderada'], dificil: ['hard', 'Difícil'], experto: ['expert', 'Experto'] };
+                const cards = routes.map(route => {
+                    const card = template.cloneNode(true);
+                    const [level, label] = difficulty[route.difficulty] || ['', route.difficulty];
+                    Object.assign(card.dataset, { category: route.route_type === 'trekking' ? 'senderismo trekking' : route.route_type, difficulty: level, distance: String(route.distance_km), duration: String(route.duration_hours), description: route.description });
+                    card.querySelector('h3').textContent = route.name;
+                    card.querySelector('.route-card__location').textContent = route.location;
+                    const badge = card.querySelector('.route-card__badge');
+                    badge.textContent = label;
+                    badge.className = `route-card__badge route-card__badge--${level === 'expert' ? 'hard' : level}`;
+                    const meta = card.querySelectorAll('.route-card__meta-item');
+                    meta[0].textContent = `${route.distance_km} km`;
+                    meta[1].textContent = `${route.duration_hours} h`;
+                    const image = card.querySelector('img');
+                    image.removeAttribute('srcset');
+                    image.removeAttribute('sizes');
+                    const fallback = () => { image.onerror = null; image.src = '../assets/imagenes/ruta-sin-foto.svg'; image.alt = 'Ilustración de montaña; no representa la ruta'; };
+                    fallback();
+                    try {
+                        const url = new URL(route.image_url || '');
+                        if (url.protocol === 'https:') {
+                            image.onerror = fallback;
+                            image.src = url.href;
+                            image.alt = `Paisaje de referencia de ${route.name}`;
+                        }
+                    }
+                    catch { /* Use the local illustration for missing images. */ }
+                    card.querySelector('button').setAttribute('aria-label', `Ver detalles de ${route.name}`);
+                    return card;
+                });
+                grid.replaceChildren(...cards);
+                const distance = document.querySelector('#filter-distance');
+                if (distance) {
+                    distance.max = String(Math.max(50, ...routes.map(r => Math.ceil(r.distance_km))));
+                    distance.value = distance.max;
+                    distance.setAttribute('aria-valuemax', distance.max);
+                }
+                status.textContent = routes.length ? '' : 'No hay rutas disponibles en este momento.';
+                const count = document.querySelector('#results-number');
+                if (count)
+                    count.textContent = String(routes.length);
+                initRoutes();
+                initDetails();
+            }
+            catch {
+                status.textContent = 'No se pudieron cargar las rutas. Comprueba tu conexión y reintenta.';
+                retry.hidden = false;
+                const count = document.querySelector('#results-number');
+                if (count)
+                    count.textContent = '0';
+            }
+        };
+        retry.addEventListener('click', load);
+        await load();
+    };
     const initRoutes = () => {
         const form = document.querySelector('.search-form');
         const input = document.querySelector('#search-input');
@@ -151,6 +225,7 @@
                 image.alt = source.alt;
                 const set = (selector, text) => { const el = dialog.querySelector(selector); if (el)
                     el.textContent = text; };
+                set('.route-dialog__text', card.dataset.description || '');
                 set('[data-dialog-title]', card.querySelector('h3')?.textContent || 'Detalle de ruta');
                 set('[data-dialog-location]', card.querySelector('.route-card__location')?.textContent?.trim() || '');
                 set('[data-dialog-difficulty]', `Dificultad: ${card.querySelector('.route-card__badge')?.textContent || ''}`);
@@ -168,8 +243,7 @@
         dialog.addEventListener('close', () => trigger?.focus());
     };
     document.addEventListener('DOMContentLoaded', () => {
-        initRoutes();
+        void loadCatalog();
         initContactForm();
-        initDetails();
     });
 })();

@@ -91,8 +91,8 @@
  <section class="section map-section container" aria-labelledby="mapa-title">
   <div class="section__header"><div><p class="eyebrow">Explora el territorio</p><h2 id="mapa-title">La aventura empieza cerca.</h2><p class="section__subtitle">Ubícate en La Araucanía y prepara tu recorrido.</p></div><a class="section-link" href="./paginas/rutas.html">Explorar el listado de rutas</a></div>
   <div class="map-layout">
-   <div class="map-copy"><h3>La Araucanía, punto de partida</h3><p>Desde Temuco, abre el mapa y explora los paisajes del sur.</p><p class="map-note">El marcador indica Temuco como referencia regional. Las rutas aún no cuentan con coordenadas verificadas.</p><button id="map-reset" type="button">Volver a Temuco</button><a href="./paginas/rutas.html">Consultar rutas y dificultades</a></div>
-   <div><p id="map-status" class="map-status" role="status"></p><div id="mapa-ecoruta" class="map-container" role="region" aria-label="Mapa de referencia de La Araucanía" aria-describedby="map-help"></div><p id="map-help" class="map-help">Usa Tab para acceder al mapa, las flechas para desplazarte y + / − para cambiar el zoom.</p></div>
+   <div class="map-copy"><h3>La Araucanía, punto de partida</h3><p>Desde Temuco, abre el mapa y explora los paisajes del sur.</p><p class="map-note">Consulta las ubicaciones de las rutas del catálogo. Los puntos son referencias de la API, no trazados de senderos.</p><button id="map-reset" type="button">Volver a Temuco</button><a href="./paginas/rutas.html">Consultar rutas y dificultades</a></div>
+   <div><p id="map-status" class="map-status" role="status"></p><div id="mapa-ecoruta" class="map-container" role="region" aria-label="Mapa de ubicaciones de rutas de Chile" aria-describedby="map-help"></div><p id="map-help" class="map-help">Usa Tab para acceder al mapa, las flechas para desplazarte y + / − para cambiar el zoom.</p></div>
   </div>
  </section>
  <section class="weather-section container" aria-labelledby="clima-title">
@@ -109,6 +109,7 @@
 <script src="./js/navigation.js" defer></script>
 <script src="./js/featured.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="./js/catalogo.js" defer></script>
 <script src="./js/mapa.js" defer></script>
 <script src="./js/clima.js" defer></script>
 </body>

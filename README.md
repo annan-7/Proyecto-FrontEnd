@@ -51,4 +51,17 @@ Enlace al tablero: [(Tablero)](https://trello.com/invite/b/6a7d08bce56e803c8918e
 
 El sistema visual y la auditoría están en [DESIGN.md](DESIGN.md). Los resultados de validación del rediseño están en [documentos/QA-test/rediseno.md](documentos/QA-test/rediseno.md).
 
-El formulario de contacto valida localmente y no envía mensajes. El mapa conserva el marcador regional de Temuco; no se publican posiciones de senderos sin coordenadas verificadas. Los servicios cartográficos y meteorológicos requieren conexión a Internet.
+El formulario de contacto valida localmente y no envía mensajes. El listado y el mapa consultan https://ecorutas-api.vercel.app/api/v1/routes con paginación. El mapa muestra las coordenadas del catálogo como puntos de referencia (no trazados de senderos) y agrupa rutas con las mismas coordenadas en un popup. El modo oscuro adapta únicamente las teselas de OpenStreetMap. Los servicios cartográficos y meteorológicos requieren conexión a Internet.
+
+## API de rutas
+
+El servicio NestJS, Prisma y SQLite está en [backend/](backend/README.md). Incluye 62 recorridos reales de las 16 regiones, Swagger, CRUD administrativo y Docker.
+
+```bash
+cd backend
+docker compose up --build -d
+```
+
+API: http://localhost:3000/api/v1/routes. Swagger: http://localhost:3000/api/docs. La autenticación administrativa y las fuentes del catálogo se explican en la documentación del backend.
+
+El frontend se sirve y publica desde `dist/site`. Este directorio contiene solo recursos públicos; el backend, SQLite y los archivos de entorno quedan excluidos.
