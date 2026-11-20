@@ -1,9 +1,12 @@
 interface EcoRoute {
+
   id: string; image_url?: string; name: string; description: string; location: string;
   distance_km: number; duration_hours: number; difficulty: string; route_type: string;
   latitude: number | null; longitude: number | null; is_active: boolean;
+  
 }
 const EcoCatalog = (() => {
+
   let request: Promise<EcoRoute[]> | undefined;
   const load = async (): Promise<EcoRoute[]> => {
     const routes: EcoRoute[] = [];
