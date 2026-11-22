@@ -1,4 +1,12 @@
 "use strict";
+function crearDiccionarioFormulario(form) {
+    const formData = new FormData(form);
+    return {
+        nombre: String(formData.get('nombre') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+        mensaje: String(formData.get('mensaje') ?? '').trim()
+    };
+}
 function validarFormulario(datos) {
     const errores = {};
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -102,13 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         statusMessage.textContent = '';
         statusMessage.className = 'status-message';
-        // 1. Extraer datos estructurados en IFormData
-        const formData = new FormData(form);
-        const datos = {
-            nombre: formData.get('nombre') || '',
-            email: formData.get('email') || '',
-            mensaje: formData.get('mensaje') || ''
-        };
+        // 1. Convertir los inputs del formulario a un diccionario
+        const datos = crearDiccionarioFormulario(form);
         // 2. Ejecutar validación tipada
         const errores = validarFormulario(datos);
         const tieneErrores = Object.keys(errores).length > 0;

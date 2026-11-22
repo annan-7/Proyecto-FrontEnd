@@ -1,5 +1,3 @@
-
-
 interface IFormData {
     nombre: string;
     email: string;
@@ -10,6 +8,18 @@ interface IFormErrors {
     nombre?: string;
     email?: string;
     mensaje?: string;
+}
+
+type FormDictionary = Record<keyof IFormData, string>;
+
+function crearDiccionarioFormulario(form: HTMLFormElement): FormDictionary {
+    const formData = new FormData(form);
+
+    return {
+        nombre: String(formData.get('nombre') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+        mensaje: String(formData.get('mensaje') ?? '').trim()
+    };
 }
 
 
@@ -136,13 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
         statusMessage.textContent = '';
         statusMessage.className = 'status-message';
 
-        // 1. Extraer datos estructurados en IFormData
-        const formData = new FormData(form);
-        const datos: IFormData = {
-            nombre: (formData.get('nombre') as string) || '',
-            email: (formData.get('email') as string) || '',
-            mensaje: (formData.get('mensaje') as string) || ''
-        };
+        // 1. Convertir los inputs del formulario a un diccionario
+        const datos: FormDictionary = crearDiccionarioFormulario(form);
 
         // 2. Ejecutar validación tipada
         const errores: IFormErrors = validarFormulario(datos);
