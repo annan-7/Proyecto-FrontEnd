@@ -10,4 +10,3 @@ export interface IEvento {
 }
 export declare function filtrarEventosPorTipo(eventos: IEvento[], tipo: string): IEvento[];
 export declare function calcularCuposRestantes(evento: IEvento): string;
-//# sourceMappingURL=modulo-home.d.ts.map

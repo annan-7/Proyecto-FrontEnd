@@ -51,3 +51,8 @@
 .leaflet-popup-content { padding-right: 16px; }
 @media (min-width: 640px) { .carousel__slide { flex-basis: 72%; } .hero { grid-template-columns: 1fr 1fr; align-items: stretch; } .hero__text { padding-block: 32px; } .home-search { grid-template-columns: 1.2fr 1fr; } .home-search .btn { grid-column: 1 / -1; } .hero__image img { position: absolute; inset: 0; } }
 @media (min-width: 960px) { .hero { padding-top: 40px; gap: 56px; grid-template-columns: .9fr 1.1fr; } .hero__text { padding-block: 36px; } .hero__image { min-height: 420px; } .home-search { grid-template-columns: 1.5fr 1fr auto; gap: 24px; padding: 20px 24px; margin-top: 32px; } .home-search .btn { grid-column: auto; min-height: 48px; } .carousel__slide { flex-basis: calc((100% - 48px) / 3); } .map-layout { grid-template-columns: 320px 1fr; gap: 24px; } .map-container { height: 400px; } .weather-section { grid-template-columns: 1.2fr 1fr; padding: 32px; gap: 64px; } }
+
+/* Only recolor the basemap: markers, popups and controls retain their contrast. */
+[data-theme="dark"] .map-container .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9); }
+.map-container .leaflet-tile { max-width: none; max-height: none; }
+.map-container .leaflet-popup-content { max-height: 240px; overflow-y: auto; }

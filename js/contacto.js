@@ -1,4 +1,12 @@
 "use strict";
+function crearDiccionarioFormulario(form) {
+    const formData = new FormData(form);
+    return {
+        nombre: String(formData.get('nombre') ?? '').trim(),
+        email: String(formData.get('email') ?? '').trim(),
+        mensaje: String(formData.get('mensaje') ?? '').trim()
+    };
+}
 function validarFormulario(datos) {
     const errores = {};
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -63,41 +71,37 @@ document.addEventListener('DOMContentLoaded', () => {
             error: document.getElementById('error-mensaje')
         }
     ];
-// Función para validar un campo individual en tiempo real
-    function validarCampoIndividual(key, input, error) {
-        if (!input || !error) return;
-
-        // Creamos un objeto temporal con los valores actuales para reutilizar tu función validarFormulario
+    // Función auxiliar para validar y mostrar/limpiar error de un solo campo
+    const validarCampoIndividual = (key, input, errorSpan) => {
+        // Creamos un objeto temporal con los valores actuales del formulario
         const datosActuales = {
             nombre: document.getElementById('nombre')?.value || '',
             email: document.getElementById('email')?.value || '',
             mensaje: document.getElementById('mensaje')?.value || ''
         };
-
         const errores = validarFormulario(datosActuales);
         const mensajeError = errores[key];
-
         if (mensajeError) {
             input.setAttribute('aria-invalid', 'true');
             input.setAttribute('aria-describedby', `error-${key}`);
-            error.textContent = mensajeError;
-        } else {
+            errorSpan.textContent = mensajeError;
+        }
+        else {
             input.removeAttribute('aria-invalid');
             input.removeAttribute('aria-describedby');
-            error.textContent = '';
+            errorSpan.textContent = '';
         }
-    }
-
-    // Validar en tiempo real al escribir (input) y al salir del campo (blur)
+    };
+    // Validación en tiempo real: eventos 'blur' e 'input'
     camposMap.forEach(({ key, input, error }) => {
-        if (!input) return;
-
+        if (!input || !error)
+            return;
+        // 1. Al salir del campo (blur): valida inmediatamente
         input.addEventListener('blur', () => {
             validarCampoIndividual(key, input, error);
         });
-
+        // 2. Mientras escribe (input): revalida en tiempo real
         input.addEventListener('input', () => {
-            // Valida mientras escribe si el usuario ya interactuó o si ya tiene contenido
             validarCampoIndividual(key, input, error);
         });
     });
@@ -106,13 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         statusMessage.textContent = '';
         statusMessage.className = 'status-message';
-        // 1. Extraer datos estructurados en IFormData
-        const formData = new FormData(form);
-        const datos = {
-            nombre: formData.get('nombre') || '',
-            email: formData.get('email') || '',
-            mensaje: formData.get('mensaje') || ''
-        };
+        // 1. Convertir los inputs del formulario a un diccionario
+        const datos = crearDiccionarioFormulario(form);
         // 2. Ejecutar validación tipada
         const errores = validarFormulario(datos);
         const tieneErrores = Object.keys(errores).length > 0;
