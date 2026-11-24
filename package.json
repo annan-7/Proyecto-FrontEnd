@@ -1,10 +1,14 @@
 {
   "devDependencies": {
+    "esbuild": "^0.28.2",
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "build": "tsc && node scripts/shell.mjs && node scripts/public-site.mjs",
+    "build": "tsc && tsc -p tsconfig.planner.json && node scripts/planner-build.mjs && node scripts/shell.mjs && node scripts/public-site.mjs",
     "dev": "npm run build && python3 -m http.server 5173 --directory dist/site",
     "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "preact": "^11.2.0"
   }
 }
