@@ -51,6 +51,13 @@
                     }
                     catch { /* Use the local illustration for missing images. */ }
                     card.querySelector('button').setAttribute('aria-label', `Ver detalles de ${route.name}`);
+                    const planButton = document.createElement('button');
+                    planButton.type = 'button';
+                    planButton.className = 'route-card__plan';
+                    planButton.textContent = 'Preparar mi salida';
+                    planButton.setAttribute('aria-label', `Preparar mi salida: ${route.name}`);
+                    planButton.addEventListener('click', () => document.dispatchEvent(new CustomEvent('ecoruta:plan-route', { detail: route.id })));
+                    card.querySelector('.route-card__content').append(planButton);
                     return card;
                 });
                 grid.replaceChildren(...cards);

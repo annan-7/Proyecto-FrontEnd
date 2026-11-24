@@ -53,7 +53,17 @@ El sistema visual y la auditoría están en [DESIGN.md](DESIGN.md). Los resultad
 
 El formulario de contacto valida localmente y no envía mensajes. El listado y el mapa consultan https://ecorutas-api.vercel.app/api/v1/routes con paginación. El mapa muestra las coordenadas del catálogo como puntos de referencia (no trazados de senderos) y agrupa rutas con las mismas coordenadas en un popup. El modo oscuro adapta únicamente las teselas de OpenStreetMap. Los servicios cartográficos y meteorológicos requieren conexión a Internet.
 
-## API de rutas
+## Innovación: Mi salida EcoRuta
+
+En [Rutas](paginas/rutas.html#salida) se añade un planificador con recomendaciones explicadas por región, tiempo y dificultad, favoritas persistentes, pronóstico por lugar y fecha, lista de preparación responsable, enlace compartible y ficha HTML que se puede abrir sin conexión e imprimir. El catálogo, sus filtros y detalles permanecen disponibles; cada tarjeta permite preparar una salida.
+
+La mejora usa **Preact + TypeScript** como un componente independiente dentro del sitio. `planner/app.tsx` contiene la interfaz y estado; `planner/core.ts` separa recomendaciones, validación, fechas, clima y exportación. `tsconfig.planner.json` comprueba tipos y `scripts/planner-build.mjs` genera `js/planificador.js` con esbuild. `npm run build` ejecuta ambos pasos y conserva el build del sitio existente. No requiere claves de API ni un servidor de aplicación.
+
+Las recomendaciones reflejan los datos publicados; no certifican seguridad o accesibilidad física. El pronóstico se obtiene de Open-Meteo para un máximo de siete días. Las preferencias quedan en este navegador; el enlace compartido no incluye la lista personal de preparativos. Solo la ficha descargada funciona sin conexión.
+
+El [guion y relación con el brief](documentos/QA-test/mi-salida-ecoruta.md) explica la demostración, pruebas y límites, incluida la validación del framework con el docente. Ejecutar `npm run build` y `npm test` antes de publicar.
+
+## API de rutas (servicio)
 
 El servicio NestJS, Prisma y SQLite está en [backend/](backend/README.md). Incluye 62 recorridos reales de las 16 regiones, Swagger, CRUD administrativo y Docker.
 

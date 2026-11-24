@@ -8,6 +8,7 @@
   <script src="../js/theme.js"></script>
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/rutas.css">
+  <link rel="stylesheet" href="../css/planificador.css">
 </head>
 <body>
 
@@ -39,10 +40,12 @@
     </section>
 
     
+    <div class="container" id="salida"><div id="outing-root"><p>Preparando Mi salida EcoRuta…</p><noscript>Activa JavaScript para usar el planificador de salidas.</noscript></div></div>
+
     <section class="search-section" aria-labelledby="search-title">
       <div class="container">
 
-        <h2 id="search-title" class="visually-hidden">Buscar y filtrar rutas</h2>
+        <h2 id="search-title" tabindex="-1" class="visually-hidden">Buscar y filtrar rutas</h2>
 
         
         <form class="search-form" role="search" aria-label="Buscar rutas">
@@ -464,5 +467,6 @@
 <script src="../js/navigation.js" defer></script>
 <script src="../js/catalogo.js" defer></script>
 <script src="../js/main.js" defer></script>
+<script src="../js/planificador.js" defer></script>
 </body>
 </html>
