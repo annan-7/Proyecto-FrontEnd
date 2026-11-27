@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ficha de una ruta de ECORUTAS: ubicación, dificultad, distancia, duración y descripción.">
+  <title>Ficha de ruta | ECORUTAS</title>
+  <script src="../js/theme.js"></script>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/rutas.css">
+  <link rel="stylesheet" href="../css/ficha.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+<!-- site-header -->
+<header class="site-header"><nav class="navbar container" aria-label="Navegación principal">
+ <a class="navbar__logo" href="../index.html" aria-label="EcoRutas, inicio"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 25 13 7l6 10 4-6 6 14H3Z"/><path d="m10 13 3 3 3-3M17 25l4-5"/></svg><span>EcoRutas</span></a>
+ <button type="button" class="menu" aria-expanded="false" aria-controls="nav" id="abrir"><span class="menu-label">Menú</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+ <ul class="navbar__links" id="nav"><li><a href="../index.html">Inicio</a></li>
+<li><a href="../paginas/rutas.html">Rutas</a></li>
+<li><a href="../paginas/sobre_nosotros.html">Sobre nosotros</a></li>
+<li><a href="../paginas/contacto.html">Contacto</a></li></ul>
+ <label class="theme-control"><span class="visually-hidden">Tema de color</span><select id="theme-select" aria-label="Tema de color"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Oscuro</option></select></label>
+ </nav></header>
+<!-- /site-header -->
+  <main id="main-content">
+    <div class="container ficha">
+      <nav class="ficha__breadcrumb" aria-label="Ruta de navegación">
+        <a class="ficha__back" href="rutas.html" data-back-to-catalog>
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Volver al catálogo
+        </a>
+      </nav>
+
+      <p class="ficha__status" role="status" data-ficha-status>Cargando información de la ruta…</p>
+      <button type="button" class="ficha__retry" data-ficha-retry hidden>Reintentar carga</button>
+
+      <article class="ficha__card" data-ficha hidden aria-labelledby="ficha-title">
+        <div class="ficha__media">
+          <img class="ficha__image" data-ficha-image src="../assets/imagenes/ruta-sin-foto.svg" alt="" width="960" height="540">
+          <span class="route-card__badge" data-ficha-badge></span>
+        </div>
+        <div class="ficha__content">
+          <p class="ficha__eyebrow">Ficha de la ruta</p>
+          <h1 id="ficha-title" class="ficha__title" data-ficha-title>Ruta</h1>
+          <p class="ficha__location" data-ficha-location></p>
+          <dl class="ficha__meta">
+            <div><dt>Dificultad</dt><dd data-ficha-difficulty></dd></div>
+            <div><dt>Distancia</dt><dd data-ficha-distance></dd></div>
+            <div><dt>Duración estimada</dt><dd data-ficha-duration></dd></div>
+            <div><dt>Tipo de ruta</dt><dd data-ficha-type></dd></div>
+          </dl>
+          <h2 class="ficha__subtitle">Descripción</h2>
+          <p class="ficha__text" data-ficha-description></p>
+          <p class="ficha__coords" data-ficha-coords hidden></p>
+          <div class="ficha__actions">
+            <button type="button" class="favorite-toggle ficha__favorite" data-ficha-favorite></button>
+            <a class="btn btn--primary" data-ficha-plan href="rutas.html#salida">Preparar mi salida</a>
+          </div>
+          <p class="ficha__notice" role="status" data-ficha-notice></p>
+        </div>
+      </article>
+
+      <div class="ficha__missing" data-ficha-missing hidden>
+        <h2>No encontramos esta ruta</h2>
+        <p>Puede que el enlace esté incompleto o que la ruta ya no esté disponible.</p>
+        <a class="btn btn--primary" href="rutas.html" data-back-to-catalog>Ver todas las rutas</a>
+      </div>
+    </div>
+  </main>
+<!-- site-footer -->
+<footer class="site-footer"><div class="container footer-grid"><div><a class="navbar__logo" href="../index.html"><svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 25 13 7l6 10 4-6 6 14H3Z"/><path d="m10 13 3 3 3-3M17 25l4-5"/></svg><span>EcoRutas</span></a><p>Explora con calma. Cuida lo que descubres.</p><p class="footer-location">Desde La Araucanía, Chile.</p></div><nav aria-label="Navegación secundaria"><ul><li><a href="../index.html">Inicio</a></li>
+<li><a href="../paginas/rutas.html">Rutas</a></li>
+<li><a href="../paginas/sobre_nosotros.html">Sobre nosotros</a></li>
+<li><a href="../paginas/contacto.html">Contacto</a></li></ul></nav></div><div class="container footer-bottom"><span>© 2026 EcoRutas</span><span>Turismo de naturaleza responsable</span></div></footer>
+<!-- /site-footer -->
+<script src="../js/navigation.js" defer></script>
+<script src="../js/catalogo.js" defer></script>
+<script src="../js/favoritos.js" defer></script>
+<script src="../js/filtros.js" defer></script>
+<script src="../js/ficha.js" defer></script>
+</body>
+</html>

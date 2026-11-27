@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import vm from 'node:vm';
-const pages = ['index.html', 'paginas/rutas.html', 'paginas/contacto.html', 'paginas/sobre_nosotros.html', 'paginas/404.html'];
+const pages = ['index.html', 'paginas/rutas.html', 'paginas/ruta.html', 'paginas/contacto.html', 'paginas/sobre_nosotros.html', 'paginas/404.html'];
 for (const page of pages) {
  test(`${page}: recursos, enlaces, idioma y estructura`, () => {
   const html = readFileSync(page, 'utf8');

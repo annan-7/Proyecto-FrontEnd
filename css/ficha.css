@@ -1,0 +1,26 @@
+/* Ficha de ruta: layout de detalle con imagen, metadatos y acciones. */
+.ficha { padding-block: 2rem; display: grid; gap: 1.25rem; }
+.ficha__breadcrumb { font-size: .95rem; }
+.ficha__back { display: inline-flex; align-items: center; gap: .35rem; color: var(--primary); text-decoration: none; }
+.ficha__back:hover, .ficha__back:focus-visible { text-decoration: underline; }
+.ficha__status { color: var(--muted); }
+.ficha__retry { align-self: start; padding: .5rem 1rem; border-radius: .5rem; border: 1px solid var(--input-border); background: var(--surface); color: var(--text); cursor: pointer; }
+.ficha__card { display: grid; gap: 1.5rem; background: var(--surface); border-radius: 1rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+@media (min-width: 720px) { .ficha__card { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+.ficha__media { position: relative; }
+.ficha__image { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; }
+.ficha__media .route-card__badge { position: absolute; top: .75rem; left: .75rem; }
+.ficha__content { padding: 1.25rem 1.5rem 1.75rem; display: grid; gap: .75rem; }
+.ficha__eyebrow { color: var(--muted); text-transform: uppercase; font-size: .8rem; letter-spacing: .08em; margin: 0; }
+.ficha__title { margin: 0; font-size: clamp(1.4rem, 2vw + 1rem, 2rem); }
+.ficha__location { color: var(--muted); margin: 0; }
+.ficha__meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .75rem 1.25rem; margin: .5rem 0; padding: 0; }
+.ficha__meta > div { display: grid; gap: .15rem; }
+.ficha__meta dt { font-size: .8rem; color: var(--muted); }
+.ficha__meta dd { margin: 0; font-weight: 600; }
+.ficha__subtitle { margin: .25rem 0 0; font-size: 1.05rem; }
+.ficha__text { margin: 0; line-height: 1.55; }
+.ficha__coords { font-size: .9rem; color: var(--muted); margin: 0; }
+.ficha__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
+.ficha__notice { min-height: 1.25em; color: var(--muted); font-size: .9rem; margin: 0; }
+.ficha__missing { background: var(--surface); border-radius: 1rem; padding: 1.5rem; display: grid; gap: .75rem; }
