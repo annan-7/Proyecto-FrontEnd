@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'node:fs';
-const pages = ['index.html', 'paginas/rutas.html', 'paginas/contacto.html', 'paginas/sobre_nosotros.html', 'paginas/404.html'];
+const pages = ['index.html', 'paginas/rutas.html', 'paginas/ruta.html', 'paginas/contacto.html', 'paginas/sobre_nosotros.html', 'paginas/404.html'];
 const links = [['index.html', 'Inicio'], ['paginas/rutas.html', 'Rutas'], ['paginas/sobre_nosotros.html', 'Sobre nosotros'], ['paginas/contacto.html', 'Contacto']];
 const mark = '<svg aria-hidden="true" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 25 13 7l6 10 4-6 6 14H3Z"/><path d="m10 13 3 3 3-3M17 25l4-5"/></svg>';
 for (const page of pages) {

@@ -38,7 +38,26 @@
             const url = new URL(route.image_url || '');
             if (url.protocol === 'https:') { image.onerror = fallback; image.src = url.href; image.alt = `Paisaje de referencia de ${route.name}`; }
           } catch { /* Use the local illustration for missing images. */ }
-          card.querySelector('button')!.setAttribute('aria-label', `Ver detalles de ${route.name}`);
+          card.dataset.routeId = route.id;
+          // "Ver detalles" pasa a ser un enlace real a la ficha (ruta.html?id=...).
+          const oldDetails = card.querySelector<HTMLElement>('[data-route-details]');
+          const details = document.createElement('a');
+          details.className = 'route-card__link';
+          details.href = `ruta.html?id=${encodeURIComponent(route.id)}`;
+          details.setAttribute('aria-label', `Ver ficha de ${route.name}`);
+          details.innerHTML = oldDetails?.innerHTML || 'Ver detalles';
+          details.addEventListener('click', () => EcoFilters.rememberRoute(route.id));
+          oldDetails?.replaceWith(details);
+          // Botón de favorito sobre la imagen.
+          const favorite = document.createElement('button');
+          favorite.type = 'button'; favorite.className = 'favorite-toggle route-card__favorite';
+          favorite.dataset.favoriteId = route.id;
+          EcoFavorites.paint(favorite, route.id, route.name);
+          favorite.addEventListener('click', () => {
+            if (EcoFavorites.toggle(route.id) === null) favorite.setAttribute('title', 'No fue posible guardar en este navegador');
+          });
+          card.querySelector('.route-card__image-wrapper')!.append(favorite);
+          card.classList.toggle('route-card--favorite', EcoFavorites.has(route.id));
           const planButton = document.createElement('button');
           planButton.type = 'button'; planButton.className = 'route-card__plan';
           planButton.textContent = 'Preparar mi salida';
@@ -52,7 +71,11 @@
         if (distance) { distance.max = String(Math.max(50, ...routes.map(r => Math.ceil(r.distance_km)))); distance.value = distance.max; distance.setAttribute('aria-valuemax', distance.max); }
         status.textContent = routes.length ? '' : 'No hay rutas disponibles en este momento.';
         const count = document.querySelector('#results-number'); if (count) count.textContent = String(routes.length);
-        initRoutes(); initDetails();
+        initRoutes();
+        // Al volver desde una ficha, devolver el foco a la tarjeta visitada.
+        const lastId = EcoFilters.takeLastRoute();
+        const lastCard = lastId ? cards.find(card => card.dataset.routeId === lastId && !card.hidden) : undefined;
+        if (lastCard) { lastCard.scrollIntoView({ block: 'center' }); lastCard.querySelector<HTMLElement>('.route-card__link')?.focus({ preventScroll: true }); }
       } catch {
         status.textContent = 'No se pudieron cargar las rutas. Comprueba tu conexión y reintenta.';
         retry.hidden = false;
@@ -78,10 +101,43 @@
 
     if (!form || !input || !cards.length || !count || !empty) return;
 
-    let selectedType = 'all';
-    const params = new URLSearchParams(location.search);
-    input.value = params.get('search') || '';
-    if (difficulty) difficulty.value = params.get('difficulty') || '';
+    // Restaurar filtros desde la URL o desde la sesión (al volver de una ficha u otra página).
+    const restored = EcoFilters.initial();
+    let selectedType = chips.some(chip => chip.dataset.filter === restored.tipo) ? restored.tipo : 'all';
+    let favoritesOnly = restored.favoritas === '1';
+    input.value = restored.buscar;
+    if (difficulty && [...difficulty.options].some(option => option.value === restored.dificultad)) difficulty.value = restored.dificultad;
+    if (duration && [...duration.options].some(option => option.value === restored.duracion)) duration.value = restored.duracion;
+    if (distance && restored.distancia && Number(restored.distancia) >= Number(distance.min)) distance.value = String(Math.min(Number(restored.distancia), Number(distance.max)));
+    const paintChips = () => chips.forEach((item) => {
+      const active = item.dataset.filter === selectedType;
+      item.classList.toggle('chip--active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    paintChips();
+    // Abrir los filtros avanzados si alguno está en uso, para que se vean.
+    if ((difficulty?.value || duration?.value || (distance && distance.value !== distance.max))) document.querySelector<HTMLDetailsElement>('.filters__advanced')?.setAttribute('open', '');
+
+    // Interruptor "Solo favoritas".
+    const favoritesButton = document.createElement('button');
+    favoritesButton.type = 'button'; favoritesButton.className = 'chip chip--favorites';
+    favoritesButton.innerHTML = '<span aria-hidden="true">♥</span> Solo favoritas';
+    document.querySelector('.filters__chips')?.append(favoritesButton);
+    const paintFavoritesButton = () => {
+      favoritesButton.classList.toggle('chip--active', favoritesOnly);
+      favoritesButton.setAttribute('aria-pressed', String(favoritesOnly));
+    };
+    favoritesButton.addEventListener('click', () => { favoritesOnly = !favoritesOnly; paintFavoritesButton(); update(); });
+    paintFavoritesButton();
+
+    // Resumen visible de filtros activos.
+    const summary = document.createElement('p');
+    summary.className = 'filters__summary';
+    summary.id = 'filters-summary';
+    document.querySelector('.results__count')?.after(summary);
+    const chipLabel = (value: string) => chips.find(chip => chip.dataset.filter === value)?.textContent?.trim() || value;
+    const optionLabel = (select: HTMLSelectElement | null) => select?.selectedOptions[0]?.textContent?.trim() || '';
+
     document.querySelector('.results__empty-clear')?.addEventListener('click', () => { clearButton?.click(); input.focus(); });
 
     const update = () => {
@@ -101,7 +157,8 @@
         const matchesDistance = Number(card.dataset.distance || 0) <= maximumDistance;
         const matchesDuration = !maximumDuration
           || (maximumDuration === '24' ? cardDuration > 8 : cardDuration <= Number(maximumDuration));
-        const isVisible = matchesQuery && matchesType && matchesDifficulty && matchesDistance && matchesDuration;
+        const matchesFavorite = !favoritesOnly || EcoFavorites.has(card.dataset.routeId || '');
+        const isVisible = matchesQuery && matchesType && matchesDifficulty && matchesDistance && matchesDuration && matchesFavorite;
 
         card.hidden = !isVisible;
         if (isVisible) visible += 1;
@@ -115,7 +172,40 @@
         distance.setAttribute('aria-valuenow', distance.value);
         distance.setAttribute('aria-valuetext', `${distance.value} kilómetros`);
       }
+      const emptyText = document.querySelector('.results__empty-text');
+      if (emptyText) emptyText.textContent = favoritesOnly && !EcoFavorites.list().length
+        ? 'Aún no guardas rutas favoritas. Usa el botón «Guardar» de cada tarjeta.'
+        : 'No se encontraron rutas con estos filtros. Intenta ajustarlos o buscar con otros términos.';
+
+      const distanceLimited = !!distance && distance.value !== distance.max;
+      const active = [
+        input.value.trim() && `Búsqueda: «${input.value.trim()}»`,
+        selectedType !== 'all' && `Tipo: ${chipLabel(selectedType)}`,
+        selectedDifficulty && `Dificultad: ${optionLabel(difficulty)}`,
+        distanceLimited && `Hasta ${distance!.value} km`,
+        maximumDuration && `Duración: ${optionLabel(duration)}`,
+        favoritesOnly && 'Solo favoritas',
+      ].filter(Boolean) as string[];
+      summary.textContent = active.length ? `Filtros activos: ${active.join(' · ')}` : '';
+      summary.hidden = !active.length;
+      clearButton?.classList.toggle('filters__clear--active', active.length > 0);
+
+      EcoFilters.save({
+        buscar: input.value.trim(), tipo: selectedType, dificultad: selectedDifficulty,
+        distancia: distanceLimited ? distance!.value : '', duracion: maximumDuration, favoritas: favoritesOnly ? '1' : '',
+      });
     };
+
+    // Mantener marcadas las tarjetas cuando cambian los favoritos (catálogo, planificador u otra pestaña).
+    document.addEventListener(EcoFavorites.eventName, () => {
+      cards.forEach(card => {
+        const id = card.dataset.routeId || '';
+        const button = card.querySelector<HTMLButtonElement>('[data-favorite-id]');
+        if (button) EcoFavorites.paint(button, id, card.querySelector('h3')?.textContent || '');
+        card.classList.toggle('route-card--favorite', EcoFavorites.has(id));
+      });
+      update();
+    });
 
     form.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -129,11 +219,7 @@
     chips.forEach((chip) => {
       chip.addEventListener('click', () => {
         selectedType = chip.dataset.filter || 'all';
-        chips.forEach((item) => {
-          const active = item === chip;
-          item.classList.toggle('chip--active', active);
-          item.setAttribute('aria-pressed', String(active));
-        });
+        paintChips();
         update();
       });
     });
@@ -144,11 +230,8 @@
       if (difficulty) difficulty.value = '';
       if (distance) distance.value = distance.max;
       if (duration) duration.value = '';
-      chips.forEach((chip) => {
-        const active = chip.dataset.filter === 'all';
-        chip.classList.toggle('chip--active', active);
-        chip.setAttribute('aria-pressed', String(active));
-      });
+      favoritesOnly = false;
+      paintChips(); paintFavoritesButton();
       update();
     });
 
@@ -194,38 +277,9 @@
     });
   };
 
-  const initDetails = () => {
-    const dialog = document.querySelector<HTMLDialogElement>('.route-dialog');
-    if (!dialog) return;
-    let trigger: HTMLButtonElement | null = null;
-    document.querySelectorAll<HTMLButtonElement>('[data-route-details]').forEach(button => {
-      button.addEventListener('click', () => {
-        const card = button.closest<HTMLElement>('.route-card');
-        const source = card?.querySelector<HTMLImageElement>('img');
-        const image = dialog.querySelector<HTMLImageElement>('[data-dialog-image]');
-        if (!card || !source || !image) return;
-        trigger = button;
-        image.src = source.currentSrc || source.src; image.alt = source.alt;
-        const set = (selector: string, text: string) => { const el = dialog.querySelector(selector); if (el) el.textContent = text; };
-        set('.route-dialog__text', card.dataset.description || '');
-        set('[data-dialog-title]', card.querySelector('h3')?.textContent || 'Detalle de ruta');
-        set('[data-dialog-location]', card.querySelector('.route-card__location')?.textContent?.trim() || '');
-        set('[data-dialog-difficulty]', `Dificultad: ${card.querySelector('.route-card__badge')?.textContent || ''}`);
-        set('[data-dialog-distance]', `${card.dataset.distance} km`);
-        set('[data-dialog-duration]', `${card.dataset.duration} horas`);
-        dialog.showModal();
-      });
-    });
-    dialog.querySelector('[data-dialog-close]')?.addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', event => {
-      const rect = dialog.getBoundingClientRect();
-      if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
-    });
-    dialog.addEventListener('close', () => trigger?.focus());
-  };
-
   document.addEventListener('DOMContentLoaded', () => {
     void loadCatalog();
     initContactForm();
   });
 })();
+
